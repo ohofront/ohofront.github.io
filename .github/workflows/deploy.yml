@@ -3,10 +3,10 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # main 브랜치에 push할 때 실행
+      - main # main 브랜치에 push할 때 실행
 
 permissions:
-  contents: write
+  contents: write # GitHub Actions가 GitHub Pages 브랜치에 배포 가능하도록 설정
 
 jobs:
   deploy:
@@ -14,10 +14,10 @@ jobs:
 
     steps:
       - name: 📂 Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: ⚙️ Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: npm
@@ -29,7 +29,4 @@ jobs:
         run: npm run build
 
       - name: 🚀 Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: gh-pages  # 배포할 브랜치
-          folder: dist  # Vite 프로젝트의 빌드 결과물이 있는 폴더
+        run: npm run deploy
