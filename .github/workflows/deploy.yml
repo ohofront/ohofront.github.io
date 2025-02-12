@@ -6,7 +6,7 @@ on:
       - main # main 브랜치에 push하면 실행
 
 permissions:
-  contents: write # GitHub Actions가 GitHub Pages 브랜치에 push할 수 있도록 권한 설정
+  contents: write # GitHub Actions가 `gh-pages` 브랜치에 push할 수 있도록 권한 설정
 
 jobs:
   deploy:
@@ -39,4 +39,4 @@ jobs:
           REPO: ${{ github.repository }}
         run: |
           git remote set-url origin https://x-access-token:$GITHUB_TOKEN@github.com/$REPO.git
-          npm run deploy
+          npx gh-pages --branch gh-pages --dist dist --message "Deploy latest version"
