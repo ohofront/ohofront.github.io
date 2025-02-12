@@ -28,5 +28,10 @@ jobs:
       - name: 🔨 Build Project
         run: npm run build
 
+      - name: 🛠️ Set Git Config (Fix Identity Issue)
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+
       - name: 🚀 Deploy to GitHub Pages
         run: npm run deploy
