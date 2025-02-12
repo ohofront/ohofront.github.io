@@ -3,10 +3,10 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main # main 브랜치에 push할 때 실행
+      - main # main 브랜치에 push하면 실행
 
 permissions:
-  contents: write # GitHub Actions가 GitHub Pages 브랜치에 배포 가능하도록 설정
+  contents: write # GitHub Actions가 GitHub Pages 브랜치에 push할 수 있도록 권한 설정
 
 jobs:
   deploy:
@@ -34,4 +34,9 @@ jobs:
           git config --global user.name "github-actions[bot]"
 
       - name: 🚀 Deploy to GitHub Pages
-        run: npm run deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          git remote set-url origin https://x-access-token:$GITHUB_TOKEN@github.com/$REPO.git
+          npm run deploy
