@@ -34,7 +34,7 @@ jobs:
         run: echo "www.ohorang.com" > dist/CNAME
 
       - name: 🚀 Upload Artifact (GitHub Pages 배포할 파일 업로드)
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v1
         with:
           path: ./dist # 빌드된 결과물 업로드
 
