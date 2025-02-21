@@ -6,30 +6,35 @@ on:
       - main # main 브랜치에 push하면 실행
 
 permissions:
-  contents: write # GitHub Actions가 `gh-pages` 브랜치에 push할 수 있도록 권한 설정
+  contents: write # GitHub Actions가 배포할 수 있도록 권한 설정
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📂 Checkout Repository
+      - name: 📂 Checkout Repository (코드 가져오기)
         uses: actions/checkout@v4
 
-      - name: ⚙️ Setup Node.js
+      - name: ⚙️ Setup Node.js (Node.js 설치)
         uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: npm
 
-      - name: 📦 Install Dependencies
+      - name: 📦 Install Dependencies (패키지 설치)
         run: npm install
 
-      - name: 🔨 Build Project
+      - name: 🔨 Build Project (Vite 빌드 실행)
         run: npm run build
 
-      - name: 🚀 Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+      - name: 📄 Create CNAME file (Custom Domain 설정)
+        run: echo "www.ohorang.com" > dist/CNAME
+
+      - name: 🚀 Upload Artifact (GitHub Pages 배포)
+        uses: actions/upload-pages-artifact@v2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist # Vite는 `dist/` 디렉토리에 빌드됨
+          path: ./dist # 빌드된 결과물 업로드
+
+      - name: 🚀 Deploy to GitHub Pages (GitHub Actions 배포)
+        uses: actions/deploy-pages@v2

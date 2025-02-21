@@ -1,14 +1,17 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/ohofront.github.io/',
+  base: "/",
   plugins: [react()],
+  build: {
+    outDir: "dist",
+  },
   css: {
     preprocessorOptions: {
       scss: {
-        silenceDeprecations: ['mixed-decls'],
+        silenceDeprecations: ["mixed-decls"],
       },
     },
   },
