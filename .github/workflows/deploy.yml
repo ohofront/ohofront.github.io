@@ -21,7 +21,7 @@ jobs:
       - name: ⚙️ Setup Node.js (Node.js 설치)
         uses: actions/setup-node@v4
         with:
-          node-version: 20 # 최신 LTS 버전 (기존 18 → 20으로 변경)
+          node-version: 20 # 최신 LTS 버전 사용
           cache: npm
 
       - name: 🏗 Cache Dependencies (패키지 캐싱 설정)
@@ -33,7 +33,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: 📦 Install Dependencies (패키지 설치)
-        run: npm ci # npm install 대신 npm ci 사용 (더 안정적)
+        run: npm ci # npm install 대신 npm ci 사용
 
       - name: 🌍 Set Environment Variables
         run: echo "NODE_ENV=production" >> $GITHUB_ENV
@@ -49,7 +49,7 @@ jobs:
       - name: 🚀 Upload Artifact (GitHub Pages 배포할 파일 업로드)
         uses: actions/upload-artifact@v4 # 최신 버전 사용
         with:
-          name: github-pages
+          name: github-pages # artifact 이름을 "github-pages"로 설정 (중요)
           path: ./dist # 빌드된 결과물 업로드
 
   deploy:
@@ -63,7 +63,7 @@ jobs:
       - name: 🚀 Download Artifact (빌드된 파일 다운로드)
         uses: actions/download-artifact@v4
         with:
-          name: github-pages
+          name: github-pages # "build" 단계에서 업로드한 이름과 동일해야 함
           path: ./dist
 
       - name: 🚀 Deploy to GitHub Pages (GitHub Actions을 통해 배포)
