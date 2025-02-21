@@ -1,10 +1,67 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+name: Deploy to GitHub Pages
 
-export default defineConfig({
-  plugins: [react()],
-  base: "/", // GitHub Pages에서는 "/"로 설정
-  build: {
-    outDir: "dist"
-  }
-});
+on:
+  push:
+    branches:
+      - main # main 브랜치에 push하면 실행
+
+permissions:
+  contents: write # 레포지토리 파일 수정 권한
+  pages: write # GitHub Pages 배포 권한
+  id-token: write # GitHub 인증 관련 권한
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📂 Checkout Repository (코드 가져오기)
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup Node.js (Node.js 설치)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20 # 최신 LTS 버전 (기존 18 → 20으로 변경)
+          cache: npm
+
+      - name: 🗑 Clear npm cache (캐싱 오류 방지)
+        run: npm cache clean --force
+
+      - name: 🏗 Cache Dependencies (패키지 캐싱 설정)
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: 📦 Install Dependencies (패키지 설치)
+        run: npm ci # npm install 대신 npm ci 사용 (더 안정적)
+
+      - name: 🌍 Set Environment Variables
+        run: echo "NODE_ENV=production" >> $GITHUB_ENV
+
+      - name: 🔨 Build Project (Vite 빌드 실행)
+        env:
+          NODE_OPTIONS: "--max-old-space-size=4096" # 메모리 부족 문제 방지
+        run: npm run build
+
+      - name: 📄 Create CNAME file (Custom Domain 설정)
+        run: echo "www.ohorang.com" > dist/CNAME
+
+      - name: 🚀 Upload Artifact (GitHub Pages 배포할 파일 업로드)
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./dist # 빌드된 결과물 업로드
+
+  deploy:
+    needs: build # build 작업이 완료된 후 실행
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: 🚀 Deploy to GitHub Pages (GitHub Actions을 통해 배포)
+        id: deployment
+        uses: actions/deploy-pages@v2
