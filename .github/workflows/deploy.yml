@@ -6,9 +6,9 @@ on:
       - main # main 브랜치에 push하면 실행
 
 permissions:
-  contents: write # 레포지토리 파일을 수정할 권한
-  pages: write # GitHub Pages에 배포할 권한
-  id-token: write # 인증 관련 권한 (GitHub Pages 인증)
+  contents: write # 레포지토리 파일 수정 권한
+  pages: write # GitHub Pages 배포 권한
+  id-token: write # GitHub 인증 관련 권한
 
 jobs:
   build:
@@ -22,7 +22,17 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: npm
+
+      - name: 🗑 Clear npm cache (캐싱 오류 방지)
+        run: npm cache clean --force
+
+      - name: 🏗 Cache Dependencies (패키지 캐싱 설정)
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
       - name: 📦 Install Dependencies (패키지 설치)
         run: npm install
