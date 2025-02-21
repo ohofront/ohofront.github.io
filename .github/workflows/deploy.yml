@@ -24,9 +24,6 @@ jobs:
           node-version: 20 # 최신 LTS 버전 (기존 18 → 20으로 변경)
           cache: npm
 
-      - name: 🗑 Clear npm cache (캐싱 오류 방지)
-        run: npm cache clean --force
-
       - name: 🏗 Cache Dependencies (패키지 캐싱 설정)
         uses: actions/cache@v4
         with:
@@ -50,8 +47,9 @@ jobs:
         run: echo "www.ohorang.com" > dist/CNAME
 
       - name: 🚀 Upload Artifact (GitHub Pages 배포할 파일 업로드)
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-artifact@v4 # 최신 버전 사용
         with:
+          name: github-pages
           path: ./dist # 빌드된 결과물 업로드
 
   deploy:
@@ -62,6 +60,12 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
+      - name: 🚀 Download Artifact (빌드된 파일 다운로드)
+        uses: actions/download-artifact@v4
+        with:
+          name: github-pages
+          path: ./dist
+
       - name: 🚀 Deploy to GitHub Pages (GitHub Actions을 통해 배포)
         id: deployment
         uses: actions/deploy-pages@v2
