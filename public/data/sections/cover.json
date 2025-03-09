@@ -46,7 +46,7 @@
 
       "items": [
         {
-          "value": "Cupertino – CA",
+          "value": "Searching",
           "links": [{ "href": null }],
           "icon": {
             "img": null,
@@ -55,8 +55,8 @@
           }
         },
         {
-          "value": "mark.choi@dev.com",
-          "links": [{ "href": "mailto:mark.choi@dev.com" }],
+          "value": "youngho7482@gmail.com",
+          "links": [{ "href": "mailto:youngho7482@gmail.com" }],
           "icon": {
             "img": null,
             "fa": "fa-solid fa-envelope",
