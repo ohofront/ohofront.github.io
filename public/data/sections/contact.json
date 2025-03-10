@@ -55,8 +55,8 @@
 
       "items": [
         {
-          "value": "+1 (123) 456-7890",
-          "links": [{ "href": "tel:11234567890" }],
+          "value": "+82 010-5186-7482",
+          "links": [{ "href": "tel:01051867482" }],
           "icon": {
             "img": null,
             "fa": "fa-solid fa-phone",
@@ -85,8 +85,8 @@
         },
 
         {
-          "value": "@markchoi",
-          "links": [{ "href": "https://linkedin.com" }],
+          "value": "@younghocho",
+          "links": [{ "href": "https://www.linkedin.com/in/youngho-cho-87554b355/" }],
           "icon": {
             "img": null,
             "fa": "fa-brands fa-linkedin",
@@ -97,43 +97,7 @@
           }
         },
 
-        {
-          "value": "Mark Choi",
-          "links": [{ "href": "https://facebook.com" }],
-          "icon": {
-            "img": null,
-            "fa": "fa-brands fa-facebook",
-            "faColors": { "bg": null, "fill": null }
-          },
-          "locales": {
-            "en": { "title": "Facebook" }
-          }
-        },
-
-        {
-          "value": "@markchoi",
-          "links": [{ "href": "https://instagram.com" }],
-          "icon": {
-            "img": null,
-            "fa": "fa-brands fa-instagram",
-            "faColors": { "bg": null, "fill": null }
-          },
-          "locales": {
-            "en": { "title": "Instagram" }
-          }
-        },
-
-        {
-          "value": "@markchoi",
-          "links": [{ "href": "https://tiktok.com" }],
-          "icon": {
-            "img": null,
-            "fa": "fa-brands fa-tiktok",
-            "faColors": { "bg": null, "fill": null }
-          },
-          "locales": {
-            "en": { "title": "TikTok" }
-          }
+       
         }
       ]
     }
