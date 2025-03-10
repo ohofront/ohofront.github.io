@@ -5,7 +5,7 @@
 
   "preloader": {
     "enabled": true,
-    "title": "React <b>Portfolio</b>",
+    "title": "<b>Portfolio</b>",
     "subtitle": "by Cho Young Ho"
   },
 
