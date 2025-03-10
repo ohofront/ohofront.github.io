@@ -86,9 +86,7 @@
 
         {
           "value": "@younghocho",
-          "links": [
-            { "href": "https://www.linkedin.com/in/youngho-cho-87554b355/" }
-          ],
+          "links": [{ "href": "www.linkedin.com/in/영호-조-87554b355" }],
           "icon": {
             "img": null,
             "fa": "fa-brands fa-linkedin",
