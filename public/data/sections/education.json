@@ -70,43 +70,7 @@
             }
           }
         },
-        {
-          "icon": {
-            "img": "images/pictures/place-2.png",
-            "fa": "",
-            "faColors": { "bg": null, "fill": null }
-          },
-          "dates": {
-            "start": "02/24/2020",
-            "end": "07/23/2020"
-          },
-          "locales": {
-            "en": {
-              "title": "**Training** in Big Data Platform Development with Machine Learning",
-              "info": "Jungang Information Processing Academy",
-              "text": "Studied machine learning and text mining using R and Python. The program focused on hands-on experience with big data platforms, data processing, and applied analysis techniques.",
-              "tags": ["R", "Python", "Pandas", "numpy", "Selenium"]
-            },
-            "es": {
-              "title": "**Formación** en Desarrollo de Plataformas de Big Data con Aprendizaje Automático",
-              "info": "Academia de Procesamiento de Información Jungang",
-              "text": "Estudié aprendizaje automático y minería de texto utilizando R y Python. El programa se centró en la experiencia práctica con plataformas de big data, procesamiento de datos y técnicas de análisis aplicadas.",
-              "tags": ["R", "Python", "Pandas", "numpy", "Selenium"]
-            },
-            "fr": {
-              "title": "**Formation** au Développement de Plateformes Big Data avec Apprentissage Automatique",
-              "info": "Académie de Traitement de l'Information Jungang",
-              "text": "Formation en apprentissage automatique et en fouille de texte en utilisant R et Python. Le programme mettait l'accent sur l'expérience pratique avec les plateformes big data, le traitement des données et les techniques d'analyse appliquées.",
-              "tags": ["R", "Python", "Pandas", "numpy", "Selenium"]
-            },
-            "ko": {
-              "title": "머신러닝 기반 빅데이터 플랫폼 개발 전문가 양성과정 **교육**",
-              "info": "중앙정보처리학원",
-              "text": "R과 python을 활용해 직접 머신러닝과 텍스트 마이닝 학습",
-              "tags": ["R", "Python", "Pandas", "numpy", "Selenium"]
-            }
-          }
-        },
+
         {
           "icon": {
             "img": "images/pictures/place-5.png",
