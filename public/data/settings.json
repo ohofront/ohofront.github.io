@@ -10,16 +10,30 @@
   },
 
   "profile": {
-    "name": "Youngho Cho",
-    "stylizedName": "<strong>Youngho **Cho**</strong>",
     "logoUrl": "images/svg/logo.svg",
     "profilePictureUrl": "images/pictures/avatar.jpg",
 
     "locales": {
-      "en": { "role": "Web Developer" },
-      "es": { "role": "Desarrollador Web" },
-      "fr": { "role": "Développeur Web" },
-      "ko": { "role": "웹 개발자" }
+      "en": {
+        "role": "Web Developer",
+        "name": "Youngho Cho",
+        "stylizedName": "<strong>Youngho **Cho**</strong>"
+      },
+      "es": {
+        "role": "Desarrollador Web",
+        "name": "Youngho Cho",
+        "stylizedName": "<strong>Youngho **Cho**</strong>"
+      },
+      "fr": {
+        "role": "Développeur Web",
+        "name": "Youngho Cho",
+        "stylizedName": "<strong>Youngho **Cho**</strong>"
+      },
+      "ko": {
+        "role": "웹 개발자",
+        "name": "조영호",
+        "stylizedName": "<strong>조영호</strong>"
+      }
     }
   },
 
