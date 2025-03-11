@@ -95,16 +95,16 @@
           },
           "locales": {
             "en": {
-              "text": "<p>I’m a PHP developer with <b>over a decade</b> of experience, specializing in backend development with some frontend work as well. I also have hands-on experience with C++, C#, Go, and Python in production environments.</p><p>This diverse background gives me the flexibility to adapt to a wide range of project needs.</p><p>I look forward to collaborating <b>with you!</b>"
+              "text": "<p>I’m a frontend developer with <b>over 3 years</b> of experience, specializing in frontend development and also handling some backend tasks. <br/> I also have production experience using Java and Python stacks.<br/> This diverse background allows me to respond flexibly to a variety of project needs.</p>"
             },
             "es": {
-              "text": "<p>Soy un desarrollador de PHP con <b>más de una década</b> de experiencia, especializado en desarrollo backend y con algo de experiencia en frontend. También tengo experiencia práctica en entornos de producción con C++, C#, Go y Python.</p><p>Este variado historial me permite adaptarme a una amplia gama de necesidades de proyectos.</p>"
+              "text": "<p>Soy desarrollador frontend con <b>más de 3 años</b> de experiencia, especializado en desarrollo frontend y también con participación en tareas backend. <br/> También tengo experiencia en entornos de producción utilizando stacks de Java y Python.<br/> Esta formación diversa me permite adaptarme con flexibilidad a diversas necesidades de proyectos.</p>"
             },
             "fr": {
-              "text": "<p>Je suis développeur PHP avec <b>plus d'une décennie</b> d'expérience, spécialisé dans le développement backend avec un peu de travail en frontend également. J'ai aussi de l'expérience en production avec les technologies C++, C#, Go et Python.</p>"
+              "text": "<p>Je suis développeur frontend avec <b>plus de 3 ans</b> d'expérience, spécialisé dans le développement frontend tout en ayant travaillé aussi sur des tâches backend. <br/> J'ai également de l'expérience en production avec les stacks Java et Python.<br/> Ce parcours diversifié me permet de m'adapter facilement aux différents besoins des projets.</p>"
             },
             "ko": {
-              "text": "<p> 프론트 개발을 전문으로 하고, 백엔드 작업도 일부 수행해온 <b>3년 이상의</b> 경력을 가진 프론트엔드 개발자입니다. <br/> 또한 JAVA, Python 스택을 사용한 프로덕션 경험도 있습니다.<br/> 이 다양한 배경 덕분에 프로젝트의 다양한 요구에 유연하게 대처할 수 있습니다.</p>"
+              "text": "<p> 프론트엔드 개발을 전문으로 하고, 백엔드 개발 작업도 일부 수행해온 <b>3년 이상의</b> 경력을 가진 프론트엔드 개발자입니다. <br/> 또한 JAVA, Python 스택을 사용한 프로덕션 경험도 있습니다.<br/> 이 다양한 배경 덕분에 프로젝트의 다양한 요구에 유연하게 대처할 수 있습니다.</p>"
             }
           }
         }
