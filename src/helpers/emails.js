@@ -41,8 +41,6 @@ export const useEmails = () => {
   };
 
   return {
-    init,
-    isInitialized,
     sendContactEmail,
   };
 };
