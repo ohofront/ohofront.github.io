@@ -128,26 +128,26 @@
         {
           "icon": {
             "img": null,
-            "fa": "fa-solid fa-guitar",
+            "fa": "fa-solid fa-music",
             "faColors": null
           },
           "value": null,
           "locales": {
             "en": {
-              "title": "Playing guitar",
-              "info": "Exploring different genres and improving my skills."
+              "title": "Music Composition",
+              "info": "Creating original music across various genres and enhancing my composition skills."
             },
             "es": {
-              "title": "Tocar la guitarra",
-              "info": "Explorando diferentes géneros y mejorando mis habilidades."
+              "title": "Composición musical",
+              "info": "Creando música original en varios géneros y mejorando mis habilidades de composición."
             },
             "fr": {
-              "title": "Jouer de la guitare",
-              "info": "Explorer différents genres et améliorer mes compétences."
+              "title": "Composition musicale",
+              "info": "Créer de la musique originale dans divers genres et perfectionner mes compétences en composition."
             },
             "ko": {
-              "title": "기타 연주",
-              "info": "다양한 장르를 탐험하고 기술을 향상시키기."
+              "title": "음악 작곡",
+              "info": "다양한 장르의 음악을 창작하며 작곡 실력을 향상시키고 있습니다."
             }
           }
         },
@@ -155,26 +155,26 @@
         {
           "icon": {
             "img": null,
-            "fa": "fa-solid fa-video",
+            "fa": "fa-solid fa-person-running",
             "faColors": null
           },
           "value": null,
           "locales": {
             "en": {
-              "title": "AI video editing",
-              "info": "Learning to use AI tools to enhance my videos."
+              "title": "Running",
+              "info": "Staying active and improving physical endurance through regular running."
             },
             "es": {
-              "title": "Edición de video con IA",
-              "info": "Aprendiendo a usar herramientas de IA para mejorar mis videos."
+              "title": "Correr",
+              "info": "Manteniéndome activo y mejorando mi resistencia física mediante carreras regulares."
             },
             "fr": {
-              "title": "Montage vidéo avec IA",
-              "info": "Apprendre à utiliser des outils d'IA pour améliorer mes vidéos."
+              "title": "Course à pied",
+              "info": "Rester actif et améliorer mon endurance physique grâce à la course régulière."
             },
             "ko": {
-              "title": "AI 영상 편집",
-              "info": "AI 도구를 사용하여 내 영상을 향상시키는 방법 배우기."
+              "title": "달리기",
+              "info": "규칙적인 달리기를 통해 신체 활동성과 체력을 향상시키고 있습니다."
             }
           }
         },
@@ -215,20 +215,20 @@
           "value": null,
           "locales": {
             "en": {
-              "title": "Investing",
-              "info": "Learning the basics of stocks and personal finance."
+              "title": "Data Analysis",
+              "info": "Exploring data patterns and gaining insights using analytical tools."
             },
             "es": {
-              "title": "Invertir",
-              "info": "Aprendiendo los conceptos básicos de acciones y finanzas personales."
+              "title": "Análisis de Datos",
+              "info": "Explorando patrones en los datos y obteniendo información útil con herramientas analíticas."
             },
             "fr": {
-              "title": "Investir",
-              "info": "Apprendre les bases des actions et des finances personnelles."
+              "title": "Analyse de Données",
+              "info": "Explorer les tendances des données et en tirer des insights à l'aide d'outils d'analyse."
             },
             "ko": {
-              "title": "투자",
-              "info": "주식과 개인 재정의 기초 배우기."
+              "title": "데이터 분석",
+              "info": "분석 도구를 활용해 데이터의 패턴을 탐색하고 인사이트를 도출합니다."
             }
           }
         },
@@ -242,20 +242,20 @@
           "value": null,
           "locales": {
             "en": {
-              "title": "UX design",
-              "info": "Studying user experience principles."
+              "title": "Recording IT Learning",
+              "info": "Keeping track of IT learning progress and summarizing key concepts."
             },
             "es": {
-              "title": "Diseño UX",
-              "info": "Estudiando los principios de la experiencia del usuario."
+              "title": "Registro del aprendizaje de TI",
+              "info": "Llevando un seguimiento del progreso en el aprendizaje de TI y resumiendo conceptos clave."
             },
             "fr": {
-              "title": "Conception UX",
-              "info": "Étudier les principes de l'expérience utilisateur."
+              "title": "Suivi de l'apprentissage en informatique",
+              "info": "Suivre les progrès dans l'apprentissage IT et résumer les concepts essentiels."
             },
             "ko": {
-              "title": "UX 디자인",
-              "info": "사용자 경험 원칙을 공부하기."
+              "title": "IT학습 내용 기록하기",
+              "info": "IT 학습 과정의 진행 상황을 정리하고 핵심 개념을 요약합니다."
             }
           }
         },
