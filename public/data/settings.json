@@ -88,11 +88,5 @@
       "id": "ko",
       "flagUrl": "images/flags/ko.png"
     }
-  ],
-
-  "emailjs": {
-    "publicKey": "tzObcsmOwHvPy6Rhp",
-    "serviceId": "service_4h8g7vb",
-    "templateId": "template_seyjkzn"
-  }
+  ]
 }
