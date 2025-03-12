@@ -1,56 +1,72 @@
-# GitHub Pages에 정적 콘텐츠를 배포하기 위한 간단한 워크플로우
+# GitHub Pages에 정적 콘텐츠를 배포하기 위한 워크플로우
 name: Deploy static content to Pages
 
+# 워크플로우 실행 조건: main 브랜치 푸시 or 수동 실행
 on:
-  # 기본 브랜치에 대한 푸시 이벤트 발생 시 실행
   push:
     branches: ["main"]
-
-  # Actions 탭에서 수동으로 워크플로우를 실행할 수 있도록 구성
   workflow_dispatch:
 
-# GITHUB_TOKEN의 권한을 설정하여 GitHub Pages에 배포할 수 있도록 함
+# GitHub Pages에 배포할 수 있도록 필요한 권한 설정
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# 동시에 하나의 배포만 허용하도록 구성
+# 배포 작업 중복 방지 (동시에 하나만 실행되도록 설정)
 concurrency:
   group: "pages"
   cancel-in-progress: true
 
 jobs:
-  # 단순히 배포만 수행하기에 하나의 잡으로만 구성
   deploy:
+    # 배포 환경 설정 (GitHub Pages용)
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
+    # GitHub Actions에서 사용할 서버 환경 지정
     runs-on: ubuntu-latest
+
     steps:
+      # 1. 레포지토리 코드 체크아웃 (코드 가져오기)
       - name: Checkout
         uses: actions/checkout@v4
+
+      # 2. Node.js 설정 (버전 20, npm 캐싱)
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: "npm"
+
+      # 3. 프로젝트 의존성 설치 (package-lock.json 기준)
       - name: Install dependencies
         run: npm ci
-      - name: Build
-        run: npm run build -- --mode production
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # dist 디렉터리 업로드
-          path: "./dist"
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+
+      # 4. 환경변수 파일(.env.production) 생성 (GitHub Secrets 값 삽입)
+      #    👉 반드시 build 이전에 위치해야 Vite가 환경변수 인식함
       - name: Create .env.production file
         run: |
           echo "VITE_EMAILJS_PUBLIC_KEY=${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}" >> .env.production
           echo "VITE_EMAILJS_SERVICE_ID=${{ secrets.VITE_EMAILJS_SERVICE_ID }}" >> .env.production
           echo "VITE_EMAILJS_TEMPLATE_ID=${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}" >> .env.production
+
+      # 5. 정적 파일 빌드 (Vite production 모드로 환경변수 주입됨)
+      - name: Build
+        run: npm run build -- --mode production
+
+      # 6. GitHub Pages 설정 구성
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      # 7. 빌드된 결과물(dist 폴더)을 Pages Artifact로 업로드
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "./dist"
+
+      # 8. GitHub Pages에 최종 배포
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
