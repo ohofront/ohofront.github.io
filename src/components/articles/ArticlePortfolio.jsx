@@ -7,6 +7,7 @@ import Categorizable from "/src/components/capabilities/Categorizable.jsx";
 import Expandable from "/src/components/capabilities/Expandable.jsx";
 import ProjectCard from "/src/components/generic/ProjectCard.jsx";
 import { useLanguage } from "/src/providers/LanguageProvider.jsx";
+import { useData } from "/src/providers/DataProvider.jsx";
 import { useWindow } from "/src/providers/WindowProvider.jsx";
 
 const AnimationStatus = {
@@ -19,8 +20,10 @@ function ArticlePortfolio({ data }) {
   const parser = useParser();
   const scheduler = useScheduler();
   const { isBreakpoint } = useWindow();
-  const { selectedLanguageId } = useLanguage();
-
+  const { selectedLanguageId, getTranslation } = useLanguage();
+  const { getSettings } = useData();
+  const settings = getSettings();
+  const status = settings.status;
   const parsedData = parser.parseArticleData(data);
 
   const [parsedItems, setParsedItems] = useState([]);
@@ -114,7 +117,9 @@ function ArticlePortfolio({ data }) {
     <Article className={`article-portfolio`} title={parsedData.title}>
       <Row className={`gx-4 gy-lg-4 gx-lg-5`}>
         <Col className={`col-12 text-center align-center mt-2 p-5`}>
-          업데이트 중입니다..
+          <h2 className={`text-center`}>
+            {getTranslation(status["locales"], "update")}
+          </h2>
         </Col>
         {/* <Categorizable items={parsedItems}
                                categories={parsedCategories}
