@@ -1,9 +1,9 @@
 import emailjs from "@emailjs/browser";
 
 // .env에서 바로 불러오기
-const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "";
+const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || "";
+const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "";
 
 const _status = {
   didInit: false,
@@ -15,6 +15,10 @@ export const useEmails = () => {
    * @param {Object} config
    */
   const init = (config) => {
+    if (!publicKey) {
+      console.error("EmailJS Public Key is missing");
+      return;
+    }
     emailjs.init(publicKey);
     _status.config = config;
     _status.didInit = true;
