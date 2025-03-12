@@ -42,10 +42,22 @@
     "available": true,
 
     "locales": {
-      "en": { "message": "Available for freelance!" },
-      "es": { "message": "¡Disponible para freelance!" },
-      "fr": { "message": "Disponible pour freelance !" },
-      "ko": { "message": "프리랜서도 가능합니다!" }
+      "en": {
+        "message": "Available for freelance!",
+        "update": "Update in progress"
+      },
+      "es": {
+        "message": "¡Disponible para freelance!",
+        "update": "Actualización en progreso"
+      },
+      "fr": {
+        "message": "Disponible pour freelance !",
+        "update": "Mise à jour en cours"
+      },
+      "ko": {
+        "message": "프리랜서도 가능합니다!",
+        "update": "업데이트 진행중입니다"
+      }
     }
   },
 
