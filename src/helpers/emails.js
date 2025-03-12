@@ -5,10 +5,26 @@ const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 
-// 최초에 한 번 초기화
-emailjs.init(publicKey);
+const _status = {
+  didInit: false,
+  config: null,
+};
 
 export const useEmails = () => {
+  /**
+   * @param {Object} config
+   */
+  const init = (config) => {
+    emailjs.init(publicKey);
+    _status.config = config;
+    _status.didInit = true;
+  };
+  /**
+   * @return {boolean}
+   */
+  const isInitialized = () => {
+    return _status.didInit;
+  };
   /**
    * @param {string} fromName
    * @param {string} fromEmail
@@ -41,6 +57,8 @@ export const useEmails = () => {
   };
 
   return {
+    init,
+    isInitialized,
     sendContactEmail,
   };
 };
