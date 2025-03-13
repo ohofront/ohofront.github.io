@@ -423,23 +423,23 @@
           "locales": {
             "en": {
               "title": "Korean",
-              "info": "Basic understanding of Korean; learning and improving.",
-              "tags": ["Basic"]
+              "info": "Advanced proficiency in Korean; able to communicate fluently and effectively.",
+              "tags": ["Advanced"]
             },
             "es": {
               "title": "Coreano",
-              "info": "Comprensión básica del coreano; aprendiendo y mejorando.",
-              "tags": ["Básico"]
+              "info": "Dominio avanzado del coreano; capaz de comunicarse con fluidez y eficacia.",
+              "tags": ["Avanzado"]
             },
             "fr": {
               "title": "Coréen",
-              "info": "Compréhension de base du coréen; en apprentissage et amélioration.",
-              "tags": ["Basique"]
+              "info": "Maîtrise avancée du coréen ; capable de communiquer couramment et efficacement.",
+              "tags": ["Avancé"]
             },
             "ko": {
               "title": "한국어",
-              "info": "기초적인 한국어 이해; 배우는 중이며 향상 중.",
-              "tags": ["기초"]
+              "info": "고급 수준의 한국어 능력; 유창하고 효과적으로 의사소통 가능.",
+              "tags": ["고급"]
             }
           }
         }
