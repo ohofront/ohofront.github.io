@@ -1,235 +1,112 @@
 {
   "locales": {
-    "en": {
-      "title": "Life recently",
-      "title_menu": "Updates",
-      "title_long_prefix": "Take a look at my",
-      "title_long": "Recent **Updates**"
-    },
-
-    "es": {
-      "title": "Vida Reciente",
-      "title_menu": "Actualizaciones",
-      "title_long_prefix": "Consulta mis",
-      "title_long": "Actualizaciones **Recientes**"
-    },
-
-    "fr": {
-      "title": "Vie Récente",
-      "title_menu": "Mises à Jour",
-      "title_long_prefix": "Découvrez mes",
-      "title_long": "Dernières **Mises à Jour**"
-    },
-
-    "ko": {
-      "title": "최근의 삶",
-      "title_menu": "업데이트",
-      "title_long_prefix": "내 최근",
-      "title_long": "**업데이트**"
-    }
+    "en": { "title": "Life recently", "title_menu": "Updates", "title_long_prefix": "Take a look at my", "title_long": "Recent **Updates**" },
+    "es": { "title": "Vida Reciente", "title_menu": "Actualizaciones", "title_long_prefix": "Consulta mis", "title_long": "Actualizaciones **Recientes**" },
+    "fr": { "title": "Vie Récente", "title_menu": "Mises à Jour", "title_long_prefix": "Découvrez mes", "title_long": "Dernières **Mises à Jour**" },
+    "ko": { "title": "최근의 삶", "title_menu": "업데이트", "title_long_prefix": "내 최근", "title_long": "**업데이트**" }
   },
-
   "articles": [
     {
       "id": "fun_facts",
       "component": "ArticleServices",
       "config": {},
       "locales": {},
-
       "items": [
         {
-          "icon": {
-            "img": null,
-            "fa": "fa-solid fa-tablet-screen-button",
-            "faColors": null
-          },
+          "icon": { "img": null, "fa": "fa-solid fa-mobile-screen-button", "faColors": null },
           "locales": {
-            "en": {
-              "title": "03",
-              "info": "Apps published"
-            },
-            "es": {
-              "title": "03",
-              "info": "Aplicaciones publicadas"
-            },
-            "fr": {
-              "title": "03",
-              "info": "Applications publiées"
-            },
-            "ko": {
-              "title": "03",
-              "info": "배포한 웹 사이트"
-            }
+            "en": { "title": "01", "info": "Mobile app launched" },
+            "es": { "title": "01", "info": "Aplicación móvil publicada" },
+            "fr": { "title": "01", "info": "Application mobile publiée" },
+            "ko": { "title": "01", "info": "출시한 모바일 앱" }
           }
         },
         {
-          "icon": {
-            "img": null,
-            "fa": "fa-solid fa-star",
-            "faColors": null
-          },
+          "icon": { "img": null, "fa": "fa-solid fa-store", "faColors": null },
           "locales": {
-            "en": {
-              "title": "1+",
-              "info": "Stars on GitHub"
-            },
-            "es": {
-              "title": "1+",
-              "info": "Estrellas en GitHub"
-            },
-            "fr": {
-              "title": "1+",
-              "info": "Étoiles sur GitHub"
-            },
-            "ko": {
-              "title": "1+",
-              "info": "GitHub 별"
-            }
+            "en": { "title": "02", "info": "App stores covered" },
+            "es": { "title": "02", "info": "Tiendas de aplicaciones" },
+            "fr": { "title": "02", "info": "Stores d'applications" },
+            "ko": { "title": "02", "info": "대응한 앱 스토어" }
           }
         },
         {
-          "icon": {
-            "img": null,
-            "fa": "fa-solid fa-globe",
-            "faColors": null
-          },
+          "icon": { "img": null, "fa": "fa-solid fa-trophy", "faColors": null },
           "locales": {
-            "en": {
-              "title": "03",
-              "info": "Countries visited"
-            },
-            "es": {
-              "title": "03",
-              "info": "Países visitados"
-            },
-            "fr": {
-              "title": "03",
-              "info": "Pays visités"
-            },
-            "ko": {
-              "title": "03",
-              "info": "방문한 나라"
-            }
+            "en": { "title": "02", "info": "Hackathon awards" },
+            "es": { "title": "02", "info": "Premios de hackathon" },
+            "fr": { "title": "02", "info": "Prix de hackathon" },
+            "ko": { "title": "02", "info": "해커톤 수상" }
           }
         },
         {
-          "icon": {
-            "img": null,
-            "fa": "fa-solid fa-diagram-project",
-            "faColors": null
-          },
+          "icon": { "img": null, "fa": "fa-solid fa-diagram-project", "faColors": null },
           "locales": {
-            "en": {
-              "title": "01",
-              "info": "Open-source projects"
-            },
-            "es": {
-              "title": "01",
-              "info": "Proyectos de código abierto"
-            },
-            "fr": {
-              "title": "01",
-              "info": "Projets open-source"
-            },
-            "ko": {
-              "title": "01",
-              "info": "오픈 소스 프로젝트"
-            }
+            "en": { "title": "10", "info": "Featured projects" },
+            "es": { "title": "10", "info": "Proyectos destacados" },
+            "fr": { "title": "10", "info": "Projets présentés" },
+            "ko": { "title": "10", "info": "주요 프로젝트" }
           }
         }
       ]
     },
-
     {
       "id": "updates",
       "component": "ArticleThread",
       "config": {},
       "locales": {
-        "en": { "title": "**History**" },
-        "es": { "title": "**Historia**" },
-        "fr": { "title": "**Historique**" },
-        "ko": { "title": "**역사**" }
+        "en": { "title": "**Timeline**" },
+        "es": { "title": "**Cronología**" },
+        "fr": { "title": "**Chronologie**" },
+        "ko": { "title": "**최근 기록**" }
       },
-
       "items": [
         {
-          "dates": {
-            "start": "11/05/2024",
-            "end": null
-          },
+          "dates": { "start": "07/15/2026", "end": null },
+          "links": [{ "string": "see_more", "href": "https://apps.apple.com/kr/app/%EB%AA%A8%ED%8B%B0%ED%94%BC%ED%94%8C/id6767474618" }],
+          "locales": {
+            "en": { "title": "Launched the routine community app **Motipeople**", "text": "Motipeople is now live. I developed the React Native app, handled QA and store reviews, and deployed its official website. I am currently gathering candid early-user feedback on goal-day setup, workout check-ins, make-up days, and accountability clubs. <a href='https://www.motipeople.com/' target='_blank' rel='noreferrer'>Visit the official website</a>." },
+            "ko": { "title": "루틴 커뮤니티 앱 **모티피플을 출시했습니다**", "text": "목표 운동 요일 설정, 운동 인증, 못 간 날의 대체 요일, 친구와 함께하는 인증 클럽을 제공하는 모티피플을 출시했습니다. React Native 앱 개발과 QA·스토어 심사를 진행했고, <a href='https://www.motipeople.com/' target='_blank' rel='noreferrer'>공식 홈페이지</a>도 직접 배포했습니다. 현재는 초기 사용자의 헷갈림과 불편함, 지속 사용을 막는 이유를 중심으로 현실적인 피드백을 받고 있습니다." }
+          }
+        },
+        {
+          "dates": { "start": "07/01/2026", "end": null },
+          "links": [{ "string": "see_more", "href": "https://vs.io.kr/" }],
+          "locales": {
+            "en": { "title": "Built real-time voting and chat experiences for **VS**", "text": "Implemented A/B voting feeds, chat replies and emoji reactions, profile activity, PWA installation, and mobile UX improvements with React 19, TypeScript, TanStack Query, and Zustand." },
+            "ko": { "title": "실시간 투표·채팅 플랫폼 **VS 프로젝트를 진행했습니다**", "text": "React 19와 TypeScript를 기반으로 A/B 투표 피드, 채팅 답글·이모지 반응, 프로필 활동 UI, PWA 설치와 모바일 사용성 개선을 구현했습니다. 서버 상태를 단일 기준으로 정리하고 재현 조건 중심 QA로 배포 안정성을 높였습니다." }
+          }
+        },
+        {
+          "dates": { "start": "10/15/2025", "end": null },
+          "links": [{ "string": "see_more", "href": "https://inableit.com/" }],
+          "locales": {
+            "en": { "title": "Completed the accessibility solution **WEBridge**", "text": "Designed and implemented a URL-based accessibility self-assessment service. I focused the report experience on actionable WCAG violations and improvement guidance rather than a score alone." },
+            "ko": { "title": "웹 접근성 자가 진단 솔루션 **WEBridge를 완성했습니다**", "text": "URL 기반 접근성 검사와 리포트 UI를 설계·개발했습니다. 단순 점수보다 WCAG 위반 항목과 우선 개선 영역, 사용자가 바로 행동할 수 있는 가이드가 잘 보이도록 구성했습니다." }
+          }
+        },
+        {
+          "dates": { "start": "07/27/2025", "end": null },
           "links": [],
           "locales": {
-            "en": {
-              "title": "Working on a new **mobile project**!",
-              "text": "Currently developing a mobile application that integrates innovative features and user-friendly design, aimed at enhancing user experience and addressing specific market needs."
-            },
-            "es": {
-              "title": "¡Trabajando en un nuevo **proyecto móvil**!",
-              "text": "Actualmente desarrollando una aplicación móvil que integra características innovadoras y un diseño fácil de usar, con el objetivo de mejorar la experiencia del usuario y atender necesidades específicas del mercado."
-            },
-            "fr": {
-              "title": "Travail sur un nouveau **projet mobile** !",
-              "text": "Actuellement en train de développer une application mobile qui intègre des fonctionnalités innovantes et un design convivial, visant à améliorer l'expérience utilisateur et à répondre à des besoins spécifiques du marché."
-            },
-            "ko": {
-              "title": "**모바일 프로젝트** 개발을 시작했습니다!",
-              "text": "혁신적인 기능과 사용자 친화적인 디자인을 통합한 모바일 애플리케이션을 현재 개발 중이며, 사용자 경험을 향상하고 특정 시장의 요구를 충족하는 것을 목표로 하고 있습니다."
-            }
-          }
-        },
-
-        {
-          "dates": {
-            "start": "12/12/2024",
-            "end": null
-          },
-          "locales": {
-            "en": {
-              "title": "Launched my **personal website**!",
-              "text": "Created a personal website to showcase my projects, share my journey in programming, and provide resources for fellow developers."
-            },
-            "es": {
-              "title": "¡Lancé mi **sitio web personal**!",
-              "text": "Creé un sitio web personal para mostrar mis proyectos, compartir mi trayectoria en programación y proporcionar recursos para otros desarrolladores."
-            },
-            "fr": {
-              "title": "Lancement de mon **site web personnel** !",
-              "text": "Création d'un site web personnel pour présenter mes projets, partager mon parcours en programmation et fournir des ressources pour d'autres développeurs."
-            },
-            "ko": {
-              "title": "**웹사이트** 개발을 시작했습니다!",
-              "text": "내 프로젝트를 소개하고 프로그래밍 여정을 공유하며 다른 개발자들을 위한 리소스를 제공하기 위해 개인 웹사이트를 만들었습니다."
-            }
+            "en": { "title": "Won an award at a **pharmaceutical IT hackathon**", "text": "Built HealthReward, a health-spending analysis and rewards web app, in a two-day hackathon. I designed domain types and API service layers and implemented a defensive parser for OCR and AI responses." },
+            "ko": { "title": "약학 IT 해커톤에서 **우수상을 수상했습니다**", "text": "1박 2일 동안 건강 소비 분석과 리워드를 제공하는 HealthReward 웹앱을 개발했습니다. 도메인 타입과 API 서비스 계층을 먼저 설계하고, 불안정한 OCR·AI 응답을 안전한 UI 데이터로 변환하는 파서를 구현했습니다." }
           }
         },
         {
-          "dates": {
-            "start": "01/01/2025",
-            "end": null
-          },
-          "links": [
-            {
-              "string": "see_more",
-              "href": "https://bujangneam.tistory.com/"
-            }
-          ],
+          "dates": { "start": "04/01/2025", "end": null },
+          "links": [],
           "locales": {
-            "en": {
-              "title": "Started my own **IT learning blog**!",
-              "text": "Launched a personal blog focused on IT learning and development, where I share technical insights, tutorials, and helpful resources to support aspiring developers and tech enthusiasts."
-            },
-            "es": {
-              "title": "¡Inicié mi propio **blog de aprendizaje de TI**!",
-              "text": "Lancé un blog personal centrado en el aprendizaje y desarrollo en TI, donde comparto conocimientos técnicos, tutoriales y recursos útiles para apoyar a desarrolladores y entusiastas de la tecnología."
-            },
-            "fr": {
-              "title": "Création de mon propre **blog d’apprentissage IT** !",
-              "text": "Lancement d’un blog personnel axé sur l’apprentissage et le développement en informatique, partageant des tutoriels, des conseils techniques et des ressources utiles pour les développeurs et passionnés de technologie."
-            },
-            "ko": {
-              "title": "**IT 관련 학습 블로그를** 시작했습니다!",
-              "text": "IT 학습과 개발 중심의 개인 블로그를 개설하여, 기술 인사이트와 튜토리얼, 유용한 자료들을 공유하며 예비 개발자 및 기술 애호가들과 소통하고 있습니다."
-            }
+            "en": { "title": "Started developing a **UAM control CWP system**", "text": "I am designing the service architecture and control UI for a web-based CWP that integrates flight, vertiport, operational-support, and safety information for real-time decision support." },
+            "ko": { "title": "도심항공교통 **UAM 관제 CWP 개발을 시작했습니다**", "text": "비행·버티포트·운항지원·안전 정보를 통합하는 웹 기반 관제 시스템의 서비스 아키텍처와 UI/UX를 설계하고 있습니다. 정상·혼잡·비상 시나리오와 상태 모델을 기준으로 관제사의 의사결정을 지원하는 화면을 개발하고 있습니다." }
+          }
+        },
+        {
+          "dates": { "start": "01/01/2025", "end": null },
+          "links": [{ "string": "see_more", "href": "https://bujangneam.tistory.com/" }],
+          "locales": {
+            "en": { "title": "Started my **technical blog**", "text": "I document development lessons, troubleshooting processes, and practical insights from projects to turn experience into reusable knowledge." },
+            "ko": { "title": "개발 경험을 기록하는 **기술 블로그를 시작했습니다**", "text": "프로젝트에서 배운 내용과 문제 해결 과정, 실무 인사이트를 기록하며 경험을 다시 활용할 수 있는 지식으로 정리하고 있습니다." }
           }
         }
       ]
