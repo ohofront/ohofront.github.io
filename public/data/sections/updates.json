@@ -65,48 +65,48 @@
           "dates": { "start": "07/15/2026", "end": null },
           "links": [{ "string": "see_more", "href": "https://apps.apple.com/kr/app/%EB%AA%A8%ED%8B%B0%ED%94%BC%ED%94%8C/id6767474618" }],
           "locales": {
-            "en": { "title": "Launched the routine community app **Motipeople**", "text": "Motipeople is now live. I developed the React Native app, handled QA and store reviews, and deployed its official website. I am currently gathering candid early-user feedback on goal-day setup, workout check-ins, make-up days, and accountability clubs. <a href='https://www.motipeople.com/' target='_blank' rel='noreferrer'>Visit the official website</a>." },
-            "ko": { "title": "루틴 커뮤니티 앱 **모티피플을 출시했습니다**", "text": "목표 운동 요일 설정, 운동 인증, 못 간 날의 대체 요일, 친구와 함께하는 인증 클럽을 제공하는 모티피플을 출시했습니다. React Native 앱 개발과 QA·스토어 심사를 진행했고, <a href='https://www.motipeople.com/' target='_blank' rel='noreferrer'>공식 홈페이지</a>도 직접 배포했습니다. 현재는 초기 사용자의 헷갈림과 불편함, 지속 사용을 막는 이유를 중심으로 현실적인 피드백을 받고 있습니다." }
+            "en": { "title": "Launched the routine community app **Motipeople**", "text": "<ul class='recent-update-list'><li><strong>Service</strong><span>Goal-day setup, workout check-ins, make-up days, and accountability clubs</span></li><li><strong>Contribution</strong><span>React Native development, QA, and App Store review</span></li><li><strong>Release</strong><span>Deployed the <a href='https://www.motipeople.com/' target='_blank' rel='noreferrer'>official website</a> alongside the mobile app</span></li><li><strong>Now</strong><span>Gathering candid feedback on confusion, friction, and reasons users may stop</span></li></ul>" },
+            "ko": { "title": "루틴 커뮤니티 앱 **모티피플을 출시했습니다**", "text": "<ul class='recent-update-list'><li><strong>서비스</strong><span>목표 요일 설정, 운동 인증, 대체 요일과 친구 인증 클럽 제공</span></li><li><strong>담당</strong><span>React Native 앱 개발, QA와 App Store 심사 대응</span></li><li><strong>출시</strong><span>모바일 앱과 <a href='https://www.motipeople.com/' target='_blank' rel='noreferrer'>공식 홈페이지</a> 직접 배포</span></li><li><strong>현재</strong><span>헷갈림·불편함·지속 사용을 막는 이유 중심의 초기 사용자 피드백 수집</span></li></ul>" }
           }
         },
         {
           "dates": { "start": "07/01/2026", "end": null },
           "links": [{ "string": "see_more", "href": "https://vs.io.kr/" }],
           "locales": {
-            "en": { "title": "Built real-time voting and chat experiences for **VS**", "text": "Implemented A/B voting feeds, chat replies and emoji reactions, profile activity, PWA installation, and mobile UX improvements with React 19, TypeScript, TanStack Query, and Zustand." },
-            "ko": { "title": "실시간 투표·채팅 플랫폼 **VS 프로젝트를 진행했습니다**", "text": "React 19와 TypeScript를 기반으로 A/B 투표 피드, 채팅 답글·이모지 반응, 프로필 활동 UI, PWA 설치와 모바일 사용성 개선을 구현했습니다. 서버 상태를 단일 기준으로 정리하고 재현 조건 중심 QA로 배포 안정성을 높였습니다." }
+            "en": { "title": "Built real-time voting and chat experiences for **VS**", "text": "<ul class='recent-update-list'><li><strong>Stack</strong><span>React 19, TypeScript, TanStack Query, and Zustand</span></li><li><strong>Built</strong><span>A/B voting feeds, chat replies, emoji reactions, and profile activity</span></li><li><strong>UX</strong><span>PWA installation and mobile interaction improvements</span></li><li><strong>Quality</strong><span>Unified server state and scenario-based QA for stable releases</span></li></ul>" },
+            "ko": { "title": "실시간 투표·채팅 플랫폼 **VS 프로젝트를 진행했습니다**", "text": "<ul class='recent-update-list'><li><strong>기술</strong><span>React 19, TypeScript, TanStack Query와 Zustand</span></li><li><strong>구현</strong><span>A/B 투표 피드, 채팅 답글·이모지 반응과 프로필 활동 UI</span></li><li><strong>UX</strong><span>PWA 설치와 모바일 인터랙션 개선</span></li><li><strong>품질</strong><span>서버 상태 단일화와 재현 조건 중심 QA로 배포 안정성 향상</span></li></ul>" }
           }
         },
         {
           "dates": { "start": "10/15/2025", "end": null },
           "links": [{ "string": "see_more", "href": "https://inableit.com/" }],
           "locales": {
-            "en": { "title": "Completed the accessibility solution **WEBridge**", "text": "Designed and implemented a URL-based accessibility self-assessment service. I focused the report experience on actionable WCAG violations and improvement guidance rather than a score alone." },
-            "ko": { "title": "웹 접근성 자가 진단 솔루션 **WEBridge를 완성했습니다**", "text": "URL 기반 접근성 검사와 리포트 UI를 설계·개발했습니다. 단순 점수보다 WCAG 위반 항목과 우선 개선 영역, 사용자가 바로 행동할 수 있는 가이드가 잘 보이도록 구성했습니다." }
+            "en": { "title": "Completed the accessibility solution **WEBridge**", "text": "<ul class='recent-update-list'><li><strong>Service</strong><span>URL-based web accessibility self-assessment</span></li><li><strong>Contribution</strong><span>Frontend architecture and responsive report UI</span></li><li><strong>Focus</strong><span>Actionable WCAG violations and prioritized guidance instead of scores alone</span></li></ul>" },
+            "ko": { "title": "웹 접근성 자가 진단 솔루션 **WEBridge를 완성했습니다**", "text": "<ul class='recent-update-list'><li><strong>서비스</strong><span>URL 기반 웹 접근성 자가 진단</span></li><li><strong>담당</strong><span>프론트엔드 구조와 반응형 리포트 UI 설계·개발</span></li><li><strong>핵심</strong><span>단순 점수보다 WCAG 위반 항목과 우선 개선 가이드 강조</span></li></ul>" }
           }
         },
         {
           "dates": { "start": "07/27/2025", "end": null },
           "links": [],
           "locales": {
-            "en": { "title": "Won an award at a **pharmaceutical IT hackathon**", "text": "Built HealthReward, a health-spending analysis and rewards web app, in a two-day hackathon. I designed domain types and API service layers and implemented a defensive parser for OCR and AI responses." },
-            "ko": { "title": "약학 IT 해커톤에서 **우수상을 수상했습니다**", "text": "1박 2일 동안 건강 소비 분석과 리워드를 제공하는 HealthReward 웹앱을 개발했습니다. 도메인 타입과 API 서비스 계층을 먼저 설계하고, 불안정한 OCR·AI 응답을 안전한 UI 데이터로 변환하는 파서를 구현했습니다." }
+            "en": { "title": "Won an award at a **pharmaceutical IT hackathon**", "text": "<ul class='recent-update-list'><li><strong>Result</strong><span>Excellence Award at the two-day pharmaceutical IT hackathon</span></li><li><strong>Product</strong><span>HealthReward, a health-spending analysis and rewards web app</span></li><li><strong>Contribution</strong><span>Domain types, API service layers, and defensive OCR/AI response parsing</span></li></ul>" },
+            "ko": { "title": "약학 IT 해커톤에서 **우수상을 수상했습니다**", "text": "<ul class='recent-update-list'><li><strong>결과</strong><span>1박 2일 약학 IT 해커톤 우수상</span></li><li><strong>서비스</strong><span>건강 소비 분석과 리워드를 제공하는 HealthReward 웹앱</span></li><li><strong>담당</strong><span>도메인 타입, API 서비스 계층과 방어적 OCR·AI 응답 파서 설계</span></li></ul>" }
           }
         },
         {
           "dates": { "start": "04/01/2025", "end": null },
           "links": [],
           "locales": {
-            "en": { "title": "Started developing a **UAM control CWP system**", "text": "I am designing the service architecture and control UI for a web-based CWP that integrates flight, vertiport, operational-support, and safety information for real-time decision support." },
-            "ko": { "title": "도심항공교통 **UAM 관제 CWP 개발을 시작했습니다**", "text": "비행·버티포트·운항지원·안전 정보를 통합하는 웹 기반 관제 시스템의 서비스 아키텍처와 UI/UX를 설계하고 있습니다. 정상·혼잡·비상 시나리오와 상태 모델을 기준으로 관제사의 의사결정을 지원하는 화면을 개발하고 있습니다." }
+            "en": { "title": "Started developing a **UAM control CWP system**", "text": "<ul class='recent-update-list'><li><strong>System</strong><span>Web CWP integrating flight, vertiport, operations, and safety information</span></li><li><strong>Contribution</strong><span>Service architecture, control UI/UX, and frontend development</span></li><li><strong>Method</strong><span>Normal, congestion, and emergency scenarios with explicit state models</span></li><li><strong>Goal</strong><span>Support fast and accurate controller decisions</span></li></ul>" },
+            "ko": { "title": "도심항공교통 **UAM 관제 CWP 개발을 시작했습니다**", "text": "<ul class='recent-update-list'><li><strong>시스템</strong><span>비행·버티포트·운항지원·안전 정보를 통합하는 웹 CWP</span></li><li><strong>담당</strong><span>서비스 아키텍처, 관제 UI/UX와 프론트엔드 개발</span></li><li><strong>설계</strong><span>정상·혼잡·비상 시나리오와 명확한 상태 모델 적용</span></li><li><strong>목표</strong><span>관제사의 빠르고 정확한 의사결정 지원</span></li></ul>" }
           }
         },
         {
           "dates": { "start": "01/01/2025", "end": null },
           "links": [{ "string": "see_more", "href": "https://bujangneam.tistory.com/" }],
           "locales": {
-            "en": { "title": "Started my **technical blog**", "text": "I document development lessons, troubleshooting processes, and practical insights from projects to turn experience into reusable knowledge." },
-            "ko": { "title": "개발 경험을 기록하는 **기술 블로그를 시작했습니다**", "text": "프로젝트에서 배운 내용과 문제 해결 과정, 실무 인사이트를 기록하며 경험을 다시 활용할 수 있는 지식으로 정리하고 있습니다." }
+            "en": { "title": "Started my **technical blog**", "text": "<ul class='recent-update-list'><li><strong>Topics</strong><span>Development lessons, troubleshooting, and practical project insights</span></li><li><strong>Goal</strong><span>Turn experience into reusable knowledge and share it with other developers</span></li></ul>" },
+            "ko": { "title": "개발 경험을 기록하는 **기술 블로그를 시작했습니다**", "text": "<ul class='recent-update-list'><li><strong>기록</strong><span>개발 학습 내용, 문제 해결 과정과 프로젝트 실무 인사이트</span></li><li><strong>목표</strong><span>경험을 다시 활용할 수 있는 지식으로 정리하고 개발자들과 공유</span></li></ul>" }
           }
         }
       ]

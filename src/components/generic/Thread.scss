@@ -71,5 +71,42 @@ ul.thread {
             margin-right: 5px;
             margin-bottom: 5px;
         }
+
+        .recent-update-list {
+            display: grid;
+            gap: 0.55rem;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+            li {
+                display: grid;
+                grid-template-columns: 4.5rem minmax(0, 1fr);
+                gap: 0.65rem;
+                align-items: start;
+            }
+
+            strong {
+                color: var(--theme-highlight);
+                font-family: $custom-subheadings-font-family;
+                font-size: 0.75rem;
+            }
+
+            span {
+                color: var(--theme-secondary-3);
+                line-height: 1.55;
+            }
+
+            a {
+                color: var(--theme-highlight);
+            }
+
+            @include media-breakpoint-down(sm) {
+                li {
+                    grid-template-columns: 1fr;
+                    gap: 0.1rem;
+                }
+            }
+        }
     }
 }
