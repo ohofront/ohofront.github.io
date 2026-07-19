@@ -145,6 +145,31 @@
         },
         {
           "icon": {
+            "img": "images/pictures/place-8.png",
+            "fa": "",
+            "faColors": { "bg": null, "fill": null }
+          },
+          "dates": {
+            "start": "04/01/2025",
+            "end": "now"
+          },
+          "locales": {
+            "en": {
+              "title": "**Frontend** Developer",
+              "info": "Hanjin Information Systems & Telecommunication Co., Ltd.",
+              "text": "<p>Developing a web-based CWP (Control Working Position) for an Urban Air Mobility traffic-management system:</p>\n<ul>\n  <li><strong>UAM Control CWP System</strong><br><span class='text-sm text-gray-500'>(2025.04 ~ Present)</span>\n    <ul>\n      <li>Analyzed information flows among UAM operators, traffic-management providers, vertiport operators, and ATC/UTM systems</li>\n      <li>Designed the service architecture and control UI/UX around flight-plan approval, real-time monitoring, and abnormal-situation response</li>\n      <li>Modeled flight, approval, and alert states with Redux Toolkit and implemented UI updates for real-time flight information</li>\n      <li>Defined visual priorities for flight status, routes, vertiport capacity, weather, delays, route deviations, and emergency alerts</li>\n      <li>Aligned API fields, update intervals, and exception cases with domain researchers and backend developers using scenario- and state-based documentation</li>\n    </ul>\n  </li>\n</ul>",
+              "tags": ["React", "TypeScript", "Redux Toolkit", "Tailwind CSS", "Axios", "Figma", "UAM", "CWP"]
+            },
+            "ko": {
+              "title": "**프론트엔드** 개발자",
+              "info": "한진정보통신(주)",
+              "text": "<p>도심항공교통 교통관리시스템의 웹 기반 CWP(Control Working Position)를 개발하고 있습니다:</p>\n<ul>\n  <li><strong>도심항공교통(UAM) 관제 CWP 시스템</strong><br><span class='text-sm text-gray-500'>(2025.04 ~ 재직 중)</span>\n    <ul>\n      <li>UAM 운항자, 교통관리서비스제공자, 버티포트 운영자와 ATC/UTM 간 정보 흐름 분석</li>\n      <li>비행계획 승인 → 실시간 감시 → 비정상 상황 대응 흐름을 기준으로 서비스 아키텍처와 관제 UI/UX 설계</li>\n      <li>Redux Toolkit으로 비행·승인·알림 상태를 모델링하고 실시간 비행정보 갱신에 따른 UI 업데이트 구현</li>\n      <li>비행 상태·경로·버티포트 수용량·기상과 지연·경로 이탈·비상 알림의 시각적 우선순위 설계</li>\n      <li>시나리오와 상태 모델을 공통 언어로 활용해 도메인 연구원·백엔드와 API 필드, 갱신 주기, 예외 케이스 합의</li>\n    </ul>\n  </li>\n</ul>",
+              "tags": ["React", "TypeScript", "Redux Toolkit", "Tailwind CSS", "Axios", "Figma", "UAM", "CWP"]
+            }
+          }
+        },
+        {
+          "icon": {
             "img": "images/pictures/place-0.png",
             "fa": null,
             "faColors": { "bg": "#111", "fill": "#EEE" }
