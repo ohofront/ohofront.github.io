@@ -28,7 +28,7 @@
     "articles": [
         {
             "id": "portfolio",
-            "component": "ArticlePortfolio",
+            "component": "ArticleCareerPortfolio",
             "config": {},
             "locales": {},
 
