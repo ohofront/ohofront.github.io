@@ -27,6 +27,57 @@
 
   "articles": [
     {
+      "id": "awards",
+      "component": "ArticleCards",
+      "config": {
+        "ignorePaddingTop": true
+      },
+      "locales": {
+        "en": { "title": "Awards & **Recognition**" },
+        "es": { "title": "Premios y **Reconocimientos**" },
+        "fr": { "title": "Prix et **Distinctions**" },
+        "ko": { "title": "수상 **경력**" }
+      },
+      "items": [
+        {
+          "icon": {
+            "img": null,
+            "fa": "fa-solid fa-medal",
+            "faColors": { "bg": "#D4AF37", "fill": "#111" }
+          },
+          "dates": { "start": "07/27/2025", "end": null },
+          "locales": {
+            "en": {
+              "title": "**Excellence Award** · Pharmaceutical IT Hackathon",
+              "text": "Awarded by the Pharmaceutical & Bio Workforce Training Center. Built <b>HealthReward</b>, a health-spending analysis and rewards web app, and contributed to service planning, frontend architecture, and API integration.<br/><small>July 27, 2025</small>"
+            },
+            "ko": {
+              "title": "**우수상** · 약학 IT 해커톤",
+              "text": "제약바이오인력양성센터 주관. 건강 소비 분석과 리워드를 제공하는 <b>HealthReward</b>를 개발하며 서비스 기획, 프론트엔드 아키텍처와 API 연동을 담당했습니다.<br/><small>2025.07.27</small>"
+            }
+          }
+        },
+        {
+          "icon": {
+            "img": null,
+            "fa": "fa-solid fa-trophy",
+            "faColors": { "bg": "#9dff8e", "fill": "#111" }
+          },
+          "dates": { "start": "03/28/2025", "end": null },
+          "locales": {
+            "en": {
+              "title": "**Grand Prize** · ASAC 7th Hackathon",
+              "text": "Received the highest award at the ASAC 7th Hackathon organized by <b>SK Planet</b>, demonstrating the ability to turn an idea into a working service through planning, design, and frontend development.<br/><small>March 28, 2025</small>"
+            },
+            "ko": {
+              "title": "**최우수상** · ASAC 07기 해커톤",
+              "text": "<b>SK플래닛</b>이 주관한 ASAC 07기 해커톤에서 최우수상을 수상했습니다. 기획과 디자인, 프론트엔드 개발을 아우르며 아이디어를 실제 동작하는 서비스로 완성하는 역량을 인정받았습니다.<br/><small>2025.03.28</small>"
+            }
+          }
+        }
+      ]
+    },
+    {
       "id": "capabilities",
       "component": "ArticleCards",
       "config": {},
