@@ -23,6 +23,7 @@ export const projects = [
     summary: "운동 루틴이 자주 끊기는 사용자가 목표 요일을 정하고 운동을 인증하며, 놓친 날에도 대체 요일을 설정해 다시 이어갈 수 있도록 돕는 실제 출시 서비스입니다. 혼자 루틴을 관리하거나 친구와 인증 클럽을 만들어 함께 운동할 수 있습니다.",
     links: [
       { label: "App Store", url: "https://apps.apple.com/kr/app/%EB%AA%A8%ED%8B%B0%ED%94%BC%ED%94%8C/id6767474618", icon: "fa-brands fa-apple" },
+      { label: "Google Play", url: "https://play.google.com/store/apps/details?id=com.motipeople.app&hl=ko", icon: "fa-brands fa-google-play" },
       { label: "공식 홈페이지", url: "https://www.motipeople.com/", icon: "fa-solid fa-globe" },
     ],
     stack: ["React Native", "Expo 54", "TypeScript", "Zustand", "TanStack Query", "Axios", "EAS"],
