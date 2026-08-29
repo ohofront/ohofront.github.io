@@ -35,43 +35,6 @@
       "items": [
         {
           "icon": {
-            "img": "images/pictures/place-3.png",
-            "fa": "",
-            "faColors": { "bg": null, "fill": null }
-          },
-          "dates": {
-            "start": "01/01/2021",
-            "end": "06/30/2021"
-          },
-          "locales": {
-            "en": {
-              "title": "**Full-Stack** Developer",
-              "info": "Bogo Information System Co., Ltd.",
-              "text": "<p>Participated in a web-based telecommunication service project:</p>\n<ul>\n  <li><strong>LGU+ Used Device Self-Activation System Enhancement</strong><br><span class='text-sm text-gray-500'>(2021.01.01 ~ 2021.06.30)</span>\n    <ul>\n      <li>Guided customers using used, unlocked, or imported phones to easily subscribe to LG U+ plans</li>\n      <li>Designed a user flow that links device type information and subscription forms for seamless plan application</li>\n    </ul>\n  </li>\n</ul>",
-              "tags": ["JSP", "Spring", "MyBatis", "Oracle", "jQuery"]
-            },
-            "es": {
-              "title": "Desarrollador **Full-Stack**",
-              "info": "Bogo Information System Co., Ltd.",
-              "text": "<p>Participé en un proyecto de servicio de telecomunicaciones basado en la web:</p>\n<ul>\n  <li><strong>Mejora del sistema de autoactivación de dispositivos usados LGU+</strong><br><span class='text-sm text-gray-500'>(2021.01.01 ~ 2021.06.30)</span>\n    <ul>\n      <li>Orientación a los clientes con teléfonos usados, liberados o importados para suscribirse fácilmente a los planes de LG U+</li>\n      <li>Diseño del flujo de usuario vinculando la información del tipo de dispositivo y los formularios de suscripción</li>\n    </ul>\n  </li>\n</ul>",
-              "tags": ["JSP", "Spring", "MyBatis", "Oracle", "jQuery"]
-            },
-            "fr": {
-              "title": "Développeur **Full-Stack**",
-              "info": "Bogo Information System Co., Ltd.",
-              "text": "<p>Participation à un projet de service de télécommunication basé sur le web :</p>\n<ul>\n  <li><strong>Amélioration du système d'autoactivation des téléphones d'occasion LGU+</strong><br><span class='text-sm text-gray-500'>(2021.01.01 ~ 2021.06.30)</span>\n    <ul>\n      <li>Accompagnement des clients utilisant des téléphones d'occasion, débloqués ou importés pour souscrire facilement à un forfait LG U+</li>\n      <li>Conception du parcours utilisateur reliant les informations sur le type d'appareil et le formulaire d'abonnement</li>\n    </ul>\n  </li>\n</ul>",
-              "tags": ["JSP", "Spring", "MyBatis", "Oracle", "jQuery"]
-            },
-            "ko": {
-              "title": "**풀스택** 개발자",
-              "info": "(주) 보고정보시스템",
-              "text": "<p>웹 기반 통신 서비스 프로젝트에 참여하였습니다:</p>\n<ul>\n  <li><strong>LGU+ 중고자급제 셀프개통 고도화</strong><br><span class='text-sm text-gray-500'>(2021.01.01 ~ 2021.06.30)</span>\n    <ul>\n      <li>중고폰, 자급제폰, 외산폰 이용 고객도 손쉽게 LG U+ 요금상품 가입 유도</li>\n      <li>보유 중인 단말기 정보와 가입 신청서를 연계하여 요금 상품 가입을 유도하는 사용자 흐름 설계</li>\n    </ul>\n  </li>\n</ul>",
-              "tags": ["JSP", "Spring", "MyBatis", "Oracle", "jQuery"]
-            }
-          }
-        },
-        {
-          "icon": {
             "img": "images/pictures/place-1.png",
             "fa": "",
             "faColors": { "bg": null, "fill": null }
