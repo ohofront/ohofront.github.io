@@ -9,6 +9,21 @@ export const capabilities = [
 
 export const projects = [
   {
+    title: "조기축구 동호회 운영 서비스 – 서원 FC", period: "2026.08", type: "풀스택 웹 서비스", role: "1인 개발 · 기획 · 백엔드/프론트엔드 · 배포/운영",
+    summary: "조기축구 동호회의 구단 정보와 커뮤니티를 제공하고, 회원과 관리자의 권한 및 운영 업무를 분리한 풀스택 웹 서비스입니다.",
+    links: [
+      { label: "서비스", url: "https://www.seowonfc.com", icon: "fa-solid fa-globe" },
+      { label: "Backend GitHub", url: "https://github.com/ohobackend/seowonfc-api", icon: "fa-brands fa-github" },
+      { label: "Frontend GitHub", url: "https://github.com/ohofront/seowonfc-frontend", icon: "fa-brands fa-github" },
+    ],
+    stack: ["Java 17", "Spring Boot 4", "Spring Data JPA", "Spring Security", "JWT", "PostgreSQL", "React", "Vite", "TypeScript", "Tailwind CSS", "Render", "Netlify", "Cloudinary", "Swagger"],
+    process: ["구단 뉴스·선수단·경기 일정/결과/순위·커뮤니티·이벤트·스폰서 도메인과 회원/관리자 운영 흐름 기획", "회원 API(/api/v1/**)와 관리자 API(/api/v1/admin/**)를 URL 네임스페이스로 분리하고 Spring Security·JWT 인증 및 Refresh Token 갱신 구현", "선수 등록 신청→관리자 승인/반려, 비회원 스폰서 신청 등 사용자 유형별 워크플로우 설계", "Cloudinary 이미지 업로드와 종료 이벤트 자동 정리 스케줄러 구현", "Swagger 문서를 회원용/관리자용으로 분리하고 프론트엔드와 요청/응답 계약 검증", "Render·PostgreSQL·Netlify 배포, 커스텀 도메인 연결 및 운영 환경 장애 대응"],
+    features: ["회원가입·로그인·토큰 자동 갱신", "회원/관리자 API 권한 분리", "구단 뉴스·선수단·경기 정보", "게시글·댓글·좋아요 커뮤니티", "선수 등록 승인/반려", "비회원 스폰서 신청", "관리자 이미지 업로드", "이벤트 자동 정리"],
+    challenge: "배포 환경에서 CORS와 JWT 만료 오류가 발생했고, UTC 서버와 KST 사용자 환경의 차이로 입력 일정과 생성일시가 서로 다른 원인으로 어긋났습니다. 파일과 JSON을 함께 보내는 API의 클라이언트 호환성, 승인 데이터 삭제 후 상태가 남는 정합성 문제도 있었습니다.",
+    solution: "인증·네트워크 흐름을 단계별로 추적해 CORS와 토큰 갱신을 보완하고, 사용자 입력 날짜는 프론트 파싱을, 자동 기록 시각은 JVM 타임존을 각각 수정했습니다. 멀티파트 요청 구조를 개선하고 승인 데이터의 엔티티 연결 관계를 재설계해 삭제 상태가 일관되게 반영되도록 했습니다.",
+    insights: ["권한은 화면 제어뿐 아니라 API 네임스페이스와 서버 정책에서 구조적으로 분리해야 함", "날짜 오류는 입력값과 시스템 기록값의 생성 지점을 구분해 진단해야 함", "무료 클라우드의 슬립·DB 만료 정책까지 파악하는 것이 안정적인 운영의 일부", "기능별 스펙과 API 계약을 먼저 정의하면 AI 에이전트 활용 시에도 구현 검증과 품질 관리가 수월함"],
+  },
+  {
     title: "도심항공교통(UAM) 관제 CWP 시스템 개발", period: "2025.04 ~", type: "관제 시스템", role: "서비스 아키텍처 설계 · CWP 프론트엔드 개발 · 관제 UI/UX 설계",
     summary: "UAM 비행·운항지원·버티포트·안전 정보를 통합해 관제사의 실시간 모니터링과 의사결정을 지원하는 웹 기반 CWP 시스템입니다.",
     stack: ["React", "TypeScript", "Redux Toolkit", "Tailwind CSS", "Axios", "Figma"],
