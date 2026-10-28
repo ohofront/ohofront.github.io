@@ -103,7 +103,7 @@
         },
         {
           "dates": { "start": "01/01/2025", "end": null },
-          "links": [{ "string": "see_more", "href": "https://bujangneam.tistory.com/" }],
+          "links": [{ "string": "see_more", "href": "https://medium.com/@youngho7482" }],
           "locales": {
             "en": { "title": "Started my **technical blog**", "text": "<ul class='recent-update-list'><li><strong>Topics</strong><span>Development lessons, troubleshooting, and practical project insights</span></li><li><strong>Goal</strong><span>Turn experience into reusable knowledge and share it with other developers</span></li></ul>" },
             "ko": { "title": "개발 경험을 기록하는 **기술 블로그를 시작했습니다**", "text": "<ul class='recent-update-list'><li><strong>기록</strong><span>개발 학습 내용, 문제 해결 과정과 프로젝트 실무 인사이트</span></li><li><strong>목표</strong><span>경험을 다시 활용할 수 있는 지식으로 정리하고 개발자들과 공유</span></li></ul>" }

@@ -27,7 +27,7 @@ function ArticleCareerPortfolio() {
         <p>React/TypeScript와 React Native(Expo)로 <b>모바일 커뮤니티·금융·헬스케어·웹 접근성</b> 서비스를 만들고, <b>UI 설계 → 상태 관리 → API 연동 → QA를 엔드-투-엔드로 책임지는</b> 프론트엔드 개발자입니다.</p>
         <nav className="career-links" aria-label="외부 프로필">
           <a href="https://github.com/ohofront" target="_blank" rel="noreferrer"><FaIcon iconName="fa-brands fa-github" /> GitHub</a>
-          <a href="https://bujangneam.tistory.com/" target="_blank" rel="noreferrer"><FaIcon iconName="fa-solid fa-pen-nib" /> 기술 블로그</a>
+          <a href="https://medium.com/@youngho7482" target="_blank" rel="noreferrer"><FaIcon iconName="fa-solid fa-pen-nib" /> 기술 블로그</a>
         </nav>
       </header>
 
