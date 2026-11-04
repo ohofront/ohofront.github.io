@@ -40,7 +40,7 @@ ChartJS.register(
 
 export default function FullMetaverseWorld({ onToggleMode }) {
   const containerRef = useRef(null);
-  const { toggleMetaverseMode, setActiveSection } = useGlobalState();
+  const { toggleMetaverseMode, setActiveSection, setTargetProjectId } = useGlobalState();
 
   const [activeZone, setActiveZone] = useState(null);
   const [selectedZone, setSelectedZone] = useState(null); // 'about', 'experience', 'skills', 'contact'
@@ -759,9 +759,13 @@ export default function FullMetaverseWorld({ onToggleMode }) {
     stateRef.current.keys.d = false;
   };
 
-  const handleSwitchToClassicDoc = (targetSectionId = "portfolio") => {
+  const handleSwitchToClassicDoc = (targetSectionId = "portfolio", projectId = null) => {
+    document.body.classList.remove("body-no-scroll");
     setSelectedZone(null);
     setSelectedProject(null);
+    if (projectId && setTargetProjectId) {
+      setTargetProjectId(projectId);
+    }
     setActiveSection(targetSectionId);
     toggleMetaverseMode(false);
   };
@@ -1345,7 +1349,7 @@ export default function FullMetaverseWorld({ onToggleMode }) {
                 <div className="modal-footer-action">
                   <button
                     className="btn-doc-transition"
-                    onClick={() => handleSwitchToClassicDoc("portfolio")}
+                    onClick={() => handleSwitchToClassicDoc("portfolio", selectedProject.id)}
                   >
                     <FaIcon iconName="fa-solid fa-chart-simple" /> 클래식 문서에서 전체 그래프 및 상세 분석 보기
                   </button>

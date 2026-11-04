@@ -11,7 +11,7 @@ import {useGlobalState} from "/src/providers/GlobalStateProvider.jsx"
 import {useUtils} from "/src/helpers/utils.js"
 
 function Portfolio() {
-    const {getActiveSection, setFixedNavigationEnabled, metaverseMode, toggleMetaverseMode} = useGlobalState()
+    const {getActiveSection, setFixedNavigationEnabled, metaverseMode, toggleMetaverseMode, targetProjectId} = useGlobalState()
     const [isFirstPage, setIsFirstPage] = useState(true)
     const utils = useUtils()
 
@@ -24,6 +24,12 @@ function Portfolio() {
     /** Force scroll to top every time the active section changes... **/
     useEffect(() => {
         if (metaverseMode) return
+
+        // If targetProjectId is active, do not force scroll to top 258 so ArticleCareerPortfolio can scroll directly to the project card
+        if (targetProjectId) {
+            setIsFirstPage(false)
+            return
+        }
 
         const __first = isFirstPage
         const top = 258
@@ -39,7 +45,7 @@ function Portfolio() {
             window.scrollTo(scrollParams)
             setFixedNavigationEnabled(true)
         }, 100)
-    }, [getActiveSection(), metaverseMode])
+    }, [getActiveSection(), metaverseMode, targetProjectId])
 
     if (metaverseMode) {
         return (

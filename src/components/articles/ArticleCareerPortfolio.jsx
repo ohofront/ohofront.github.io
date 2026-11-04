@@ -18,6 +18,8 @@ import Article from "/src/components/wrappers/Article.jsx";
 import FaIcon from "/src/components/generic/FaIcon.jsx";
 import { capabilities, optimizationChart, projects } from "/src/data/portfolioData.js";
 import MetaverseWorld from "/src/components/metaverse/MetaverseWorld.jsx";
+import Scrollbar from "smooth-scrollbar";
+import { useGlobalState } from "/src/providers/GlobalStateProvider.jsx";
 
 // Register all chart elements for Bar, Doughnut, Line, and Radar charts
 ChartJS.register(
@@ -79,35 +81,106 @@ function ArticleCareerPortfolio() {
     },
   };
 
+  const { targetProjectId, setTargetProjectId } = useGlobalState() || {};
+
   const scrollToProject = (id) => {
-    const el = document.getElementById(`project-${id}`);
-    if (!el) return;
+    if (!id) return;
 
-    // Reset any unintentional horizontal scroll
-    if (window.scrollX !== 0) {
-      window.scrollTo({ left: 0, top: window.scrollY });
+    // 1. If project was filtered out, reset filter to 'all'
+    const proj = projects.find((p) => p.id === id);
+    if (proj && filterType !== "all" && !proj.type.toLowerCase().includes(filterType.toLowerCase())) {
+      setFilterType("all");
     }
 
-    const fixedNav = document.getElementById("fixed-nav-pills-wrapper");
-    const navHeight = fixedNav ? fixedNav.offsetHeight + 18 : 65;
-    const rect = el.getBoundingClientRect();
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const targetTop = rect.top + scrollTop - navHeight;
+    // 2. Remove body scroll lock if any
+    document.body.classList.remove("body-no-scroll");
 
-    window.scrollTo({
-      top: Math.max(0, targetTop),
-      behavior: "smooth",
-    });
+    // 3. Perform scroll after DOM/state settle
+    setTimeout(() => {
+      const el = document.getElementById(`project-${id}`);
+      if (!el) return;
 
-    // Fallback for custom-scrollable if SmoothScrollbar is active
-    const scrollable = document.querySelector(".custom-scrollable");
-    if (scrollable && scrollable.contains(el)) {
-      el.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-    }
+      // Reset any unintentional horizontal scroll
+      if (window.scrollX !== 0) {
+        window.scrollTo({ left: 0, top: window.scrollY });
+      }
 
-    el.classList.add("highlight-3d");
-    setTimeout(() => el.classList.remove("highlight-3d"), 2500);
+      // Check for smooth-scrollbar instance (used on Desktop Web)
+      let scrollbarInstance = null;
+      const scrollableEl =
+        document.getElementById("scrollable-portfolio") ||
+        document.querySelector(".custom-scrollable");
+
+      if (scrollableEl) {
+        scrollbarInstance = Scrollbar.get(scrollableEl);
+      }
+      if (!scrollbarInstance && Scrollbar.getAll && Scrollbar.getAll().length > 0) {
+        scrollbarInstance = Scrollbar.getAll()[0];
+      }
+
+      if (scrollbarInstance) {
+        // Desktop Web: calculate target Y within smooth-scrollbar coordinate system
+        const containerRect = scrollbarInstance.containerEl.getBoundingClientRect();
+        const elemRect = el.getBoundingClientRect();
+        const targetY = scrollbarInstance.offset.y + (elemRect.top - containerRect.top) - 24;
+
+        scrollbarInstance.scrollTo(0, Math.max(0, targetY), 600);
+      } else {
+        // Mobile / Native Window Scroll
+        const fixedNav = document.getElementById("fixed-nav-pills-wrapper");
+        const navHeight = fixedNav ? fixedNav.offsetHeight + 18 : 65;
+        const rect = el.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const targetTop = rect.top + scrollTop - navHeight;
+
+        window.scrollTo({
+          top: Math.max(0, targetTop),
+          behavior: "smooth",
+        });
+
+        if (typeof el.scrollIntoView === "function") {
+          try {
+            el.scrollIntoView({ behavior: "smooth", block: "start" });
+          } catch (e) {}
+        }
+      }
+
+      el.classList.add("highlight-3d");
+      setTimeout(() => el.classList.remove("highlight-3d"), 3000);
+    }, 80);
   };
+
+  // Automatically scroll to target project when switching from FullMetaverseWorld
+  useEffect(() => {
+    if (!targetProjectId) return;
+
+    const targetId = targetProjectId;
+    if (setTargetProjectId) {
+      setTargetProjectId(null);
+    }
+
+    // Ensure filter doesn't hide target
+    const proj = projects.find((p) => p.id === targetId);
+    if (proj && filterType !== "all") {
+      setFilterType("all");
+    }
+
+    let retries = 20;
+    const interval = setInterval(() => {
+      const el = document.getElementById(`project-${targetId}`);
+      if (el) {
+        clearInterval(interval);
+        scrollToProject(targetId);
+      } else {
+        retries -= 1;
+        if (retries <= 0) {
+          clearInterval(interval);
+        }
+      }
+    }, 80);
+
+    return () => clearInterval(interval);
+  }, [targetProjectId]);
 
   return (
     <Article className="article-career-portfolio 3d-theme">

@@ -14,6 +14,7 @@ export const GlobalStateProvider = ({children}) => {
     const [activeSectionId, setActiveSectionId] = useState(null)
     const [fixedNavigationEnabled, setFixedNavigationEnabled] = useState(true)
     const [didRenderFirstSection, setDidRenderFirstSection] = useState(false)
+    const [targetProjectId, setTargetProjectId] = useState(null)
     const [metaverseMode, setMetaverseMode] = useState(() => {
         try {
             const saved = sessionStorage.getItem('oho_metaverse_mode')
@@ -163,7 +164,9 @@ export const GlobalStateProvider = ({children}) => {
             setDidRenderFirstSection,
             metaverseMode,
             setMetaverseMode,
-            toggleMetaverseMode
+            toggleMetaverseMode,
+            targetProjectId,
+            setTargetProjectId
         }}>
             {activeSectionId && (
                 <>{children}</>

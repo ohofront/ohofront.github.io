@@ -785,9 +785,12 @@ export default function MetaverseWorld({ projects, onSelectProject }) {
                     className="btn-scroll-to-card"
                     onClick={() => {
                       const targetId = selectedProject.id;
+                      document.body.classList.remove("body-no-scroll");
                       setSelectedProject(null);
                       if (onSelectProject) {
-                        onSelectProject(targetId);
+                        setTimeout(() => {
+                          onSelectProject(targetId);
+                        }, 80);
                       }
                     }}
                   >
