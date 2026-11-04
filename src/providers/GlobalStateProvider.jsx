@@ -14,6 +14,24 @@ export const GlobalStateProvider = ({children}) => {
     const [activeSectionId, setActiveSectionId] = useState(null)
     const [fixedNavigationEnabled, setFixedNavigationEnabled] = useState(true)
     const [didRenderFirstSection, setDidRenderFirstSection] = useState(false)
+    const [metaverseMode, setMetaverseMode] = useState(() => {
+        try {
+            const saved = sessionStorage.getItem('oho_metaverse_mode')
+            return saved !== null ? saved === 'true' : true
+        } catch (e) {
+            return true
+        }
+    })
+
+    const toggleMetaverseMode = (val) => {
+        setMetaverseMode(prev => {
+            const nextVal = typeof val === 'boolean' ? val : !prev
+            try {
+                sessionStorage.setItem('oho_metaverse_mode', String(nextVal))
+            } catch (e) {}
+            return nextVal
+        })
+    }
 
     const sections = getSections()
     const categories = getCategories()
@@ -142,7 +160,10 @@ export const GlobalStateProvider = ({children}) => {
             fixedNavigationEnabled,
             setFixedNavigationEnabled,
             didRenderFirstSection,
-            setDidRenderFirstSection
+            setDidRenderFirstSection,
+            metaverseMode,
+            setMetaverseMode,
+            toggleMetaverseMode
         }}>
             {activeSectionId && (
                 <>{children}</>

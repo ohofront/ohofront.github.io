@@ -4,13 +4,14 @@ import {useGlobalState} from "/src/providers/GlobalStateProvider.jsx"
 import {useData} from "/src/providers/DataProvider.jsx"
 import LanguagePicker from "/src/components/widgets/LanguagePicker.jsx"
 import ThemePicker from "/src/components/widgets/ThemePicker.jsx"
+import ToolButton from "/src/components/generic/ToolButton.jsx"
 import NavHeader from "/src/components/nav/desktop/NavHeader.jsx"
 import NavPills from "/src/components/nav/mobile/NavPills.jsx"
 import Box from "/src/components/wrappers/Box.jsx"
 
 function NavHeaderMobile() {
     const {getCategorySections} = useData()
-    const {getActiveCategory} = useGlobalState()
+    const {getActiveCategory, toggleMetaverseMode} = useGlobalState()
 
     const category = getActiveCategory()
     const sections = getCategorySections(category)
@@ -21,7 +22,12 @@ function NavHeaderMobile() {
                 <LanguagePicker shrink={true}/>
             </div>
 
-            <div className={`float-top-right`}>
+            <div className={`float-top-right d-flex gap-2 align-items-center`}>
+                <ToolButton
+                    icon="fa-solid fa-cube"
+                    tooltip="3D 메타버스 월드 입장"
+                    onClick={() => toggleMetaverseMode(true)}
+                />
                 <ThemePicker shrink={true}/>
             </div>
 

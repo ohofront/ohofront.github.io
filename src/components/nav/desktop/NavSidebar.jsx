@@ -107,9 +107,18 @@ function NavSidebarBottomMenu({shouldShrink}) {
     const {canChangeLanguage} = useLanguage()
     const {canChangeTheme} = useTheme()
     const {isAnimatedCursorEnabled} = useFeedbacks()
+    const {toggleMetaverseMode} = useGlobalState()
 
     return (
         <NavSidebarGroup direction={`horizontal`} shrink={shouldShrink}>
+            <NavSidebarGroupItem visible={true}>
+                <ToolButton
+                    icon="fa-solid fa-cube"
+                    tooltip="3D 메타버스 월드 입장"
+                    onClick={() => toggleMetaverseMode(true)}
+                />
+            </NavSidebarGroupItem>
+
             <NavSidebarGroupItem visible={canChangeLanguage}>
                 <LanguagePicker shrink={true}/>
             </NavSidebarGroupItem>
