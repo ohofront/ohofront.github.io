@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import * as THREE from "three";
 import "./MetaverseWorld.scss";
 import FaIcon from "/src/components/generic/FaIcon.jsx";
@@ -9,6 +10,17 @@ export default function MetaverseWorld({ projects, onSelectProject }) {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isControlsHelpOpen, setIsControlsHelpOpen] = useState(true);
   const [viewMode, setViewMode] = useState("isometric"); // isometric, top, follow
+
+  useEffect(() => {
+    if (selectedProject) {
+      document.body.classList.add("body-no-scroll");
+    } else {
+      document.body.classList.remove("body-no-scroll");
+    }
+    return () => {
+      document.body.classList.remove("body-no-scroll");
+    };
+  }, [selectedProject]);
 
   // Three.js refs to avoid re-renders
   const stateRef = useRef({
@@ -314,7 +326,6 @@ export default function MetaverseWorld({ projects, onSelectProject }) {
       }
       if (k === "e" && activeZone) {
         setSelectedProject(activeZone);
-        if (onSelectProject) onSelectProject(activeZone.id);
       }
     };
 
@@ -351,7 +362,6 @@ export default function MetaverseWorld({ projects, onSelectProject }) {
         const hitProj = intersects[0].object.userData.project;
         if (hitProj) {
           setSelectedProject(hitProj);
-          if (onSelectProject) onSelectProject(hitProj.id);
           // Teleport near or walk toward booth
           stateRef.current.targetWalkPos = new THREE.Vector3(
             hitProj.metaverseZone.x + 2,
@@ -557,7 +567,6 @@ export default function MetaverseWorld({ projects, onSelectProject }) {
     stateRef.current.avatarPos.set(target.x + 2.5, 0, target.z + 2.5);
     stateRef.current.targetWalkPos = null;
     setSelectedProject(proj);
-    if (onSelectProject) onSelectProject(proj.id);
   };
 
   // Virtual D-Pad for Mobile
@@ -644,7 +653,6 @@ export default function MetaverseWorld({ projects, onSelectProject }) {
                 className="btn-inspect"
                 onClick={() => {
                   setSelectedProject(activeZone);
-                  if (onSelectProject) onSelectProject(activeZone.id);
                 }}
               >
                 <kbd>E</kbd> 또는 클릭하여 상세 분석 및 개선 차트 보기
@@ -722,74 +730,75 @@ export default function MetaverseWorld({ projects, onSelectProject }) {
         </button>
       </div>
 
-      {/* Selected Project 3D Modal Preview */}
-      {selectedProject && (
-        <div className="metaverse-project-modal" onClick={() => setSelectedProject(null)}>
-          <div className="modal-dialog-3d" onClick={(e) => e.stopPropagation()}>
-            <div className="modal-header-3d" style={{ "--border-color": selectedProject.metaverseZone?.color }}>
-              <div>
-                <span className="modal-type">{selectedProject.type}</span>
-                <h3>{selectedProject.title}</h3>
-                <span className="modal-period">{selectedProject.period}</span>
-              </div>
-              <button className="btn-close-modal" onClick={() => setSelectedProject(null)}>
-                <FaIcon iconName="fa-solid fa-xmark" />
-              </button>
-            </div>
-
-            <div className="modal-body-3d">
-              <p className="modal-summary">{selectedProject.summary}</p>
-
-              {/* Direct Links */}
-              <div className="modal-links-bar">
-                {selectedProject.links?.map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.disabled ? undefined : link.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={`btn-modal-link ${link.disabled ? "disabled" : ""}`}
-                  >
-                    <FaIcon iconName={link.icon} /> {link.label}
-                  </a>
-                ))}
-              </div>
-
-              {/* Quick Metrics */}
-              <div className="modal-metrics-grid">
-                {selectedProject.metrics?.map((m) => (
-                  <div className="metric-box" key={m.label}>
-                    <span className="metric-label">{m.label}</span>
-                    <div className="metric-values">
-                      <span className="metric-before">{m.before}</span>
-                      <FaIcon iconName="fa-solid fa-arrow-right" />
-                      <span className="metric-after">{m.after}</span>
-                    </div>
-                    <span className="metric-badge">{m.change}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="modal-footer-nav">
-                <button
-                  className="btn-scroll-to-card"
-                  onClick={() => {
-                    setSelectedProject(null);
-                    const el = document.getElementById(`project-${selectedProject.id}`);
-                    if (el) {
-                      el.scrollIntoView({ behavior: "smooth", block: "start" });
-                      el.classList.add("highlight-3d");
-                      setTimeout(() => el.classList.remove("highlight-3d"), 2500);
-                    }
-                  }}
-                >
-                  <FaIcon iconName="fa-solid fa-chart-simple" /> 아래 카드로 이동하여 전체 그래프 보기
+      {/* Selected Project 3D Modal Preview via Portal to document.body */}
+      {selectedProject &&
+        typeof document !== "undefined" &&
+        createPortal(
+          <div className="metaverse-project-modal" onClick={() => setSelectedProject(null)}>
+            <div className="modal-dialog-3d" onClick={(e) => e.stopPropagation()}>
+              <div className="modal-header-3d" style={{ "--border-color": selectedProject.metaverseZone?.color }}>
+                <div>
+                  <span className="modal-type">{selectedProject.type}</span>
+                  <h3>{selectedProject.title}</h3>
+                  <span className="modal-period">{selectedProject.period}</span>
+                </div>
+                <button className="btn-close-modal" onClick={() => setSelectedProject(null)}>
+                  <FaIcon iconName="fa-solid fa-xmark" />
                 </button>
               </div>
+
+              <div className="modal-body-3d">
+                <p className="modal-summary">{selectedProject.summary}</p>
+
+                {/* Direct Links */}
+                <div className="modal-links-bar">
+                  {selectedProject.links?.map((link) => (
+                    <a
+                      key={link.label}
+                      href={link.disabled ? undefined : link.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={`btn-modal-link ${link.disabled ? "disabled" : ""}`}
+                    >
+                      <FaIcon iconName={link.icon} /> {link.label}
+                    </a>
+                  ))}
+                </div>
+
+                {/* Quick Metrics */}
+                <div className="modal-metrics-grid">
+                  {selectedProject.metrics?.map((m) => (
+                    <div className="metric-box" key={m.label}>
+                      <span className="metric-label">{m.label}</span>
+                      <div className="metric-values">
+                        <span className="metric-before">{m.before}</span>
+                        <FaIcon iconName="fa-solid fa-arrow-right" />
+                        <span className="metric-after">{m.after}</span>
+                      </div>
+                      <span className="metric-badge">{m.change}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="modal-footer-nav">
+                  <button
+                    className="btn-scroll-to-card"
+                    onClick={() => {
+                      const targetId = selectedProject.id;
+                      setSelectedProject(null);
+                      if (onSelectProject) {
+                        onSelectProject(targetId);
+                      }
+                    }}
+                  >
+                    <FaIcon iconName="fa-solid fa-chart-simple" /> 아래 카드로 이동하여 전체 그래프 보기
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      )}
+          </div>,
+          document.body
+        )}
     </div>
   );
 }

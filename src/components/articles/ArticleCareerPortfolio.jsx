@@ -79,6 +79,36 @@ function ArticleCareerPortfolio() {
     },
   };
 
+  const scrollToProject = (id) => {
+    const el = document.getElementById(`project-${id}`);
+    if (!el) return;
+
+    // Reset any unintentional horizontal scroll
+    if (window.scrollX !== 0) {
+      window.scrollTo({ left: 0, top: window.scrollY });
+    }
+
+    const fixedNav = document.getElementById("fixed-nav-pills-wrapper");
+    const navHeight = fixedNav ? fixedNav.offsetHeight + 18 : 65;
+    const rect = el.getBoundingClientRect();
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const targetTop = rect.top + scrollTop - navHeight;
+
+    window.scrollTo({
+      top: Math.max(0, targetTop),
+      behavior: "smooth",
+    });
+
+    // Fallback for custom-scrollable if SmoothScrollbar is active
+    const scrollable = document.querySelector(".custom-scrollable");
+    if (scrollable && scrollable.contains(el)) {
+      el.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+    }
+
+    el.classList.add("highlight-3d");
+    setTimeout(() => el.classList.remove("highlight-3d"), 2500);
+  };
+
   return (
     <Article className="article-career-portfolio 3d-theme">
       {/* 3D Hero Section */}
@@ -127,14 +157,7 @@ function ArticleCareerPortfolio() {
 
         <MetaverseWorld
           projects={projects}
-          onSelectProject={(id) => {
-            const el = document.getElementById(`project-${id}`);
-            if (el) {
-              el.scrollIntoView({ behavior: "smooth", block: "center" });
-              el.classList.add("highlight-3d");
-              setTimeout(() => el.classList.remove("highlight-3d"), 2200);
-            }
-          }}
+          onSelectProject={scrollToProject}
         />
       </section>
 
