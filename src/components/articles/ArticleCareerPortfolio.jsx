@@ -542,19 +542,23 @@ function ProjectCard3D({ project, index }) {
           <div className="project-details-content">
             <DetailSection title="진행 과정" items={project.process} icon="fa-solid fa-list-check" />
             <DetailSection title="주요 기능" items={project.features} icon="fa-solid fa-wand-magic-sparkles" />
-            <div className="detail-block challenge-block">
-              <h5>
-                <FaIcon iconName="fa-solid fa-triangle-exclamation" /> 직면했던 과제 및 어려웠던 점
-              </h5>
-              <p>{project.challenge}</p>
-            </div>
-            <div className="detail-block solution-block">
-              <h5>
-                <FaIcon iconName="fa-solid fa-lightbulb" /> 해결 전략 및 과정
-              </h5>
-              <p>{project.solution}</p>
-            </div>
-            <DetailSection title="핵심 인사이트 & 배운 점" items={project.insights} icon="fa-solid fa-star" />
+            {project.challenge && (
+              <div className="detail-block challenge-block">
+                <h5>
+                  <FaIcon iconName="fa-solid fa-triangle-exclamation" /> 직면했던 과제 및 어려웠던 점
+                </h5>
+                <p>{project.challenge}</p>
+              </div>
+            )}
+            {project.solution && (
+              <div className="detail-block solution-block">
+                <h5>
+                  <FaIcon iconName="fa-solid fa-lightbulb" /> 해결 전략 및 과정
+                </h5>
+                <p>{project.solution}</p>
+              </div>
+            )}
+            <DetailSection title="핵심 인사이트 & 배운 점" items={project.insights} icon="fa-solid fa-star" className="insight-block" />
           </div>
         </details>
       </div>
@@ -562,9 +566,10 @@ function ProjectCard3D({ project, index }) {
   );
 }
 
-function DetailSection({ title, items, icon }) {
+function DetailSection({ title, items, icon, className = "" }) {
+  if (!items || items.length === 0) return null;
   return (
-    <div className="detail-block">
+    <div className={`detail-block ${className}`.trim()}>
       <h5>
         {icon && <FaIcon iconName={icon} />} {title}
       </h5>
