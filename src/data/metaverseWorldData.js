@@ -36,6 +36,38 @@ export const metaverseZones = {
     title: "직무 경력 및 학력 여정 (Experience & Journey)",
     items: [
       {
+        period: "2025.04 ~ 재직 중",
+        company: "한진정보통신(주) (Hanjin Information Systems & Telecommunication)",
+        role: "Frontend Developer",
+        projects: [
+          {
+            title: "도심항공교통(UAM) 관제 CWP 시스템 (2025.04 ~ 재직 중)",
+            desc: "UAM 운항·교통관리·버티포트 통합 관제 UI/UX 설계, Redux Toolkit 기반 실시간 비행정보 상태 모델링 및 상황별 시각적 우선순위 최적화",
+          },
+        ],
+        stack: ["React", "TypeScript", "Redux Toolkit", "Tailwind CSS", "Axios", "Figma", "UAM", "CWP"],
+      },
+      {
+        period: "2023.03 ~ 2024.07",
+        company: "(주) 글로벌머니익스프레스 (Global Money Express Co., Ltd.)",
+        role: "Frontend Developer",
+        projects: [
+          {
+            title: "카드 시스템 CMS 개발 (2023.12 ~ 2024.06)",
+            desc: "GME 체크카드 시스템 구축 지원, Tailwind CSS 기반 사용자 친화적 UI 구현, Recoil atom/selector 전역 상태 통합 관리",
+          },
+          {
+            title: "홈페이지 리뉴얼 (2023.06 ~ 2023.11)",
+            desc: "Intersection Observer API 활용 컴포넌트 가상화 구현, SVG 이벤트 최적화로 리렌더링 방지, 다국어 지원 및 실시간 환율 기능 제공",
+          },
+          {
+            title: "신규 환율 스크래핑 페이지 개발 (2023.04 ~ 2023.05)",
+            desc: "실시간 기관/국가별 환율 데이터 연계, Chart.js 데이터 시각화 차트 구축, Memoization 불필요한 렌더링 방지 및 Nginx 서버 배포",
+          },
+        ],
+        stack: ["React", "Recoil", "Tailwind CSS", "Intersection Observer API", "Chart.js", "styled-components", "Axios"],
+      },
+      {
         period: "2021.07 ~ 2022.09",
         company: "에스큐아이소프트(주) (SQISOFT Co., Ltd.)",
         role: "Frontend Developer",
