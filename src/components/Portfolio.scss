@@ -1,7 +1,17 @@
 @import "/src/styles/extend";
 
+.portfolio-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: var(--theme-bg-color, #0f172a);
+}
+
 .portfolio {
     width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
     min-height: 100vh;
     max-height: 100vh;
     min-height: 100svh;
