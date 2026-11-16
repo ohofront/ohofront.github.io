@@ -5,9 +5,9 @@ export { capabilities, optimizationChart, projects };
 export const metaverseZones = {
   about: {
     id: "about",
-    name: "중앙 광장 · 조영호 아키텍트 타워",
+    name: "중앙 광장 · 조영호 토이 타운홀",
     shortName: "소개",
-    icon: "fa-solid fa-address-card",
+    icon: "fa-solid fa-house-chimney",
     color: "#10b981",
     position: { x: 0, z: 0 },
     title: "조영호 (Youngho Cho)",
@@ -28,9 +28,9 @@ export const metaverseZones = {
 
   experience: {
     id: "experience",
-    name: "경력 & 학력 아카이브 거리",
+    name: "히스토리 아카이브 우체국 거리",
     shortName: "경력·학력",
-    icon: "fa-solid fa-briefcase",
+    icon: "fa-solid fa-envelope-open-text",
     color: "#38bdf8",
     position: { x: -28, z: 0 },
     title: "직무 경력 및 학력 여정 (Experience & Journey)",
@@ -104,9 +104,9 @@ export const metaverseZones = {
 
   skills: {
     id: "skills",
-    name: "기술 스택 & 핵심 역량 타워",
+    name: "테크 랩 & 블록 타워",
     shortName: "기술스택",
-    icon: "fa-solid fa-code",
+    icon: "fa-solid fa-cubes",
     color: "#a855f7",
     position: { x: 28, z: 0 },
     title: "핵심 기술 역량 & 최적화 (Capabilities & Stack)",
@@ -118,20 +118,20 @@ export const metaverseZones = {
 
   projects: {
     id: "projects",
-    name: "11개 프로젝트 엑스포 월드",
-    shortName: "프로젝트 (11)",
-    icon: "fa-solid fa-folder-open",
+    name: "11개 토이 부스 마켓",
+    shortName: "토이부스 (11)",
+    icon: "fa-solid fa-store",
     color: "#f59e0b",
     position: { x: 0, z: -26 },
-    title: "프로젝트 엑스포 월드 (11 Projects)",
+    title: "11개 토이 부스 마켓 (11 Toy Booths)",
     summary:
-      "실제 배포된 웹 서비스, 앱스토어 출시 모바일 앱, SaaS 솔루션 및 관제 시스템의 11개 3D 부스를 직접 탐험하세요.",
+      "실제 배포된 웹 서비스, 앱스토어 출시 모바일 앱, SaaS 솔루션 및 관제 시스템의 11개 아기자기한 토이 부스를 직접 탐험하세요.",
     projects,
   },
 
   contact: {
     id: "contact",
-    name: "컨택트 & 소셜 포털",
+    name: "컨택트 풍선 게이트",
     shortName: "연락처",
     icon: "fa-solid fa-paper-plane",
     color: "#ec4899",

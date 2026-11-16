@@ -53,10 +53,10 @@ export default function MetaverseWorld({ projects, onSelectProject }) {
     const width = container.clientWidth;
     const height = container.clientHeight || 520;
 
-    // 1. Scene
+    // 1. Scene & Atmosphere (Cozy Pastel Toy World)
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x0a0e17);
-    scene.fog = new THREE.FogExp2(0x0a0e17, 0.015);
+    scene.background = new THREE.Color(0xf0fdf4);
+    scene.fog = new THREE.FogExp2(0xf0fdf4, 0.012);
     stateRef.current.scene = scene;
 
     // 2. Camera
@@ -75,149 +75,191 @@ export default function MetaverseWorld({ projects, onSelectProject }) {
     container.appendChild(renderer.domElement);
     stateRef.current.renderer = renderer;
 
-    // 4. Lights
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.65);
-    scene.add(ambientLight);
+    // 4. Lights (Warm Sunshine & Sky Ambient)
+    const hemiLight = new THREE.HemisphereLight(0xe0f2fe, 0xdcfce7, 1.25);
+    scene.add(hemiLight);
 
-    const dirLight = new THREE.DirectionalLight(0x6ee7b7, 1.2);
-    dirLight.position.set(20, 40, 20);
+    const dirLight = new THREE.DirectionalLight(0xfff7ed, 1.8);
+    dirLight.position.set(25, 45, 25);
     dirLight.castShadow = true;
     dirLight.shadow.mapSize.width = 1024;
     dirLight.shadow.mapSize.height = 1024;
     dirLight.shadow.camera.near = 0.5;
-    dirLight.shadow.camera.far = 120;
-    dirLight.shadow.camera.left = -35;
-    dirLight.shadow.camera.right = 35;
-    dirLight.shadow.camera.top = 35;
-    dirLight.shadow.camera.bottom = -35;
+    dirLight.shadow.camera.far = 140;
+    dirLight.shadow.camera.left = -40;
+    dirLight.shadow.camera.right = 40;
+    dirLight.shadow.camera.top = 40;
+    dirLight.shadow.camera.bottom = -40;
     scene.add(dirLight);
 
-    const purpleLight = new THREE.PointLight(0xa855f7, 2.5, 60);
-    purpleLight.position.set(-15, 8, -15);
-    scene.add(purpleLight);
+    // Warm soft accent lights
+    const softLight1 = new THREE.PointLight(0xfbbf24, 1.8, 50);
+    softLight1.position.set(-15, 8, -15);
+    scene.add(softLight1);
 
-    const blueLight = new THREE.PointLight(0x38bdf8, 2.5, 60);
-    blueLight.position.set(15, 8, 15);
-    scene.add(blueLight);
+    const softLight2 = new THREE.PointLight(0x38bdf8, 1.8, 50);
+    softLight2.position.set(15, 8, 15);
+    scene.add(softLight2);
 
-    // 5. Floor & Grid (Metaverse Cyber Grid)
-    const floorGeo = new THREE.PlaneGeometry(80, 80);
-    const floorMat = new THREE.MeshStandardMaterial({
-      color: 0x0f172a,
-      roughness: 0.8,
-      metalness: 0.2,
+    // 5. Floor: Soft Green Grass Island & Toy Cobblestone Paths
+    const islandGeo = new THREE.CylinderGeometry(44, 46, 2.0, 36);
+    const islandMat = new THREE.MeshStandardMaterial({
+      color: 0x86efac,
+      roughness: 0.85,
+      metalness: 0.05,
     });
-    const floor = new THREE.Mesh(floorGeo, floorMat);
-    floor.rotation.x = -Math.PI / 2;
-    floor.receiveShadow = true;
-    scene.add(floor);
+    const island = new THREE.Mesh(islandGeo, islandMat);
+    island.position.y = -1.0;
+    island.receiveShadow = true;
+    scene.add(island);
 
-    // Grid Helper
-    const gridHelper = new THREE.GridHelper(80, 40, 0x10b981, 0x1e293b);
+    // Grid Guide
+    const gridHelper = new THREE.GridHelper(80, 32, 0x4ade80, 0xbbf7d0);
     gridHelper.position.y = 0.02;
     scene.add(gridHelper);
 
-    // Center Stage Ring
-    const centerRingGeo = new THREE.RingGeometry(2.5, 3.2, 32);
-    const centerRingMat = new THREE.MeshBasicMaterial({ color: 0x10b981, side: THREE.DoubleSide });
+    // Central Cobblestone Circle
+    const centerRingGeo = new THREE.CylinderGeometry(4.2, 4.6, 0.08, 24);
+    const centerRingMat = new THREE.MeshStandardMaterial({ color: 0xfef08a, roughness: 0.8 });
     const centerRing = new THREE.Mesh(centerRingGeo, centerRingMat);
-    centerRing.rotation.x = -Math.PI / 2;
     centerRing.position.y = 0.05;
+    centerRing.receiveShadow = true;
     scene.add(centerRing);
 
-    // Floating Particles
-    const particleCount = 180;
+    // Decorative Low-Poly Toy Trees
+    const treeTrunkGeo = new THREE.CylinderGeometry(0.25, 0.35, 1.4, 8);
+    const treeTrunkMat = new THREE.MeshStandardMaterial({ color: 0xb45309, roughness: 0.9 });
+    const treeCrownGeo1 = new THREE.SphereGeometry(1.0, 8, 8);
+    const treeCrownGeo2 = new THREE.SphereGeometry(0.7, 8, 8);
+    const treeCrownMat1 = new THREE.MeshStandardMaterial({ color: 0x22c55e, roughness: 0.8 });
+    const treeCrownMat2 = new THREE.MeshStandardMaterial({ color: 0x4ade80, roughness: 0.8 });
+
+    const treePositions = [
+      [-26, -18], [26, -18], [-28, 14], [28, 14],
+      [-16, 26], [16, 26], [-18, -26], [18, -26]
+    ];
+
+    treePositions.forEach(([tx, tz]) => {
+      const treeGroup = new THREE.Group();
+      treeGroup.position.set(tx, 0, tz);
+
+      const trunk = new THREE.Mesh(treeTrunkGeo, treeTrunkMat);
+      trunk.position.y = 0.7;
+      trunk.castShadow = true;
+      treeGroup.add(trunk);
+
+      const crown1 = new THREE.Mesh(treeCrownGeo1, treeCrownMat1);
+      crown1.position.y = 1.8;
+      crown1.castShadow = true;
+      treeGroup.add(crown1);
+
+      const crown2 = new THREE.Mesh(treeCrownGeo2, treeCrownMat2);
+      crown2.position.y = 2.5;
+      crown2.castShadow = true;
+      treeGroup.add(crown2);
+
+      scene.add(treeGroup);
+    });
+
+    // Floating Spring Petals
+    const particleCount = 140;
     const particleGeo = new THREE.BufferGeometry();
     const particlePositions = new Float32Array(particleCount * 3);
     for (let i = 0; i < particleCount * 3; i += 3) {
       particlePositions[i] = (Math.random() - 0.5) * 70;
-      particlePositions[i + 1] = Math.random() * 20 + 0.5;
+      particlePositions[i + 1] = Math.random() * 18 + 0.5;
       particlePositions[i + 2] = (Math.random() - 0.5) * 70;
     }
     particleGeo.setAttribute("position", new THREE.BufferAttribute(particlePositions, 3));
     const particleMat = new THREE.PointsMaterial({
-      color: 0x38bdf8,
-      size: 0.35,
+      color: 0xfb7185,
+      size: 0.42,
       transparent: true,
-      opacity: 0.6,
+      opacity: 0.75,
     });
     const particles = new THREE.Points(particleGeo, particleMat);
     scene.add(particles);
     stateRef.current.particles = particles;
 
-    // 6. Build Avatar (Stylized 3D Developer Robot)
+    // 6. Build Avatar (Cute Toy Mini-Figure)
     const avatar = new THREE.Group();
     avatar.position.set(0, 0, 5);
 
-    // Shadow blob
-    const shadowGeo = new THREE.CircleGeometry(0.7, 16);
-    const shadowMat = new THREE.MeshBasicMaterial({ color: 0x000000, transparent: true, opacity: 0.45 });
+    // Shadow
+    const shadowGeo = new THREE.CircleGeometry(0.75, 16);
+    const shadowMat = new THREE.MeshBasicMaterial({ color: 0x166534, transparent: true, opacity: 0.28 });
     const shadow = new THREE.Mesh(shadowGeo, shadowMat);
     shadow.rotation.x = -Math.PI / 2;
     shadow.position.y = 0.03;
     avatar.add(shadow);
 
     // Body
-    const bodyGeo = new THREE.BoxGeometry(0.9, 1.1, 0.6);
-    const bodyMat = new THREE.MeshStandardMaterial({ color: 0x10b981, roughness: 0.3, metalness: 0.4 });
+    const bodyGeo = new THREE.CylinderGeometry(0.55, 0.65, 1.05, 12);
+    const bodyMat = new THREE.MeshStandardMaterial({ color: 0x34d399, roughness: 0.4 });
     const body = new THREE.Mesh(bodyGeo, bodyMat);
-    body.position.y = 1.2;
+    body.position.y = 1.15;
     body.castShadow = true;
     avatar.add(body);
 
     // Head
-    const headGeo = new THREE.BoxGeometry(0.75, 0.75, 0.75);
-    const headMat = new THREE.MeshStandardMaterial({ color: 0x0f172a, roughness: 0.2 });
+    const headGeo = new THREE.SphereGeometry(0.55, 16, 16);
+    const headMat = new THREE.MeshStandardMaterial({ color: 0xffedd5, roughness: 0.3 });
     const head = new THREE.Mesh(headGeo, headMat);
-    head.position.y = 2.15;
+    head.position.y = 2.05;
     head.castShadow = true;
     avatar.add(head);
 
-    // Visor/Eyes (Cyan Glow)
-    const visorGeo = new THREE.BoxGeometry(0.6, 0.22, 0.1);
-    const visorMat = new THREE.MeshBasicMaterial({ color: 0x38bdf8 });
-    const visor = new THREE.Mesh(visorGeo, visorMat);
-    visor.position.set(0, 2.2, 0.38);
-    avatar.add(visor);
+    // Button Eyes
+    const eyeGeo = new THREE.SphereGeometry(0.065, 8, 8);
+    const eyeMat = new THREE.MeshBasicMaterial({ color: 0x0f172a });
+    const leftEye = new THREE.Mesh(eyeGeo, eyeMat);
+    leftEye.position.set(-0.18, 2.1, 0.48);
+    avatar.add(leftEye);
 
-    // Headset
-    const headsetGeo = new THREE.CylinderGeometry(0.18, 0.18, 0.85, 12);
-    const headsetMat = new THREE.MeshStandardMaterial({ color: 0xec4899, roughness: 0.5 });
-    const headsetL = new THREE.Mesh(headsetGeo, headsetMat);
-    headsetL.rotation.z = Math.PI / 2;
-    headsetL.position.set(-0.42, 2.15, 0);
-    avatar.add(headsetL);
-    const headsetR = headsetL.clone();
-    headsetR.position.set(0.42, 2.15, 0);
-    avatar.add(headsetR);
+    const rightEye = new THREE.Mesh(eyeGeo, eyeMat);
+    rightEye.position.set(0.18, 2.1, 0.48);
+    avatar.add(rightEye);
 
-    // Antenna
-    const antGeo = new THREE.CylinderGeometry(0.03, 0.03, 0.4, 8);
-    const antMat = new THREE.MeshBasicMaterial({ color: 0xf59e0b });
-    const ant = new THREE.Mesh(antGeo, antMat);
-    ant.position.set(0, 2.7, 0);
-    avatar.add(ant);
-    const antBulbGeo = new THREE.SphereGeometry(0.08, 8, 8);
-    const antBulb = new THREE.Mesh(antBulbGeo, new THREE.MeshBasicMaterial({ color: 0x10b981 }));
-    antBulb.position.set(0, 2.9, 0);
-    avatar.add(antBulb);
+    // Blushing Cheeks
+    const blushGeo = new THREE.SphereGeometry(0.08, 8, 8);
+    const blushMat = new THREE.MeshBasicMaterial({ color: 0xfb7185, transparent: true, opacity: 0.75 });
+    const leftBlush = new THREE.Mesh(blushGeo, blushMat);
+    leftBlush.position.set(-0.28, 1.98, 0.42);
+    avatar.add(leftBlush);
 
-    // Left Arm & Right Arm
-    const armGeo = new THREE.BoxGeometry(0.25, 0.8, 0.25);
-    const armMat = new THREE.MeshStandardMaterial({ color: 0x1e293b });
+    const rightBlush = new THREE.Mesh(blushGeo, blushMat);
+    rightBlush.position.set(0.28, 1.98, 0.42);
+    avatar.add(rightBlush);
+
+    // Beret Hat
+    const hatGeo = new THREE.SphereGeometry(0.48, 16, 8, 0, Math.PI * 2, 0, Math.PI * 0.5);
+    const hatMat = new THREE.MeshStandardMaterial({ color: 0xf59e0b, roughness: 0.5 });
+    const hat = new THREE.Mesh(hatGeo, hatMat);
+    hat.position.set(0, 2.4, 0);
+    avatar.add(hat);
+
+    const pompomGeo = new THREE.SphereGeometry(0.15, 8, 8);
+    const pompomMat = new THREE.MeshStandardMaterial({ color: 0xf43f5e, roughness: 0.6 });
+    const pompom = new THREE.Mesh(pompomGeo, pompomMat);
+    pompom.position.set(0, 2.65, 0);
+    avatar.add(pompom);
+
+    // Arms
+    const armGeo = new THREE.CylinderGeometry(0.14, 0.16, 0.75, 8);
+    const armMat = new THREE.MeshStandardMaterial({ color: 0x10b981, roughness: 0.4 });
     const leftArm = new THREE.Mesh(armGeo, armMat);
-    leftArm.position.set(-0.62, 1.2, 0);
+    leftArm.position.set(-0.68, 1.15, 0);
     leftArm.castShadow = true;
     avatar.add(leftArm);
 
     const rightArm = new THREE.Mesh(armGeo, armMat);
-    rightArm.position.set(0.62, 1.2, 0);
+    rightArm.position.set(0.68, 1.15, 0);
     rightArm.castShadow = true;
     avatar.add(rightArm);
 
-    // Left Leg & Right Leg
-    const legGeo = new THREE.BoxGeometry(0.3, 0.7, 0.3);
-    const legMat = new THREE.MeshStandardMaterial({ color: 0x334155 });
+    // Legs
+    const legGeo = new THREE.CylinderGeometry(0.18, 0.18, 0.65, 8);
+    const legMat = new THREE.MeshStandardMaterial({ color: 0x0284c7, roughness: 0.5 });
     const leftLeg = new THREE.Mesh(legGeo, legMat);
     leftLeg.position.set(-0.25, 0.35, 0);
     leftLeg.castShadow = true;
@@ -232,7 +274,7 @@ export default function MetaverseWorld({ projects, onSelectProject }) {
     stateRef.current.avatar = avatar;
     stateRef.current.avatarParts = { leftArm, rightArm, leftLeg, rightLeg, head, body, shadow };
 
-    // 7. Build 11 Interactive Project Booths
+    // 7. Build 11 Interactive Cute Project Toy Booths
     const booths = [];
     projects.forEach((proj) => {
       const zone = proj.metaverseZone || { x: 0, z: 0, color: "#10b981", tag: "PROJECT" };
@@ -240,63 +282,68 @@ export default function MetaverseWorld({ projects, onSelectProject }) {
       boothGroup.position.set(zone.x, 0, zone.z);
       boothGroup.userData = { project: proj };
 
-      // Base Pedestal
-      const baseGeo = new THREE.CylinderGeometry(2.4, 2.8, 0.5, 8);
+      // Base Pedestal (Cream Toy Base)
+      const baseGeo = new THREE.CylinderGeometry(2.3, 2.7, 0.45, 16);
       const baseMat = new THREE.MeshStandardMaterial({
-        color: 0x1e293b,
-        metalness: 0.5,
-        roughness: 0.3,
+        color: 0xfef9c3,
+        roughness: 0.7,
       });
       const baseMesh = new THREE.Mesh(baseGeo, baseMat);
-      baseMesh.position.y = 0.25;
+      baseMesh.position.y = 0.22;
       baseMesh.receiveShadow = true;
       boothGroup.add(baseMesh);
 
-      // Glowing Neon Base Ring
-      const ringGeo = new THREE.TorusGeometry(2.5, 0.09, 8, 24);
+      // Colorful Soft Ring
+      const ringGeo = new THREE.TorusGeometry(2.35, 0.08, 8, 24);
       const ringMat = new THREE.MeshBasicMaterial({ color: zone.color });
       const ringMesh = new THREE.Mesh(ringGeo, ringMat);
       ringMesh.rotation.x = Math.PI / 2;
-      ringMesh.position.y = 0.52;
+      ringMesh.position.y = 0.48;
       boothGroup.add(ringMesh);
 
-      // Pillar Column
-      const pillarGeo = new THREE.BoxGeometry(0.8, 2.2, 0.8);
-      const pillarMat = new THREE.MeshStandardMaterial({
-        color: 0x0f172a,
-        metalness: 0.8,
+      // Shop Counter Body
+      const counterGeo = new THREE.BoxGeometry(1.6, 1.4, 1.2);
+      const counterMat = new THREE.MeshStandardMaterial({
+        color: 0xffffff,
+        roughness: 0.4,
+      });
+      const counter = new THREE.Mesh(counterGeo, counterMat);
+      counter.position.y = 1.0;
+      counter.castShadow = true;
+      boothGroup.add(counter);
+
+      // Cute Canopy / Awning Roof
+      const awningGeo = new THREE.ConeGeometry(1.6, 0.9, 4);
+      const awningMat = new THREE.MeshStandardMaterial({ color: zone.color, roughness: 0.3 });
+      const awning = new THREE.Mesh(awningGeo, awningMat);
+      awning.rotation.y = Math.PI / 4;
+      awning.position.y = 2.1;
+      awning.castShadow = true;
+      boothGroup.add(awning);
+
+      // Rotating Cute Golden Star
+      const starGeo = new THREE.OctahedronGeometry(0.75, 0);
+      const starMat = new THREE.MeshStandardMaterial({
+        color: 0xfbbf24,
+        emissive: 0xf59e0b,
+        emissiveIntensity: 0.55,
         roughness: 0.2,
       });
-      const pillar = new THREE.Mesh(pillarGeo, pillarMat);
-      pillar.position.y = 1.4;
-      pillar.castShadow = true;
-      boothGroup.add(pillar);
-
-      // Floating Rotating Hologram Crystal
-      const crystalGeo = new THREE.OctahedronGeometry(0.9, 0);
-      const crystalMat = new THREE.MeshStandardMaterial({
-        color: zone.color,
-        emissive: zone.color,
-        emissiveIntensity: 0.45,
-        roughness: 0.1,
-        metalness: 0.8,
-        wireframe: false,
-      });
-      const crystal = new THREE.Mesh(crystalGeo, crystalMat);
-      crystal.position.y = 3.6;
+      const crystal = new THREE.Mesh(starGeo, starMat);
+      crystal.position.y = 3.3;
       crystal.castShadow = true;
       boothGroup.add(crystal);
 
-      // Floating Glow Ring around Crystal
-      const haloGeo = new THREE.TorusGeometry(1.3, 0.04, 8, 24);
-      const haloMat = new THREE.MeshBasicMaterial({ color: zone.color, transparent: true, opacity: 0.7 });
+      // Floating Glow Halo around Star
+      const haloGeo = new THREE.TorusGeometry(1.15, 0.035, 8, 24);
+      const haloMat = new THREE.MeshBasicMaterial({ color: zone.color, transparent: true, opacity: 0.8 });
       const halo = new THREE.Mesh(haloGeo, haloMat);
       halo.rotation.x = Math.PI / 3;
-      halo.position.y = 3.6;
+      halo.position.y = 3.3;
       boothGroup.add(halo);
 
-      // Local Point Light
-      const pLight = new THREE.PointLight(zone.color, 1.8, 7);
+      // Warm Point Light
+      const pLight = new THREE.PointLight(zone.color, 1.4, 6);
       pLight.position.set(0, 3.2, 0);
       boothGroup.add(pLight);
 
@@ -410,7 +457,7 @@ export default function MetaverseWorld({ projects, onSelectProject }) {
       booths.forEach((b, idx) => {
         b.crystal.rotation.y += 0.02;
         b.crystal.rotation.x = Math.sin(time * 2 + idx) * 0.15;
-        b.crystal.position.y = 3.6 + Math.sin(time * 2.5 + idx) * 0.2;
+        b.crystal.position.y = 3.3 + Math.sin(time * 2.5 + idx) * 0.15;
         b.halo.rotation.z += 0.015;
       });
 
