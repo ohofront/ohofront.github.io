@@ -48,7 +48,7 @@ export const projects = [
       "무료 클라우드의 슬립·DB 만료 정책까지 파악하는 것이 안정적인 운영의 일부",
       "기능별 스펙과 API 계약을 먼저 정의하면 AI 에이전트 활용 시에도 구현 검증과 품질 관리가 수월함"
     ],
-    metaverseZone: { x: -24, z: -18, color: "#10b981", tag: "FULLSTACK" },
+    metaverseZone: { x: -22, z: -16, color: "#10b981", tag: "FULLSTACK" },
     metrics: [
       { label: "이미지 로딩 속도", before: "2.8s", after: "0.6s", change: "78% 단축", desc: "Cloudinary WebP/리사이징 최적화" },
       { label: "API 응답 지연", before: "420ms", after: "95ms", change: "77% 단축", desc: "JPA N+1 해소 및 인덱스 튜닝" },
@@ -99,7 +99,7 @@ export const projects = [
       "실시간 시스템은 상태 모델링과 UI 상태 분리가 중요",
       "데이터의 양보다 우선순위와 맥락이 관제 효율을 결정"
     ],
-    metaverseZone: { x: -12, z: -24, color: "#38bdf8", tag: "CWP / AIR" },
+    metaverseZone: { x: -12, z: -20, color: "#38bdf8", tag: "CWP / AIR" },
     metrics: [
       { label: "실시간 렌더링 딜레이", before: "180ms", after: "16ms", change: "60fps 유지", desc: "항공기 항적 렌더링 최적화" },
       { label: "비정상 인지·대응 시간", before: "8.5초", after: "2.1초", change: "75% 단축", desc: "시각 우선순위 비상 알림" },
@@ -157,7 +157,7 @@ export const projects = [
       "출시는 개발·QA·정책·버전·심사와 서비스 홈페이지 운영을 포함",
       "초기 서비스는 긍정 평가보다 이탈 이유와 헷갈리는 지점을 구체적으로 수집하는 것이 중요"
     ],
-    metaverseZone: { x: 0, z: -24, color: "#f97316", tag: "APP STORE" },
+    metaverseZone: { x: 0, z: -17, color: "#f97316", tag: "APP STORE" },
     metrics: [
       { label: "앱 콜드 스타트 시간", before: "3.2s", after: "1.1s", change: "65% 단축", desc: "Expo 54 번들 다이어트" },
       { label: "주간 루틴 유지율", before: "24%", after: "68%", change: "+183% 증가", desc: "대체 요일 & 스트릭 기능" },
@@ -209,7 +209,7 @@ export const projects = [
       "모바일 웹은 키보드·스크롤·PWA 환경까지 고려",
       "QA를 재현 조건과 기대 결과로 구조화하면 합의가 빨라짐"
     ],
-    metaverseZone: { x: 12, z: -24, color: "#a855f7", tag: "PWA WEB" },
+    metaverseZone: { x: 12, z: -20, color: "#a855f7", tag: "PWA WEB" },
     metrics: [
       { label: "PWA 재방문 로딩 속도", before: "2.4s", after: "0.4s", change: "83% 단축", desc: "Service Worker 프리캐싱" },
       { label: "실시간 투표 결과 반영", before: "650ms", after: "80ms", change: "88% 단축", desc: "낙관적 업데이트(Optimistic)" },
@@ -259,7 +259,7 @@ export const projects = [
       "데이터 계약의 선행이 비동기 협업 비용을 줄임",
       "솔루션 자체도 접근성 원칙을 충족해야 함"
     ],
-    metaverseZone: { x: 24, z: -18, color: "#3b82f6", tag: "WCAG SAAS" },
+    metaverseZone: { x: 22, z: -15, color: "#3b82f6", tag: "WCAG SAAS" },
     metrics: [
       { label: "WCAG 2.1 준수율", before: "64%", after: "98%", change: "+34%p 향상", desc: "명도 대비·레이블·포커스" },
       { label: "진단 리포트 파싱 속도", before: "4.8s", after: "1.2s", change: "75% 단축", desc: "JSON 스키마 선행 검증" },
@@ -309,7 +309,7 @@ export const projects = [
       "외부 응답은 초기에 파싱·예외 처리가 필요",
       "AI 결과는 사용자가 이해할 구조로 변환해야 함"
     ],
-    metaverseZone: { x: 24, z: 0, color: "#ec4899", tag: "AI HACKATHON" },
+    metaverseZone: { x: 20, z: -5, color: "#ec4899", tag: "AI HACKATHON" },
     metrics: [
       { label: "AI 영수증 분석 시간", before: "6.2s", after: "1.8s", change: "71% 단축", desc: "파이프라인 최적화" },
       { label: "비정형 AI 파싱 성공률", before: "78%", after: "99.4%", change: "+21.4%p", desc: "방어적 AI 정규화 파서" },
@@ -357,7 +357,7 @@ export const projects = [
       "배포·캐시 이해가 실제 체감 성능으로 연결",
       "작은 UX 개선이 운영 생산성에 기여"
     ],
-    metaverseZone: { x: 20, z: 18, color: "#6366f1", tag: "FINTECH CMS" },
+    metaverseZone: { x: 20, z: 12, color: "#6366f1", tag: "FINTECH CMS" },
     metrics: [
       { label: "10만 건 필터 렌더링", before: "3.5s", after: "0.3s", change: "91% 단축", desc: "서버 페이징 & 렌더링 분할" },
       { label: "중복 API 호출량", before: "초당 22회", after: "초당 3회", change: "86% 절감", desc: "Debounce 300ms & 캐시" },
@@ -407,7 +407,7 @@ export const projects = [
       "상태 변경 최소화와 DOM 제어의 병행 효과",
       "다국어는 번역이 아닌 레이아웃 설계 문제"
     ],
-    metaverseZone: { x: 0, z: 24, color: "#14b8a6", tag: "GLOBAL WEB" },
+    metaverseZone: { x: 0, z: 17, color: "#14b8a6", tag: "GLOBAL WEB" },
     metrics: [
       { label: "12개 언어 전환 지연", before: "1.4s", after: "0.15s", change: "89% 단축", desc: "i18next 비동기 청크 로딩" },
       { label: "초당 불필요 리렌더", before: "48회", after: "4회", change: "92% 감소", desc: "SVG DOM 직접 제어" },
@@ -505,7 +505,7 @@ export const projects = [
       "타입 안전성이 장기 유지보수 비용을 절감",
       "전역·로컬 상태 경계가 불필요한 렌더를 예방"
     ],
-    metaverseZone: { x: -24, z: 8, color: "#8b5cf6", tag: "ETRI CMS" },
+    metaverseZone: { x: -22, z: 8, color: "#8b5cf6", tag: "ETRI CMS" },
     metrics: [
       { label: "문화유산 에셋 검색 속도", before: "2.6s", after: "0.4s", change: "85% 단축", desc: "RTK Query 캐싱 통일" },
       { label: "캐시 히트율 (Hit Rate)", before: "0%", after: "88.5%", change: "서버 부하 격감", desc: "태그 기반 스마트 무효화" },
@@ -553,7 +553,7 @@ export const projects = [
       "Lazy Loading·Debounce·Memoization은 대용량 Admin의 기반",
       "트랜잭션 관점 협업이 롤백 위험을 낮춤"
     ],
-    metaverseZone: { x: -24, z: -8, color: "#06b6d4", tag: "HOTEL CMS" },
+    metaverseZone: { x: -22, z: -6, color: "#06b6d4", tag: "HOTEL CMS" },
     metrics: [
       { label: "2,000+ 객실 일괄 작업", before: "8.4s", after: "1.1s", change: "87% 단축", desc: "배치 처리 알고리즘" },
       { label: "DB 롤백/충돌 발생률", before: "4.8%", after: "0%", change: "완전 방지", desc: "트랜잭션 표준화" },
