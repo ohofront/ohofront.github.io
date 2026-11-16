@@ -47,15 +47,15 @@
         "format": "grid"
       },
       "locales": {
-        "en": { "title": "Or if you **prefer**..." },
-        "es": { "title": "O si **prefieres**..." },
-        "fr": { "title": "Ou si vous **préférez**..." },
-        "ko": { "title": "또는 **원하시면**..." }
+        "en": { "title": "Direct **Contact**" },
+        "es": { "title": "Contacto **Directo**" },
+        "fr": { "title": "Contact **Direct**" },
+        "ko": { "title": "직접 **연락처**" }
       },
 
       "items": [
         {
-          "value": "+82 010-5186-7482",
+          "value": "010-5186-7482",
           "links": [{ "href": "tel:01051867482" }],
           "icon": {
             "img": null,
