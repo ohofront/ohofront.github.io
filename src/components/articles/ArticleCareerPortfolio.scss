@@ -489,10 +489,33 @@
     .project-role-3d {
       color: #94a3b8;
       font-size: 0.82rem;
-      margin: 0 0 1.2rem;
+      margin: 0 0 0.5rem;
 
       b {
         color: var(--accent-color, #10b981);
+      }
+    }
+
+    .project-team-context-3d {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #94a3b8;
+      font-size: 0.8rem;
+      background: rgba(255, 255, 255, 0.03);
+      border-left: 2px solid var(--accent-color, #10b981);
+      padding: 6px 12px;
+      border-radius: 4px;
+      margin-bottom: 1.2rem;
+      line-height: 1.5;
+
+      svg {
+        color: var(--accent-color, #10b981);
+        flex-shrink: 0;
+      }
+
+      b {
+        color: #cbd5e1;
       }
     }
 
@@ -786,8 +809,144 @@
             overflow-wrap: break-word;
           }
 
-          &.challenge-block, &.solution-block, &.insight-block {
+          &.challenge-block, &.solution-block, &.insight-block,
+          &.unexpected-block, &.decision-block, &.collaboration-block, &.retrospective-block {
             grid-column: 1 / -1;
+          }
+
+          &.unexpected-block {
+            background: rgba(245, 158, 11, 0.06);
+            border: 1px solid rgba(245, 158, 11, 0.22);
+            border-left: 3px solid #f59e0b;
+            padding: 12px 14px;
+            border-radius: 8px;
+
+            h5 {
+              color: #f59e0b;
+            }
+          }
+
+          &.decision-block {
+            background: rgba(167, 139, 250, 0.05);
+            border: 1px solid rgba(167, 139, 250, 0.2);
+            border-left: 3px solid #a78bfa;
+            padding: 12px 14px;
+            border-radius: 8px;
+
+            h5 {
+              color: #a78bfa;
+            }
+
+            .decision-grid {
+              display: grid;
+              grid-template-columns: repeat(2, minmax(0, 1fr));
+              gap: 10px;
+              margin-top: 8px;
+
+              @include media-breakpoint-down(md) {
+                grid-template-columns: minmax(0, 1fr);
+              }
+            }
+
+            .decision-item {
+              padding: 10px 12px;
+              border-radius: 8px;
+              font-size: 0.8rem;
+              line-height: 1.6;
+
+              .decision-badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 5px;
+                font-size: 0.72rem;
+                font-weight: 700;
+                padding: 2px 8px;
+                border-radius: 4px;
+                margin-bottom: 6px;
+              }
+
+              &.unselected {
+                background: rgba(239, 68, 68, 0.06);
+                border: 1px dashed rgba(239, 68, 68, 0.3);
+
+                .badge-unselected {
+                  background: rgba(239, 68, 68, 0.15);
+                  color: #f87171;
+                }
+
+                p {
+                  color: #94a3b8;
+                  margin: 0;
+                }
+              }
+
+              &.selected {
+                background: rgba(16, 185, 129, 0.07);
+                border: 1px solid rgba(16, 185, 129, 0.3);
+
+                .badge-selected {
+                  background: rgba(16, 185, 129, 0.2);
+                  color: #34d399;
+                }
+
+                p {
+                  color: #e2e8f0;
+                  font-weight: 500;
+                  margin: 0;
+                }
+              }
+            }
+          }
+
+          &.collaboration-block {
+            background: rgba(20, 184, 166, 0.06);
+            border: 1px solid rgba(20, 184, 166, 0.22);
+            border-left: 3px solid #14b8a6;
+            padding: 12px 14px;
+            border-radius: 8px;
+
+            h5 {
+              color: #2dd4bf;
+            }
+          }
+
+          &.retrospective-block {
+            background: rgba(56, 189, 248, 0.06);
+            border: 1px solid rgba(56, 189, 248, 0.22);
+            border-left: 3px solid #38bdf8;
+            padding: 12px 14px;
+            border-radius: 8px;
+
+            h5 {
+              color: #38bdf8;
+            }
+
+            .retrospective-quote {
+              margin: 0;
+              padding: 10px 14px;
+              border-radius: 6px;
+              background: rgba(56, 189, 248, 0.08);
+              display: flex;
+              align-items: flex-start;
+              gap: 10px;
+              color: #f0f9ff;
+              font-size: 0.85rem;
+              font-weight: 600;
+              line-height: 1.7;
+
+              svg {
+                color: #38bdf8;
+                font-size: 0.9rem;
+                margin-top: 3px;
+                flex-shrink: 0;
+              }
+            }
+          }
+
+          .narrative-text {
+            color: #cbd5e1;
+            font-size: 0.83rem;
+            line-height: 1.72;
           }
 
           &.challenge-block h5 {

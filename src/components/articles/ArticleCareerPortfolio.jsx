@@ -406,6 +406,14 @@ function ProjectCard3D({ project, index }) {
           <b>담당 역할:</b> {project.role}
         </p>
 
+        {/* Team Context & Collaboration Scope */}
+        {project.teamContext && (
+          <div className="project-team-context-3d">
+            <FaIcon iconName="fa-solid fa-people-group" />
+            <span><b>팀 구성 및 협업 맥락:</b> {project.teamContext}</span>
+          </div>
+        )}
+
         {/* Links Area */}
         <div className="project-links-3d">
           {project.links?.map((link) => (
@@ -536,16 +544,71 @@ function ProjectCard3D({ project, index }) {
         {/* Expandable Process & Problem Solving */}
         <details className="project-details-toggle">
           <summary>
-            <span>상세 진행 과정 및 문제 해결 전략 확인하기</span>
+            <span>진짜 일하는 이야기 & 의사결정 과정 확인하기 (막혔던 순간, 판단 이유, 배운 점)</span>
             <FaIcon iconName="fa-solid fa-chevron-down" />
           </summary>
           <div className="project-details-content">
-            <DetailSection title="진행 과정" items={project.process} icon="fa-solid fa-list-check" />
-            <DetailSection title="주요 기능" items={project.features} icon="fa-solid fa-wand-magic-sparkles" />
+            {/* 1. 완벽한 서사보다 막혔던 순간 */}
+            {project.unexpectedMoment && (
+              <div className="detail-block unexpected-block">
+                <h5>
+                  <FaIcon iconName="fa-solid fa-triangle-exclamation" /> 가장 예상과 달랐던 순간 (막혔던 순간)
+                </h5>
+                <p className="narrative-text">{project.unexpectedMoment}</p>
+              </div>
+            )}
+
+            {/* 2. 결과물보다 판단 (고르지 않은 대안과 이유) */}
+            {project.decision && (
+              <div className="detail-block decision-block">
+                <h5>
+                  <FaIcon iconName="fa-solid fa-scale-balanced" /> 결과물보다 판단 (의사결정과 포기한 대안)
+                </h5>
+                <div className="decision-grid">
+                  <div className="decision-item unselected">
+                    <span className="decision-badge badge-unselected">
+                      <FaIcon iconName="fa-solid fa-xmark" /> 고르지 않은 대안
+                    </span>
+                    <p>{project.decision.unselected}</p>
+                  </div>
+                  <div className="decision-item selected">
+                    <span className="decision-badge badge-selected">
+                      <FaIcon iconName="fa-solid fa-check" /> 선택한 방향 & 그 이유
+                    </span>
+                    <p>{project.decision.selectedReason}</p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* 3. 혼자가 아니라 함께 만든 장면 */}
+            {project.collaborationStory && (
+              <div className="detail-block collaboration-block">
+                <h5>
+                  <FaIcon iconName="fa-solid fa-handshake-simple" /> 함께 만든 장면 (이견 조율 & 내 생각이 바뀐 순간)
+                </h5>
+                <p className="narrative-text">{project.collaborationStory}</p>
+              </div>
+            )}
+
+            {/* 4. 실패 다음 줄이 더 중요해요 (배움과 일하는 방식의 변화) */}
+            {project.retrospective && (
+              <div className="detail-block retrospective-block">
+                <h5>
+                  <FaIcon iconName="fa-solid fa-arrow-trend-up" /> 실패 다음 줄 (배움과 달라진 일하는 방식)
+                </h5>
+                <blockquote className="retrospective-quote">
+                  <FaIcon iconName="fa-solid fa-quote-left" />
+                  <span>{project.retrospective}</span>
+                </blockquote>
+              </div>
+            )}
+
+            {/* 5. 기술적 도전 및 해결 전략 */}
             {project.challenge && (
               <div className="detail-block challenge-block">
                 <h5>
-                  <FaIcon iconName="fa-solid fa-triangle-exclamation" /> 직면했던 과제 및 어려웠던 점
+                  <FaIcon iconName="fa-solid fa-bug" /> 직면했던 기술적 문제
                 </h5>
                 <p>{project.challenge}</p>
               </div>
@@ -553,12 +616,18 @@ function ProjectCard3D({ project, index }) {
             {project.solution && (
               <div className="detail-block solution-block">
                 <h5>
-                  <FaIcon iconName="fa-solid fa-lightbulb" /> 해결 전략 및 과정
+                  <FaIcon iconName="fa-solid fa-lightbulb" /> 기술 해결 전략 및 구현
                 </h5>
                 <p>{project.solution}</p>
               </div>
             )}
-            <DetailSection title="핵심 인사이트 & 배운 점" items={project.insights} icon="fa-solid fa-star" className="insight-block" />
+
+            {/* 6. 진행 과정 & 주요 기능 */}
+            <DetailSection title="상세 진행 과정" items={project.process} icon="fa-solid fa-list-check" />
+            <DetailSection title="주요 기능" items={project.features} icon="fa-solid fa-wand-magic-sparkles" />
+
+            {/* 7. 핵심 인사이트 & 시사점 */}
+            <DetailSection title="핵심 인사이트 & 시사점" items={project.insights} icon="fa-solid fa-star" className="insight-block" />
           </div>
         </details>
       </div>
