@@ -37,7 +37,7 @@ export const metaverseZones = {
     items: [
       {
         period: "2025.04 ~ 재직 중",
-        company: "한진정보통신(주) (Hanjin Information Systems & Telecommunication)",
+        company: "한진정보통신(주)",
         role: "Frontend Developer",
         projects: [
           {
@@ -49,7 +49,7 @@ export const metaverseZones = {
       },
       {
         period: "2023.03 ~ 2024.07",
-        company: "(주) 글로벌머니익스프레스 (Global Money Express Co., Ltd.)",
+        company: "(주) 글로벌머니익스프레스",
         role: "Frontend Developer",
         projects: [
           {
@@ -69,7 +69,7 @@ export const metaverseZones = {
       },
       {
         period: "2021.07 ~ 2022.09",
-        company: "에스큐아이소프트(주) (SQISOFT Co., Ltd.)",
+        company: "에스큐아이소프트(주)",
         role: "Frontend Developer",
         projects: [
           {
