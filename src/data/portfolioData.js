@@ -14,6 +14,7 @@ export const projects = [
     period: "2026.08",
     type: "풀스택 웹 서비스",
     role: "1인 개발 · 기획 · 백엔드/프론트엔드 · 배포/운영",
+    teamContext: "1인 풀스택 개발 (기획부터 백엔드·프론트엔드·인프라 배포까지 전담, 동호회 운영진·회원 피드백 수렴)",
     summary: "조기축구 동호회의 구단 정보와 커뮤니티를 제공하고, 회원과 관리자의 권한 및 운영 업무를 분리한 풀스택 웹 서비스입니다.",
     url: "https://seowonfc.com",
     links: [
@@ -22,6 +23,16 @@ export const projects = [
       { label: "Frontend GitHub", url: "https://github.com/ohofront/seowonfc-frontend", icon: "fa-brands fa-github" },
     ],
     stack: ["Java 17", "Spring Boot 4", "Spring Data JPA", "Spring Security", "JWT", "PostgreSQL", "React", "Vite", "TypeScript", "Tailwind CSS", "Render", "Netlify", "Cloudinary", "Swagger"],
+    
+    // 채용 담당자가 보고 싶어하는 진짜 일하는 이야기 5가지
+    unexpectedMoment: "로컬 환경에서는 완벽하게 돌아가던 경기 일정과 회원 관리 기능이, 클라우드 배포 직후 서버 UTC와 사용자 브라우저 KST의 시차로 인해 경기 날짜가 하루 전으로 밀려 보이고, 15분 슬립 정책으로 첫 접속이 멈추는 돌발 상황을 맞닥뜨렸을 때였습니다.",
+    decision: {
+      unselected: "회원 가입 즉시 자동으로 정회원 권한을 부여하고 자유롭게 프로필을 등록하게 만드는 빠른 개발 방식",
+      selectedReason: "실제 조기축구 운영상 회비 미납자나 외부인의 무분별한 경기 참여 혼선을 방지해야 했기에, 개발 공수가 더 들더라도 관리자의 '선수 승인/반려 워크플로우'와 URL 네임스페이스 분리(/api/v1/admin)를 구축하는 방향을 선택했습니다."
+    },
+    collaborationStory: "축구 동호회 총무와 회원들에게 초기 버전을 시연했을 때, 관리자 입장에서 '선수를 승인한 뒤 삭제했는데 회원 화면에는 여전히 승인 상태로 남아있다'는 문제를 발견했습니다. 개발자의 편의적 시각을 내려놓고 운영자의 실제 업무 흐름을 경청하여, 엔티티 간 연관관계를 재설계하고 삭제 상태가 일관되게 동기화되도록 수정했습니다.",
+    retrospective: "'로컬에서 잘 돌아가면 끝'이라는 안일함을 버리고, 클라우드 인프라의 슬립 정책·타임존·DB 보존 기간까지 개발 첫 단계 체크리스트에 포함해 사전 점검하는 일하는 습관을 갖게 되었습니다.",
+
     process: [
       "구단 뉴스·선수단·경기 일정/결과/순위·커뮤니티·이벤트·스폰서 도메인과 회원/관리자 운영 흐름 기획",
       "회원 API(/api/v1/**)와 관리자 API(/api/v1/admin/**)를 URL 네임스페이스로 분리하고 Spring Security·JWT 인증 및 Refresh Token 갱신 구현",
@@ -72,6 +83,7 @@ export const projects = [
     period: "2025.04 ~",
     type: "관제 시스템",
     role: "서비스 아키텍처 설계 · CWP 프론트엔드 개발 · 관제 UI/UX 설계",
+    teamContext: "항공교통 도메인 연구원, 백엔드 엔지니어, 프론트엔드 엔지니어(본인) 협업 프로젝트",
     summary: "UAM 비행·운항지원·버티포트·안전 정보를 통합해 관제사의 실시간 모니터링과 의사결정을 지원하는 웹 기반 CWP 시스템입니다.",
     url: null,
     statusNote: "개발 진행 중 (사내 보안 협의 중)",
@@ -79,6 +91,15 @@ export const projects = [
       { label: "비공개 프로젝트 (사내 보안 협의 중)", url: "#", icon: "fa-solid fa-shield-halved", disabled: true }
     ],
     stack: ["React", "TypeScript", "Redux Toolkit", "Tailwind CSS", "Axios", "Figma"],
+
+    unexpectedMoment: "모든 항공기 항적과 버티포트 데이터를 화면에 실시간으로 화려하게 띄웠으나, 관제 시뮬레이션 테스트에서 '정보가 너무 많아 비상 상황이나 충돌 위험이 전혀 눈에 띄지 않는다'는 피드백을 받았을 때였습니다.",
+    decision: {
+      unselected: "100ms 고주기 폴링으로 모든 항적 데이터를 프론트엔드에서 실시간 재계산하고 무조건 전체 렌더링하는 방식",
+      selectedReason: "관제 화면의 프레임 저하와 시각적 피로도를 막기 위해, 비행계획·실시간감시·비상알림 상태를 Redux Slice로 엄격히 분리하고 긴급도 우선순위에 따라 렌더링 주기를 차등화하는 설계를 선택했습니다."
+    },
+    collaborationStory: "항공 도메인 연구원들은 항공 규정 용어를, 프론트엔드는 컴포넌트 단위 기술 용어를 쓰며 초기 회의가 헛돌았습니다. 제가 먼저 '정상-혼잡-비상 3단계 시나리오 상태 다이어그램'을 그려 회의 테이블에 올렸고, 이를 팀의 공통 언어로 확립해 필드 정의와 UI 반영 속도를 대폭 끌어올렸습니다.",
+    retrospective: "'화려한 UI보다 중요한 것은 긴급한 의사결정을 방해하지 않는 정보 위계'라는 점을 뼈저리게 느끼고, 대시보드 설계 시 항상 '가장 위험할 때 관제사가 1초 만에 봐야 할 정보가 무엇인가'를 1순위로 질문하게 되었습니다.",
+
     process: [
       "운항자·교통관리·버티포트·ATC/UTM의 정보 흐름을 분석하고 CWP 기능을 화면 단위로 분해",
       "비행계획 승인→실시간 감시→비정상 대응 시나리오와 정보 우선순위 설계",
@@ -123,6 +144,7 @@ export const projects = [
     period: "2026.05 ~ 2026.07",
     type: "출시 모바일 앱",
     role: "React Native 개발 · API 연동 · QA · iOS/Android 출시 · 공식 홈페이지 배포",
+    teamContext: "디자이너 1명, 백엔드 1명, 모바일 프론트엔드 1명(본인)으로 구성된 3인 스타트업 팀",
     summary: "운동 루틴이 자주 끊기는 사용자가 목표 요일을 정하고 운동을 인증하며, 놓친 날에도 대체 요일을 설정해 다시 이어갈 수 있도록 돕는 실제 출시 서비스입니다. 혼자 루틴을 관리하거나 친구와 인증 클럽을 만들어 함께 운동할 수 있습니다.",
     url: "https://www.motipeople.com",
     links: [
@@ -131,6 +153,15 @@ export const projects = [
       { label: "Google Play", url: "https://play.google.com/store/apps/details?id=com.motipeople.app&hl=ko", icon: "fa-brands fa-google-play" },
     ],
     stack: ["React Native", "Expo 54", "TypeScript", "Zustand", "TanStack Query", "Axios", "EAS"],
+
+    unexpectedMoment: "운동 인증을 하루라도 놓치면 페널티를 주어 긴장감을 높이려 했으나, 초기 테스트 유저들이 단 한 번 실패하자마자 심한 스트레스와 자책감을 느끼며 앱을 아예 삭제해버렸을 때였습니다.",
+    decision: {
+      unselected: "엄격한 출석 체크와 무자비한 연속 성공(Streak) 초기화 규칙 유지",
+      selectedReason: "사용자가 루틴을 포기하지 않게 돕는 것이 본질이었기에, 기존 로직을 엎더라도 '대체 요일 설정'과 '유연한 MISS 회복 장치'를 도입해 이탈 방지를 최우선으로 삼았습니다."
+    },
+    collaborationStory: "iOS와 Android 간 딥링크 동작과 가상 키보드 높이 처리가 달라 출시 직전 QA가 지연되었습니다. 팀 내에서 '출시를 미루자'는 불안감이 번졌을 때, 제가 플랫폼별 버그를 표로 시각화해 '스토어 심사 통과를 위한 블로커 이슈'와 '출시 직후 패치 가능한 마이너 UI'로 우선순위를 재정의하며 예정대로 출시를 이끌었습니다.",
+    retrospective: "성공 지표만 좇기보다 '사용자가 제품을 이탈하는 진짜 이유'를 솔직하게 마주하고 즉시 제품 정책 수정으로 전환하는 유연한 태도를 배웠습니다.",
+
     process: [
       "약관·소셜 로그인·프로필·둘러보기와 세션 복원 및 토큰 재발급 흐름 구현",
       "목표 요일 설정, 개인/클럽 운동 인증, 대체 요일·MISS·스트릭과 클럽 CRUD 개발",
@@ -181,12 +212,22 @@ export const projects = [
     period: "2026.05 ~ 2026.07",
     type: "PWA",
     role: "프론트엔드 개발 · 투표/채팅 UI · API 연동 · PWA · QA",
+    teamContext: "기획/디자인 1, 프론트엔드 2(본인 포함), 백엔드 2로 구성된 IT 동아리 JECT 프로젝트",
     url: "https://vs.io.kr",
     links: [
       { label: "서비스 바로가기", url: "https://vs.io.kr", icon: "fa-solid fa-bolt" }
     ],
     summary: "A/B 투표에 참여하고 선택 결과를 바탕으로 실시간 의견을 나누는 모바일 웹 커뮤니티 플랫폼입니다.",
     stack: ["React 19", "TypeScript", "Vite", "Tailwind CSS 4", "TanStack Query", "Zustand", "PWA", "Vercel"],
+
+    unexpectedMoment: "모바일 웹에서 투표 피드를 스크롤하며 실시간 채팅에 참여할 때, 가상 키보드가 올라오면서 하단 입력창이 화면 밖으로 밀려나거나 A/B 결과 바텀시트가 잘려 사용자가 글을 쓸 수 없다는 버그 제보가 쏟아졌을 때였습니다.",
+    decision: {
+      unselected: "개발이 훨씬 쉬운 일반 네이티브 모바일 앱 전용 패키지로 전환하거나 단순 데스크톱 뷰 중심으로 축소하는 대안",
+      selectedReason: "앱 설치 허들을 없애고 링크 공유만으로 바로 투표에 참여하게 만드는 PWA의 가치를 지키기 위해, `visualViewport` API와 가상 키보드 높이를 동적 보정하는 험난한 반응형 최적화를 끝까지 밀고 나갔습니다."
+    },
+    collaborationStory: "동료 프론트엔드 개발자와 투표 상태를 전역 상태(Zustand)에 둘지 서버 캐시(TanStack Query)에 둘지 의견이 갈려 화면 싱크가 어긋났습니다. 논쟁 대신 '상태 동기화 테스트 시나리오'를 함께 작성해 검증했고, '서버 상태를 진실의 원천으로 삼고 낙관적 업데이트로 체감 속도를 잡자'는 공통 규칙에 합의하며 신뢰를 쌓았습니다.",
+    retrospective: "모바일 웹은 데스크톱 화면 크기만 줄여서 테스트하면 안 된다는 점을 뼈저리게 느끼고, 개발 초기부터 실제 모바일 기기 디버깅과 키보드 인터랙션 검증을 필수로 진행하게 되었습니다.",
+
     process: [
       "일반형·몰입형 투표 피드와 참여 여부 기반 필터·추가 로딩 구현",
       "답글·이모지 반응·A/B 배지와 선택 변경 동기화",
@@ -233,12 +274,22 @@ export const projects = [
     period: "2025.09 ~ 2025.10",
     type: "SaaS",
     role: "기획 참여 · 프론트엔드 구조 설계 · UI/UX 구현",
+    teamContext: "기획 1, 백엔드 1, 프론트엔드 2 협업 (주 1회 정기 스프린트 및 비동기 원격 협업)",
     url: "https://inableit.com",
     links: [
       { label: "서비스 바로가기", url: "https://inableit.com", icon: "fa-solid fa-universal-access" }
     ],
     summary: "URL 기반 접근성 검사와 사용자가 이해하기 쉬운 개선 중심 리포트를 제공하는 SaaS형 서비스입니다.",
     stack: ["React", "TypeScript", "Vite", "Redux Toolkit", "Tailwind CSS", "WCAG"],
+
+    unexpectedMoment: "백엔드에서 계산해 준 수십 가지 접근성 오류 점수를 대시보드에 빽빽하게 띄웠더니, 테스트 사용자들이 '그래서 내 사이트 어디를 어떻게 고쳐야 하는지 전혀 모르겠다'며 창을 닫아버렸을 때였습니다.",
+    decision: {
+      unselected: "단순 총점(예: 72점)과 위반 코드 목록만 빠르게 나열하고 끝내는 전형적인 감사 도구 레이아웃",
+      selectedReason: "사용자가 실질적인 개선 조치를 취할 수 있도록 '우선 개선 영역 가이드'와 '수정 코드 예시' 중심으로 정보 구조를 전면 개편하고, 복잡한 진단 데이터는 점진적 카드 형태로 노출하도록 설계했습니다."
+    },
+    collaborationStory: "주 1회 비동기 협업이다 보니 백엔드 API 응답 구조가 바뀔 때마다 프론트 화면이 깨져 서로 지치는 상황이 있었습니다. 제가 먼저 TypeScript 인터페이스 기반의 JSON 스키마를 선제 작성하여 '데이터 계약(Contract)'으로 묶어두자고 제안했고, 이후 불필요한 질의응답 없이 안정적인 병렬 개발을 이어갔습니다.",
+    retrospective: "비동기 원격 협업일수록 구두 합의보다 '선행된 타입 정의와 데이터 규격'이 팀의 시간과 신뢰를 지켜주는 가장 확실한 안전장치임을 실감했습니다.",
+
     process: [
       "경쟁 솔루션을 분석하고 URL 진단→리포트 MVP 및 확장 방향 정의",
       "점수보다 위반 항목·우선 개선 영역·가이드 중심 정보 구조 설계",
@@ -283,12 +334,22 @@ export const projects = [
     period: "2025.07",
     type: "해커톤 · 우수상",
     role: "아키텍처 · 프론트엔드 · API 타입/서비스 계층",
+    teamContext: "약학 도메인 기획자 1, AI/백엔드 개발자 1, 프론트엔드 1(본인)로 급조된 1박 2일 해커톤 팀",
     url: "https://healthreward-frontend.netlify.app",
     links: [
       { label: "서비스 바로가기", url: "https://healthreward-frontend.netlify.app", icon: "fa-solid fa-trophy" }
     ],
     summary: "영수증·카드 내역을 분석해 건강 소비 인사이트와 리워드를 제공한 약학 IT 해커톤 우수상 웹앱입니다.",
     stack: ["React", "TypeScript", "Vite", "Tailwind CSS", "Axios", "lucide-react"],
+
+    unexpectedMoment: "해커톤 마감 3시간 전, AI OCR 모델이 영수증 텍스트를 인식하면서 마크다운 코드블록(```json)이나 불완전한 문자열을 뱉어내 프론트엔드 화면이 하얗게 뻗어버렸을(White Screen) 때였습니다.",
+    decision: {
+      unselected: "AI 프롬프트를 다시 튜닝해 예쁜 JSON이 나오길 기도하거나 마감 직전 백엔드 모델을 재학습시키는 도박",
+      selectedReason: "제출 시간이 촉박했기에 프론트엔드 단에 정규표현식과 예외 폴백을 갖춘 '방어적 AI 응답 정규화 파서'를 긴급 제작하여, 어떤 비정형 텍스트가 오더라도 핵심 데이터를 추출해 시연이 멈추지 않도록 조치했습니다."
+    },
+    collaborationStory: "약학 전공 기획자는 전문적인 복합 영양 성분 매핑 기능을 전부 넣고 싶어 했고, 개발진은 시간 부족을 호소했습니다. 제가 중간에서 '핵심 3대 영양소 분석과 즉시 리워드 지급 플로우 1개만 완벽히 돌아가게 만들고 나머지는 데모 영상과 슬라이드로 어필하자'고 설득해 팀의 에너지를 MVP 완성에 집중시켰습니다.",
+    retrospective: "제한된 시간 속에서는 완벽한 구현보다 '절대 죽지 않는 방어적 파이프라인과 완주 가능한 범위 통제'가 팀을 승리로 이끈다는 것을 체득했습니다.",
+
     process: [
       "User·Transaction·ReceiptItem·추천 도메인 타입과 서비스 모듈 정의",
       "인증과 rewardPoints·level·exp 모델 구현",
@@ -332,12 +393,22 @@ export const projects = [
     period: "2023.12 ~ 2024.06",
     type: "금융 CMS",
     role: "기획 · 설계 · 개발",
+    teamContext: "기획자, 백엔드 엔지니어, 프론트엔드 엔지니어(본인)로 구성된 소규모 금융 핀테크 개발팀",
     url: "https://gme-card-admin.netlify.app",
     links: [
       { label: "CMS 서비스 바로가기", url: "https://gme-card-admin.netlify.app", icon: "fa-solid fa-credit-card" }
     ],
     summary: "소비 패턴 분석과 운영 편의를 위한 체크카드 관리자 시스템입니다.",
     stack: ["React", "TypeScript", "Tailwind CSS", "Recoil", "React Query", "Axios", "Jenkins", "Nginx"],
+
+    unexpectedMoment: "10만 건 이상의 카드 결제 이력을 복합 조건으로 검색할 때마다 브라우저가 3초 이상 굳어버려, 운영팀으로부터 '검색 버튼을 누르면 컴퓨터가 멈춘다'는 불만을 직접 접수했을 때였습니다.",
+    decision: {
+      unselected: "클라이언트 메모리에 10만 건을 통째로 올려놓고 자바스크립트 filter()로 가공하는 단기 땜질 방식",
+      selectedReason: "향후 거래 데이터가 수백만 건으로 늘어날 금융 서비스 특성을 고려해, 백엔드와 페이징/정렬 쿼리 규격을 재설계하고 프론트는 300ms 디바운스와 서버 페이징을 결합해 구조적 체질 개선을 선택했습니다."
+    },
+    collaborationStory: "운영팀의 잦은 요구 변경으로 관리자 폼과 테이블 코드가 걷잡을 수 없이 중복되었습니다. 제 담당 영역을 넘어 공통 테이블/모달/폼 훅을 패키지화해 팀원들에게 공유했고, '새 관리 화면을 찍어내는 시간이 절반 이하로 줄었다'는 동료 프론트 개발자의 피드백을 받으며 큰 보람을 느꼈습니다.",
+    retrospective: "당장 눈앞의 화면을 빨리 쳐내는 것보다, 잦은 변경 요구에도 흔들리지 않는 '공통 추상화 계층'을 초기에 다져놓는 것이 장기적으로 훨씬 빠른 길임을 배웠습니다.",
+
     process: [
       "카드·한도·혜택·통계 IA와 업무 흐름 정의",
       "전역 UI 상태와 서버 상태 분리",
@@ -381,6 +452,7 @@ export const projects = [
     period: "2023.06 ~ 2023.11",
     type: "웹 서비스",
     role: "기획 · 설계 · 개발",
+    teamContext: "백엔드 1명, 프론트엔드 1명(본인)으로 구성된 2인 개발 체제 (디자이너 부재로 직접 UI/UX 기획)",
     url: "https://gme-finance-homepage.netlify.app",
     links: [
       { label: "GME Finance 기업 홈페이지", url: "https://gme-finance-homepage.netlify.app", icon: "fa-solid fa-building" },
@@ -388,6 +460,15 @@ export const projects = [
     ],
     summary: "외국인을 위한 다국어·통화 전환과 실시간 환율을 제공하는 홈페이지 리뉴얼입니다.",
     stack: ["React", "react-window", "Intersection Observer", "SVG", "SCSS", "react-i18next"],
+
+    unexpectedMoment: "한국어 기준으로는 여백까지 완벽하던 카드 그리드가, 러시아어나 베트남어로 전환하자 글자 길이가 2~3배로 늘어나 버튼 밖으로 텍스트가 삐져나오고 레이아웃이 완전히 무너졌을 때였습니다.",
+    decision: {
+      unselected: "긴 번역문을 줄임표(...)로 잘라버리거나 고정 폰트 크기를 무조건 작게 축소하는 타협안",
+      selectedReason: "송금과 환율 정보의 정확성이 최우선이었기에, 줄임표 대신 유동적 최소 폭(min-width), flex 기반 텍스트 줄바꿈 규칙, 언어별 폰트 폴백을 CSS에 정교하게 구축하는 정공법을 택했습니다."
+    },
+    collaborationStory: "백엔드 개발자가 API 응답 속에 다국어 번역 문자열을 섞어 보내려 했을 때, '프론트엔드에서 i18n 정적 청크로 분리 관리해야 로딩 속도와 브라우저 캐싱이 보장된다'고 논리적으로 설득하여 서버와 클라이언트의 책임을 명확히 분리했습니다.",
+    retrospective: "다국어 지원은 단순한 번역 파일 추가가 아니라, 레이아웃의 유연성과 렌더링 최적화를 완전히 다시 생각해야 하는 아키텍처 문제임을 깊이 깨달았습니다.",
+
     process: [
       "언어·통화·날짜 포맷과 성능 목표 정의",
       "가상화와 지연 로딩 조합 채택",
@@ -430,12 +511,22 @@ export const projects = [
     period: "2023.04 ~ 2023.05",
     type: "데이터 시각화",
     role: "기획 · 설계 · 개발",
+    teamContext: "기획 및 프론트 개발(본인) 1, 데이터 스크래핑 엔지니어 1의 2인 협업 체제",
     url: "https://gme-exchange-scrapping.netlify.app",
     links: [
       { label: "차트 서비스 바로가기", url: "https://gme-exchange-scrapping.netlify.app", icon: "fa-solid fa-chart-line" }
     ],
     summary: "기관·국가별 환율 데이터를 비교하고 상세 탐색할 수 있는 대시보드형 차트 페이지입니다.",
     stack: ["React", "Chart.js", "styled-components", "Axios", "Nginx"],
+
+    unexpectedMoment: "조회 기간을 '최근 1년'으로 늘리고 5개 시중은행 데이터를 동시에 띄우는 순간, 수만 개의 데이터 포인트를 그리느라 Chart.js 캔버스와 브라우저가 완전히 멈춰버렸을 때였습니다.",
+    decision: {
+      unselected: "사용자가 보고 싶어 하는 상세 구간 데이터를 임의로 대폭 누락(다운샘플링)시켜 오차를 발생시키는 쉬운 방식",
+      selectedReason: "환율 데이터의 정밀도를 지키기 위해, 원천 데이터는 온전히 보존하되 뷰포트 확대/축소 범위에 따라 보이는 구간만 지능적으로 슬라이싱하고 React.memo와 useMemo로 렌더 연산을 분리하는 어댑터 패턴을 구현했습니다."
+    },
+    collaborationStory: "데이터 엔지니어가 날짜 포맷과 환율 단위를 스크래핑 원천 사이트 형태 그대로 넘겨주어 화면 연동이 꼬였을 때, 서로 탓하지 않고 제가 먼저 표준화된 시계열 데이터 스키마를 제안해 양쪽의 데이터 가공 낭비를 없앴습니다.",
+    retrospective: "'차트의 본질은 예쁜 그림이 아니라 대량의 데이터를 지연 없이 탐색할 수 있는 상호작용 반응성'이라는 엔지니어링 기준을 세우게 되었습니다.",
+
     process: [
       "기간·기관 비교 흐름 설계",
       "원천 데이터 정규화와 차트 어댑터 계층 분리",
@@ -479,12 +570,22 @@ export const projects = [
     period: "2022.07 ~ 2022.09",
     type: "연구기관 CMS",
     role: "기획 · 설계 · 개발",
+    teamContext: "정부출연연구기관(ETRI) 과제 — 연구원, 기획자, 백엔드 개발자, 프론트엔드 개발자(본인) 협업",
     url: "https://curator-frontend.netlify.app",
     links: [
       { label: "CMS 서비스 바로가기", url: "https://curator-frontend.netlify.app", icon: "fa-solid fa-monument" }
     ],
     summary: "탐색과 비주얼 검색 기반 큐레이션을 지원하는 문화유산 Admin CMS입니다.",
     stack: ["React", "TypeScript", "Redux Toolkit", "RTK Query", "styled-components"],
+
+    unexpectedMoment: "큐레이터가 3D 애셋을 탐색하고 큐레이션 폴더로 드래그 앤 드롭하는 과정에서, 사소한 필터 조건 하나를 바꿨을 뿐인데 화면 전체의 모든 애셋 이미지가 깜빡이며 재요청되어 배치 순서가 뒤죽박죽 날아갔을 때였습니다.",
+    decision: {
+      unselected: "상태 관리 라이브러리 없이 최상위 컴포넌트에 state를 몰아넣고 prop drilling으로 임시 처리하는 방식",
+      selectedReason: "비동기 서버 캐시와 UI 로컬 인터랙션 상태가 뒤엉킨 것이 근본 원인임을 진단하고, RTK Query를 도입해 네트워크 캐시를 전담시키고 드래그 정렬 상태는 UI Slice로 엄격히 분리해 컴포넌트 간 불필요한 연쇄 렌더링을 원천 차단했습니다."
+    },
+    collaborationStory: "팀원들마다 API 호출 방식(Axios 직접 호출 vs fetch)이 제각각이라 버그 원인 추적에 큰 비용이 들었습니다. 제가 주도하여 RTK Query 베이스 엔드포인트를 템플릿화하고 내부 기술 세미나를 열어 사용법을 공유함으로써, 전 팀원의 비동기 통신 코드를 하나의 규격으로 통합했습니다.",
+    retrospective: "상태 관리는 단순히 데이터를 담는 것이 아니라 '서버 캐시와 UI 인터랙션의 경계를 얼마나 엄격히 분리하느냐'가 대규모 어드민의 안정성을 가른다는 확신을 얻었습니다.",
+
     process: [
       "큐레이터 업무를 태스크로 분해하고 검색·추천 IA 설계",
       "검색 파라미터·결과·선택 상태 경계 정의",
@@ -528,12 +629,22 @@ export const projects = [
     period: "2021.12 ~ 2022.06",
     type: "호텔 운영 CMS",
     role: "기획 · 설계 · 개발",
+    teamContext: "11명의 개발자가 투입된 엔터프라이즈급 대규모 호텔 솔루션 프로젝트 (기획·백엔드·프론트엔드 다수)",
     url: "https://csios-mms-client.netlify.app",
     links: [
       { label: "CMS 서비스 바로가기", url: "https://csios-mms-client.netlify.app", icon: "fa-solid fa-hotel" }
     ],
     summary: "예약·객실·정책·요금과 처리 이력을 다루는 스마트 비대면 호텔 운영 Admin입니다.",
     stack: ["React", "TypeScript", "MUI", "Yup", "lodash.debounce"],
+
+    unexpectedMoment: "성수기 객실 요금 일괄 변경 기능 테스트 도중, 2,000개 객실의 요금을 한 번에 수정하다가 네트워크 타임아웃이 발생해 절반은 바뀌고 절반은 옛날 가격으로 남아 DB 정합성이 완전히 깨졌던 아찔한 순간이었습니다.",
+    decision: {
+      unselected: "화면에서 단순 반복문으로 2,000번의 개별 PUT 요청을 브라우저에서 날리는 무책임한 프론트엔드 처리",
+      selectedReason: "백엔드 팀과 긴급 협의를 열어 배치 트랜잭션 API를 신설하고, 프론트는 '진행률 모달(Progress Dialog)'과 '실패 시 전체 롤백 및 확인 절차'를 UI에 강제해 단 하나의 객실 데이터도 어긋나지 않도록 방어했습니다."
+    },
+    collaborationStory: "11명이 동시에 병렬 개발을 진행하다 보니 날짜 피커, 버튼 스타일, 폼 유효성 검증 메시지가 제각각이었습니다. 촉박한 일정 속에서도 '지금 통일하지 않으면 결함 비용이 눈덩이처럼 불어난다'고 동료들을 설득하여, MUI 기반 디자인 시스템과 Yup 공통 유효성 검증 규격을 앞장서서 정립했습니다.",
+    retrospective: "규모가 크고 사람이 많을수록 '혼자 빨리 달리기보다, 팀 전체가 공유할 공통 규약(디자인 시스템, 트랜잭션 정책)을 먼저 단단히 깔고 달리는 것'이 가장 빠른 지름길임을 체득했습니다.",
+
     process: [
       "추천 정책·데이터 흐름·권한 정의",
       "MUI와 TypeScript 기반 공통 UI/도메인 규격 수립",
