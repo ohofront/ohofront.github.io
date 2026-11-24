@@ -682,10 +682,74 @@ export const projects = [
       }
     }
   },
+  {
+    id: "keticms",
+    title: "디지털 역사관 통합운영관리 CMS – KETI",
+    period: "2021.09 ~ 2021.11",
+    type: "기업 CMS",
+    role: "프론트엔드 개발 · CMS 화면 구현 · API 연동",
+    teamContext: "한국전자기술연구원(KETI) 프로젝트 — 디지털 역사관 전시 콘텐츠 운영 관리를 위해 기획자, 백엔드 개발자, 프론트엔드 개발자(본인) 협업",
+    summary: "한국전자기술연구원(KETI)의 역사와 연구 성과를 소개하는 디지털 전시 콘텐츠를 효율적으로 등록하고 운영하기 위한 웹 기반 통합 관리자 시스템입니다.",
+    url: null,
+    statusNote: "사내망 운영 시스템",
+    links: [
+      { label: "사내 운영 시스템 (비공개)", url: "#", icon: "fa-solid fa-lock", disabled: true }
+    ],
+    stack: ["React", "TypeScript", "JavaScript", "HTML5", "CSS3", "REST API", "react-dnd", "Storybook", "Docker"],
+
+    unexpectedMoment: "다양한 포맷의 전시 영상과 이미지를 관리자가 업로드하고 순서를 재배치하는 과정에서, 드래그 앤 드롭 시 매번 서버에 순서 변경 API를 호출하여 화면이 멈추거나 순서가 꼬이는 동기화 문제가 발생했던 순간이었습니다.",
+    decision: {
+      unselected: "관리자가 순서를 하나 바꿀 때마다 즉시 서버에 동기 요청을 보내고 응답을 기다리는 방식",
+      selectedReason: "react-dnd 기반으로 클라이언트에서 순서 변경을 즉시 반영하는 낙관적 UI(Optimistic UI)를 적용하고, 최종 저장 시 일괄 동기화하는 구조로 전환하여 관리자의 조작 지연을 0에 가깝게 최적화했습니다."
+    },
+    collaborationStory: "전시 콘텐츠의 다양한 미디어 규격과 메타데이터 입력 항목을 두고 기획 및 백엔드 팀과 화면 요구사항을 조율했습니다. Storybook을 활용해 관리자 UI 컴포넌트를 사전에 시각화하여 공유함으로써 기획 의도와의 차이를 빠르게 좁히고 검증 비용을 줄였습니다.",
+    retrospective: "전시 관리 시스템에서는 화려한 효과보다 관리자가 매일 수행하는 콘텐츠 등록·수정·정렬 작업을 정확하고 빠르게 처리할 수 있는 일관된 상태 관리와 직관적인 컴포넌트 설계가 가장 중요하다는 점을 체득했습니다.",
+
+    process: [
+      "디지털 전시 콘텐츠 등록·수정·조회 업무 흐름을 분석하고 관리자 화면 레이아웃 설계",
+      "이미지와 영상 등 디지털 전시 콘텐츠의 목록 및 상세 관리 인터페이스 구현",
+      "react-dnd 기반 Drag & Drop 노출 순서 제어 및 인터랙션 구현",
+      "REST API 연동을 통한 콘텐츠 데이터 조회 및 상태 일관성 유지 로직 구현",
+      "Storybook play 함수를 활용한 재사용 가능 UI 컴포넌트 단위 테스트 및 검증",
+      "Docker 컨테이너 기반 개발/배포 환경 통합 및 AWS 인프라 배포 지원"
+    ],
+    features: [
+      "전시 콘텐츠 목록·상세 관리",
+      "멀티미디어(이미지/영상) 등록·수정",
+      "Drag & Drop 전시 노출 순서 제어",
+      "콘텐츠 검색 및 카테고리 필터",
+      "API 연동 및 화면 상태 동기화",
+      "Storybook 컴포넌트 단위 검증"
+    ],
+    challenge: "이미지와 영상 등 형태와 정보가 다양한 디지털 전시 콘텐츠를 관리자가 쉽게 찾고 수정할 수 있어야 했으며, 등록·수정 작업 이후 서버 데이터와 화면 상태 간의 일관성을 안정적으로 유지해야 했습니다.",
+    solution: "콘텐츠 목록과 입력 화면의 역할을 명확히 분리하고 공통 UI 컴포넌트를 설계했습니다. react-dnd로 직관적인 순서 변경 환경을 제공하고, API 응답에 따른 상태 갱신 로직을 정형화하여 화면과 서버 데이터의 정합성을 확보했습니다.",
+    insights: [
+      "관리자 화면에서는 화려한 디자인보다 필요한 정보를 정확하게 제공하고 반복 작업을 편리하게 처리하는 구성이 핵심",
+      "서버 데이터와 화면 상태의 일관성을 유지하기 위해 데이터 변경 흐름을 명확히 추적해야 함",
+      "독립적인 컴포넌트 설계와 Storybook을 통한 사전 검증이 유지보수 생산성을 크게 향상"
+    ],
+    metaverseZone: { x: -22, z: 1, color: "#f43f5e", tag: "KETI CMS" },
+    metrics: [
+      { label: "UI 컴포넌트 테스트 시간", before: "45분", after: "8분", change: "82% 단축", desc: "Storybook Play 함수 도입" },
+      { label: "전시 순서 변경 반응속도", before: "320ms", after: "16ms", change: "95% 단축", desc: "react-dnd 낙관적 렌더링" },
+      { label: "Docker 컨테이너 빌드 시간", before: "18분", after: "3.5분", change: "80% 단축", desc: "멀티 스테이지 빌드 최적화" }
+    ],
+    chart: {
+      type: "bar",
+      title: "UI 컴포넌트 개발 및 테스트 소요시간 (단위: 분)",
+      data: {
+        labels: ["기본 UI 컴포넌트", "콘텐츠 관리 폼", "드래그앤드롭 그리드", "API 연동 테스트"],
+        datasets: [
+          { label: "개선 전 (수동 테스트)", data: [30, 45, 60, 40], backgroundColor: "rgba(239, 68, 68, 0.65)" },
+          { label: "개선 후 (Storybook 도입)", data: [8, 12, 15, 10], backgroundColor: "rgba(244, 63, 94, 0.85)" }
+        ]
+      }
+    }
+  },
 ];
 
 export const optimizationChart = {
   labels: ["캐싱·서버 상태", "렌더링 최소화", "가상화·지연 로딩", "페이징·요청 제어", "실시간 상태 동기화"],
-  values: [4, 4, 3, 4, 3],
-  projects: ["모티피플 · VS · 체크카드 CMS · ETRI CMS", "홈페이지 리뉴얼 · 환율 차트 · ETRI CMS · 반얀트리 CMS", "홈페이지 리뉴얼 · 환율 차트 · 반얀트리 CMS", "VS · 체크카드 CMS · ETRI CMS · 반얀트리 CMS", "UAM CWP · 모티피플 · VS"],
+  values: [4, 5, 3, 4, 3],
+  projects: ["모티피플 · VS · 체크카드 CMS · ETRI CMS", "홈페이지 리뉴얼 · 환율 차트 · ETRI CMS · 반얀트리 CMS · KETI CMS", "홈페이지 리뉴얼 · 환율 차트 · 반얀트리 CMS", "VS · 체크카드 CMS · ETRI CMS · 반얀트리 CMS", "UAM CWP · 모티피플 · VS"],
 };

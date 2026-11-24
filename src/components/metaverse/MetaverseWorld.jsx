@@ -640,7 +640,7 @@ export default function MetaverseWorld({ projects, onSelectProject }) {
         <div className="hud-badge">
           <span className="live-dot" />
           <strong>3D METAVERSE EXPO</strong>
-          <span className="hud-sub">총 11개 프로젝트 월드</span>
+          <span className="hud-sub">총 {projects.length}개 프로젝트 월드</span>
         </div>
 
         <div className="hud-view-controls">
