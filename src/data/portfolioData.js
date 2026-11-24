@@ -753,3 +753,81 @@ export const optimizationChart = {
   values: [4, 5, 3, 4, 3],
   projects: ["모티피플 · VS · 체크카드 CMS · ETRI CMS", "홈페이지 리뉴얼 · 환율 차트 · ETRI CMS · 반얀트리 CMS · KETI CMS", "홈페이지 리뉴얼 · 환율 차트 · 반얀트리 CMS", "VS · 체크카드 CMS · ETRI CMS · 반얀트리 CMS", "UAM CWP · 모티피플 · VS"],
 };
+
+export const openSourceContributions = [
+  {
+    id: "autorag",
+    project: "AutoRAG",
+    repo: "Marker-Inc-Korea/AutoRAG",
+    title: "AutoRAG – Mirror 동기화 & Stale 진단 로직 오탐/오분류 버그 수정",
+    role: "Open Source Contributor (TypeScript)",
+    period: "2026.11",
+    status: "PR #2230 Open (리뷰 진행 중)",
+    statusType: "open",
+    summary:
+      "AutoRAG 2.0의 Mirror 동기화 및 Stale 진단 로직에서 Office 임시 잠금 파일 오탐과 파일 읽기 실패(source-read-failed) 오분류 버그 수정",
+    links: [
+      {
+        label: "GitHub PR #2230",
+        url: "https://github.com/Marker-Inc-Korea/AutoRAG/pull/2230",
+        icon: "fa-solid fa-code-pull-request",
+      },
+      {
+        label: "GitHub Issue #2135",
+        url: "https://github.com/Marker-Inc-Korea/AutoRAG/issues/2135",
+        icon: "fa-solid fa-circle-dot",
+      },
+      {
+        label: "Repository (Marker-Inc-Korea/AutoRAG)",
+        url: "https://github.com/Marker-Inc-Korea/AutoRAG",
+        icon: "fa-brands fa-github",
+      },
+    ],
+    impactMetrics: [
+      {
+        label: "오탐 제거",
+        val: "Office 잠금 파일(~$*) 원천 배제",
+        desc: "collectFiles() 내 isOfficeLockFile() 필터 적용으로 stale-index 오탐 방지",
+        icon: "fa-solid fa-shield-halved",
+        color: "#10b981",
+      },
+      {
+        label: "진단 정밀도 복원",
+        val: "source-read-failed errno 보존",
+        desc: "failed 레코드 오분류(source-added) 수정 및 EDEADLK 원인 보존",
+        icon: "fa-solid fa-bug-slash",
+        color: "#38bdf8",
+      },
+      {
+        label: "하위 호환 & 검증",
+        val: "회귀 테스트 보강 · DCO 서명",
+        desc: "기존 stale-index 계약 유지, Biome 린트 & tsc --noEmit 타입 무결성 통과",
+        icon: "fa-solid fa-check-double",
+        color: "#a855f7",
+      },
+    ],
+    problem: [
+      "MCP 검색 응답에 누적되는 stale-index 진단 중 Office 임시 잠금 파일(~$*)이 불필요하게 포함되어 오탐이 지속 발생함.",
+      "iCloud 동기화 지연 등으로 인해 파일 읽기 실패(EDEADLK 등)가 발생해 failed 레코드만 남은 파일이 detectMirrorStaleness()에서 source-added(신규 파일)로 오분류되어, 리프레시해도 해결되지 않는 진단이 무한 반복됨.",
+    ],
+    solutions: [
+      {
+        title: "Office 임시 잠금 파일 제외",
+        target: "src/mirror/sync.ts",
+        desc: "collectFiles()에 isOfficeLockFile()(~$*) 필터를 추가해 임시 잠금 파일이 인덱싱 및 stale 진단 대상에서 원천 제외되도록 수정.",
+      },
+      {
+        title: "source-read-failed 정확도 개선 및 하위 호환성 유지",
+        target: "src/mirror/sync.ts",
+        desc: "session.fail() 호출 시 source-read-failed의 errno(예: EDEADLK)를 보존하도록 수정(source-read-failed:<errno>). detectMirrorStaleness()가 inspect.failed를 조회해 source-added 대신 정밀한 reason: 'source-read-failed'와 errno 메시지로 분류하도록 개선(기존 스냅샷 포맷과 하위 호환 유지). 기존 capDiagnostics 집계 및 다른 기여자의 autorag.status 페이징 작업과 충돌하지 않도록 code: 'stale-index' 계약과 스코프를 엄격히 유지.",
+      },
+      {
+        title: "회귀 테스트 스위트 추가 및 무결성 검증",
+        target: "test/mirror/sync.test.ts, test/mirror/sync-failures.test.ts",
+        desc: "~$* 제외 및 EDEADLK/레거시 source-read-failed 회귀 테스트 케이스를 추가하고, Biome 린트, tsc --noEmit 타입체크, 단위 테스트 검증 및 DCO(Developer Certificate of Origin) 서명 완료.",
+      },
+    ],
+    stack: ["TypeScript", "Bun", "Biome", "Open Source", "RAG / MCP"],
+    accentColor: "#8b5cf6",
+  },
+];
