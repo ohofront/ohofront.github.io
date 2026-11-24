@@ -16,7 +16,7 @@ import {
 } from "chart.js";
 import Article from "/src/components/wrappers/Article.jsx";
 import FaIcon from "/src/components/generic/FaIcon.jsx";
-import { capabilities, optimizationChart, projects } from "/src/data/portfolioData.js";
+import { capabilities, openSourceContributions, optimizationChart, projects } from "/src/data/portfolioData.js";
 import MetaverseWorld from "/src/components/metaverse/MetaverseWorld.jsx";
 import Scrollbar from "smooth-scrollbar";
 import { useGlobalState } from "/src/providers/GlobalStateProvider.jsx";
@@ -296,10 +296,27 @@ function ArticleCareerPortfolio() {
         </div>
       </section>
 
+      {/* Open Source Contribution Section */}
+      <section className="career-section-3d" aria-labelledby="opensource-title">
+        <div className="section-heading-3d">
+          <span className="heading-tag">03</span>
+          <div>
+            <h3 id="opensource-title">오픈소스 기여 (Open Source Contribution)</h3>
+            <p className="heading-sub">글로벌 오픈소스 생태계에 기여한 실질적인 문제 해결 및 코드 개선 경험</p>
+          </div>
+        </div>
+
+        <div className="project-list-3d">
+          {openSourceContributions.map((item) => (
+            <OpenSourceCard3D key={item.id} item={item} />
+          ))}
+        </div>
+      </section>
+
       {/* Selected Work & Detailed Metrics Section */}
       <section className="career-section-3d" aria-labelledby="project-title">
         <div className="section-heading-3d">
-          <span className="heading-tag">03</span>
+          <span className="heading-tag">04</span>
           <div className="heading-row">
             <div>
               <h3 id="project-title">프로젝트 상세 및 정량적 개선 시각화</h3>
@@ -382,6 +399,137 @@ function TiltCard({ children, className = "", style = {} }) {
     >
       {children}
     </div>
+  );
+}
+
+// 3D Open Source Contribution Card
+function OpenSourceCard3D({ item }) {
+  const accentColor = item.accentColor || "#8b5cf6";
+
+  return (
+    <article
+      className="career-project-3d career-opensource-card-3d"
+      id={`opensource-${item.id}`}
+      style={{ "--accent-color": accentColor }}
+    >
+      <div className="project-index-3d">
+        <FaIcon iconName="fa-solid fa-code-pull-request" />
+      </div>
+
+      <div className="project-body-3d">
+        <div className="project-top-3d">
+          <div className="project-title-group">
+            <div className="badge-row">
+              <span className="project-type-3d">OPEN SOURCE CONTRIBUTION</span>
+              <span className="pr-status-badge open">
+                <span className="pulse-dot" />
+                {item.status}
+              </span>
+              <span className="repo-badge">
+                <FaIcon iconName="fa-brands fa-github" />
+                {item.repo}
+              </span>
+            </div>
+            <h4>{item.title}</h4>
+          </div>
+          <time className="project-period-3d">{item.period}</time>
+        </div>
+
+        <p className="project-summary-3d">{item.summary}</p>
+        <p className="project-role-3d">
+          <b>담당 역할:</b> {item.role}
+        </p>
+
+        {/* Links Area */}
+        <div className="project-links-3d">
+          {item.links?.map((link) => (
+            <a
+              key={link.label}
+              href={link.url}
+              target="_blank"
+              rel="noreferrer"
+              className="project-link-btn"
+            >
+              <FaIcon iconName={link.icon} />
+              <span>{link.label}</span>
+              <FaIcon iconName="fa-solid fa-arrow-up-right-from-square" />
+            </a>
+          ))}
+        </div>
+
+        {/* Impact Highlights Grid */}
+        {item.impactMetrics && (
+          <div className="metrics-section-3d opensource-metrics-3d">
+            <h5 className="metrics-title">
+              <FaIcon iconName="fa-solid fa-bolt" /> 핵심 기여 및 개선 영향 (Key Contribution Impact)
+            </h5>
+            <div className="metrics-grid-3d">
+              {item.impactMetrics.map((m) => (
+                <div className="metric-card-3d" key={m.label}>
+                  <div className="metric-header">
+                    <span className="metric-name">{m.label}</span>
+                    <span className="metric-tag" style={{ color: m.color, background: `${m.color}20` }}>
+                      <FaIcon iconName={m.icon} />
+                    </span>
+                  </div>
+                  <strong className="metric-highlight-val">{m.val}</strong>
+                  <p className="metric-desc">{m.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Tech Stack Pills */}
+        <div className="stack-list-3d">
+          {item.stack.map((tech) => (
+            <span key={tech} className="tech-chip-3d">
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        {/* Detailed Problem & Implementation Breakdown */}
+        <details className="project-details-toggle" open>
+          <summary>
+            <span>상세 문제 상황(Problem) 및 기술 해결 내용(What I Did) 확인하기</span>
+            <FaIcon iconName="fa-solid fa-chevron-down" />
+          </summary>
+          <div className="project-details-content">
+            {/* 직면했던 문제 상황 (Problem Context) */}
+            <div className="detail-block challenge-block">
+              <h5>
+                <FaIcon iconName="fa-solid fa-triangle-exclamation" /> 문제 상황 (Problem Context)
+              </h5>
+              <ul className="opensource-problem-list">
+                {item.problem.map((prob, idx) => (
+                  <li key={idx}>{prob}</li>
+                ))}
+              </ul>
+            </div>
+
+            {/* 해결 내용 (What I Did) */}
+            <div className="detail-block solution-block">
+              <h5>
+                <FaIcon iconName="fa-solid fa-wrench" /> 해결 내용 및 구현 전략 (What I Did)
+              </h5>
+              <div className="opensource-solution-items">
+                {item.solutions.map((sol, idx) => (
+                  <div className="solution-item-box" key={idx}>
+                    <div className="sol-header">
+                      <span className="sol-num">0{idx + 1}</span>
+                      <strong className="sol-title">{sol.title}</strong>
+                      <code className="sol-target">{sol.target}</code>
+                    </div>
+                    <p className="sol-desc">{sol.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+    </article>
   );
 }
 

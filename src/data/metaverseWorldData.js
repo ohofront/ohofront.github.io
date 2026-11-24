@@ -16,11 +16,13 @@ export const metaverseZones = {
       "React/TypeScript와 React Native(Expo)로 모바일 커뮤니티·금융·헬스케어·관제 시스템을 구축하며, UI 설계 → 상태 관리 → 3D 인터랙션 및 성능 최적화를 엔드-투-엔드로 책임집니다.",
     highlights: [
       "실제 양대 스토어(App Store, Google Play) 앱 출시 및 운영 경험",
+      "AutoRAG 2.0 글로벌 오픈소스 기여 (TypeScript/RAG MCP 동기화 버그 해결)",
       "React 19, TypeScript, Expo 54, Three.js 3D 인터랙션 아키텍처 전문",
       "약학 IT 해커톤 우수상 수상 및 실시간 웹소켓/관제 시스템 개발",
     ],
     links: [
       { label: "포트폴리오 PDF 다운로드", url: "/portfolio.pdf", icon: "fa-solid fa-file-arrow-down", download: "조영호_포트폴리오.pdf" },
+      { label: "AutoRAG PR 기여 (#2230)", url: "https://github.com/Marker-Inc-Korea/AutoRAG/pull/2230", icon: "fa-solid fa-code-pull-request" },
       { label: "GitHub 프로필", url: "https://github.com/ohofront", icon: "fa-brands fa-github" },
       { label: "기술 블로그", url: "https://medium.com/@youngho7482", icon: "fa-solid fa-pen-nib" },
       { label: "이메일 문의", url: "mailto:youngho7482@gmail.com", icon: "fa-solid fa-envelope" },
