@@ -16,6 +16,15 @@ function NavHeaderMobile() {
     const category = getActiveCategory()
     const sections = getCategorySections(category)
 
+    const handleDownloadPdf = () => {
+        const link = document.createElement('a')
+        link.href = '/portfolio.pdf'
+        link.download = '조영호_포트폴리오.pdf'
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+    }
+
     return (
         <Box nav={true} id={`nav-mobile-top`} className={`nav-mobile-top`}>
             <div className={`float-top-left`}>
@@ -23,6 +32,11 @@ function NavHeaderMobile() {
             </div>
 
             <div className={`float-top-right d-flex gap-2 align-items-center`}>
+                <ToolButton
+                    icon="fa-solid fa-file-arrow-down"
+                    tooltip="포트폴리오 PDF 다운로드"
+                    onClick={handleDownloadPdf}
+                />
                 <ToolButton
                     icon="fa-solid fa-cube"
                     tooltip="3D 메타버스 월드 입장"

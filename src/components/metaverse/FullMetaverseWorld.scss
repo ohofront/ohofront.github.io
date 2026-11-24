@@ -133,6 +133,37 @@
 
   .hud-actions {
     pointer-events: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .btn-download-pdf-metaverse {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 16px;
+      background: linear-gradient(135deg, #0284c7, #0369a1);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 4px 18px rgba(2, 132, 199, 0.45);
+      transition: all 0.25s ease;
+
+      &:hover {
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: 0 6px 26px rgba(2, 132, 199, 0.65);
+        color: #ffffff;
+        text-decoration: none;
+      }
+
+      &:active {
+        transform: translateY(0) scale(0.98);
+      }
+    }
 
     .btn-switch-doc-mode {
       display: inline-flex;
@@ -178,6 +209,14 @@
         .brand-sub {
           display: none;
         }
+      }
+    }
+
+    .btn-download-pdf-metaverse {
+      padding: 7px 11px;
+      font-size: 0.76rem;
+      span {
+        display: none;
       }
     }
 

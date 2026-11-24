@@ -109,8 +109,25 @@ function NavSidebarBottomMenu({shouldShrink}) {
     const {isAnimatedCursorEnabled} = useFeedbacks()
     const {toggleMetaverseMode} = useGlobalState()
 
+    const handleDownloadPdf = () => {
+        const link = document.createElement('a')
+        link.href = '/portfolio.pdf'
+        link.download = '조영호_포트폴리오.pdf'
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+    }
+
     return (
         <NavSidebarGroup direction={`horizontal`} shrink={shouldShrink}>
+            <NavSidebarGroupItem visible={true}>
+                <ToolButton
+                    icon="fa-solid fa-file-arrow-down"
+                    tooltip="이력서/포트폴리오 PDF 다운로드"
+                    onClick={handleDownloadPdf}
+                />
+            </NavSidebarGroupItem>
+
             <NavSidebarGroupItem visible={true}>
                 <ToolButton
                     icon="fa-solid fa-cube"

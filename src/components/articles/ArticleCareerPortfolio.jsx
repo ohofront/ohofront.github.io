@@ -205,7 +205,15 @@ function ArticleCareerPortfolio() {
             <b>UI 설계 → 상태 관리 → 3D 인터랙션 및 성능 최적화</b>를 엔드-투-엔드로 책임지는 프론트엔드 엔지니어입니다.
           </p>
 
-          <nav className="career-links-3d" aria-label="외부 프로필">
+          <nav className="career-links-3d" aria-label="외부 프로필 및 이력서 다운로드">
+            <a
+              href="/portfolio.pdf"
+              download="조영호_포트폴리오.pdf"
+              className="btn-3d download"
+              title="이력서/포트폴리오 PDF 다운로드"
+            >
+              <FaIcon iconName="fa-solid fa-file-arrow-down" /> 이력서/포트폴리오 PDF 다운로드
+            </a>
             <a href="https://github.com/ohofront" target="_blank" rel="noreferrer" className="btn-3d primary">
               <FaIcon iconName="fa-brands fa-github" /> GitHub 프로필
             </a>
@@ -223,7 +231,7 @@ function ArticleCareerPortfolio() {
           <div>
             <h3 id="metaverse-title">메타버스 프로젝트 월드</h3>
             <p className="heading-sub">
-              키보드(WASD / 화살표)와 마우스로 캐릭터를 조작하여 11개의 3D 프로젝트 부스를 직접 탐험하세요.
+              키보드(WASD / 화살표)와 마우스로 캐릭터를 조작하여 {projects.length}개의 3D 프로젝트 부스를 직접 탐험하세요.
             </p>
           </div>
         </div>
@@ -296,7 +304,7 @@ function ArticleCareerPortfolio() {
             <div>
               <h3 id="project-title">프로젝트 상세 및 정량적 개선 시각화</h3>
               <p className="heading-sub">
-                총 11개 프로젝트의 실제 서비스 링크 및 성능/비즈니스 개선 지표를 다양한 그래프로 제공합니다.
+                총 {projects.length}개 프로젝트의 실제 서비스 링크 및 성능/비즈니스 개선 지표를 다양한 그래프로 제공합니다.
               </p>
             </div>
 
@@ -306,7 +314,7 @@ function ArticleCareerPortfolio() {
                 className={`filter-pill ${filterType === "all" ? "active" : ""}`}
                 onClick={() => setFilterType("all")}
               >
-                전체 (11)
+                전체 ({projects.length})
               </button>
               <button
                 className={`filter-pill ${filterType === "웹" ? "active" : ""}`}

@@ -942,8 +942,17 @@ export default function FullMetaverseWorld({ onToggleMode }) {
           </button>
         </div>
 
-        {/* Mode Switch Toggle Button: Switch to Classic Document Mode */}
+        {/* Mode Switch Toggle Button & PDF Download: Switch to Classic Document Mode */}
         <div className="hud-actions">
+          <a
+            href="/portfolio.pdf"
+            download="조영호_포트폴리오.pdf"
+            className="btn-download-pdf-metaverse"
+            title="이력서/포트폴리오 PDF 다운로드"
+          >
+            <FaIcon iconName="fa-solid fa-file-arrow-down" />
+            <span>PDF 다운로드</span>
+          </a>
           <button
             className="btn-switch-doc-mode"
             onClick={() => handleSwitchToClassicDoc("portfolio")}
@@ -987,7 +996,7 @@ export default function FullMetaverseWorld({ onToggleMode }) {
             style={{ "--accent": "#f59e0b" }}
             onClick={() => handleTeleportZone("projects")}
           >
-            <FaIcon iconName="fa-solid fa-folder-open" /> 프로젝트 (11 Projects)
+            <FaIcon iconName="fa-solid fa-folder-open" /> 프로젝트 ({projects.length} Projects)
           </button>
           <button
             className={`zone-pill ${activeZone?.data?.id === "contact" ? "active" : ""}`}
@@ -1126,8 +1135,9 @@ export default function FullMetaverseWorld({ onToggleMode }) {
                     <a
                       key={link.label}
                       href={link.url}
-                      target="_blank"
-                      rel="noreferrer"
+                      target={link.download ? undefined : "_blank"}
+                      rel={link.download ? undefined : "noreferrer"}
+                      download={link.download || undefined}
                       className="btn-metaverse-link"
                     >
                       <FaIcon iconName={link.icon} /> {link.label}
@@ -1299,7 +1309,7 @@ export default function FullMetaverseWorld({ onToggleMode }) {
               <div className="modal-header-metaverse" style={{ "--border-color": "#f59e0b" }}>
                 <div>
                   <span className="modal-tag">PROJECT EXPO</span>
-                  <h3>11개 프로젝트 엑스포 디렉터리</h3>
+                  <h3>{projects.length}개 프로젝트 엑스포 디렉터리</h3>
                   <span className="modal-sub">부스를 클릭하면 해당 프로젝트로 텔레포트합니다</span>
                 </div>
                 <button className="btn-close-metaverse" onClick={() => setSelectedZone(null)}>

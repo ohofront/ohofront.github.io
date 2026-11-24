@@ -20,6 +20,7 @@ export const metaverseZones = {
       "약학 IT 해커톤 우수상 수상 및 실시간 웹소켓/관제 시스템 개발",
     ],
     links: [
+      { label: "포트폴리오 PDF 다운로드", url: "/portfolio.pdf", icon: "fa-solid fa-file-arrow-down", download: "조영호_포트폴리오.pdf" },
       { label: "GitHub 프로필", url: "https://github.com/ohofront", icon: "fa-brands fa-github" },
       { label: "기술 블로그", url: "https://medium.com/@youngho7482", icon: "fa-solid fa-pen-nib" },
       { label: "이메일 문의", url: "mailto:youngho7482@gmail.com", icon: "fa-solid fa-envelope" },
@@ -118,14 +119,14 @@ export const metaverseZones = {
 
   projects: {
     id: "projects",
-    name: "11개 토이 부스 마켓",
-    shortName: "토이부스 (11)",
+    name: "12개 토이 부스 마켓",
+    shortName: "토이부스 (12)",
     icon: "fa-solid fa-store",
     color: "#f59e0b",
     position: { x: 0, z: -26 },
-    title: "11개 토이 부스 마켓 (11 Toy Booths)",
+    title: "12개 토이 부스 마켓 (12 Toy Booths)",
     summary:
-      "실제 배포된 웹 서비스, 앱스토어 출시 모바일 앱, SaaS 솔루션 및 관제 시스템의 11개 아기자기한 토이 부스를 직접 탐험하세요.",
+      "실제 배포된 웹 서비스, 앱스토어 출시 모바일 앱, SaaS 솔루션 및 관제 시스템의 12개 아기자기한 토이 부스를 직접 탐험하세요.",
     projects,
   },
 
