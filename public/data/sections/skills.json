@@ -42,6 +42,24 @@
         {
           "icon": {
             "img": null,
+            "fa": "fa-solid fa-award",
+            "faColors": { "bg": "#38bdf8", "fill": "#111" }
+          },
+          "dates": { "start": "10/16/2026", "end": null },
+          "locales": {
+            "en": {
+              "title": "**Paper Award** · Korea Navigation Institute Conference",
+              "text": "Presented by Hanjin Information Systems & Telecommunication Airport Business Team. Proposed a web-based UAM control rendering optimization architecture (DOM/WebGL hybrid rendering with object pooling, SSE + rAF buffering, Worker/OffscreenCanvas, LOD, BroadcastChannel multi-window sync) and a staged A0–A3 evaluation plan for 50–500 aircraft at 1–10Hz.<br/><small>October 16, 2026</small>"
+            },
+            "ko": {
+              "title": "**논문 수상** · 한국항행학회 종합학술대회",
+              "text": "한진정보통신 공항사업팀 발표. 다중 UAM 기체 정보를 실시간 유지하는 웹 기반 관제 렌더링 최적화 구조(DOM·WebGL 하이브리드 렌더링 및 객체 풀링, SSE·rAF 버퍼링, Worker·OffscreenCanvas·LOD·BroadcastChannel 다중 창 동기화)와 기체 50~500대(1~10Hz) 대상 A0~A3 단계별 성능 평가 계획을 제안했습니다.<br/><small>2026.10.16</small>"
+            }
+          }
+        },
+        {
+          "icon": {
+            "img": null,
             "fa": "fa-solid fa-medal",
             "faColors": { "bg": "#D4AF37", "fill": "#111" }
           },

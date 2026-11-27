@@ -17,7 +17,7 @@ export const metaverseZones = {
     highlights: [
       "실제 양대 스토어(App Store, Google Play) 앱 출시 및 운영 경험",
       "AutoRAG 2.0 글로벌 오픈소스 기여 (TypeScript/RAG MCP 동기화 버그 해결)",
-      "React 19, TypeScript, Expo 54, Three.js 3D 인터랙션 아키텍처 전문",
+      "2026 한국항행학회 종합학술대회 논문 수상 (UAM 웹 관제 렌더링 최적화 연구)",
       "약학 IT 해커톤 우수상 수상 및 실시간 웹소켓/관제 시스템 개발",
     ],
     links: [
@@ -46,6 +46,10 @@ export const metaverseZones = {
           {
             title: "도심항공교통(UAM) 관제 CWP 시스템 (2025.04 ~ 재직 중)",
             desc: "UAM 운항·교통관리·버티포트 통합 관제 UI/UX 설계, Redux Toolkit 기반 실시간 비행정보 상태 모델링 및 상황별 시각적 우선순위 최적화",
+          },
+          {
+            title: "한국항행학회 종합학술대회 논문 수상 (2026.10.16)",
+            desc: "DOM·WebGL 하이브리드 렌더링/객체 풀링, SSE·rAF 버퍼링, Worker·OffscreenCanvas·LOD·BroadcastChannel 다중 창 동기화 기반 웹 관제 최적화 구조 및 A0~A3(50~500대, 1~10Hz) 평가 계획 제안",
           },
         ],
         stack: ["React", "TypeScript", "Redux Toolkit", "Tailwind CSS", "Axios", "Figma", "UAM", "CWP"],

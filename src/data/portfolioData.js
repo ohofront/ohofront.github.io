@@ -104,7 +104,8 @@ export const projects = [
       "운항자·교통관리·버티포트·ATC/UTM의 정보 흐름을 분석하고 CWP 기능을 화면 단위로 분해",
       "비행계획 승인→실시간 감시→비정상 대응 시나리오와 정보 우선순위 설계",
       "비행·승인·알림 상태를 Redux Slice로 분리하고 실시간 갱신 UI 구현",
-      "기존 ATM/ATC·UTM 공존 구조와 정상/혼잡/비상 시나리오 검증"
+      "기존 ATM/ATC·UTM 공존 구조와 정상/혼잡/비상 시나리오 검증",
+      "한국항행학회 종합학술대회(2026.10.16) 논문 수상: DOM·WebGL 하이브리드 렌더링·객체 풀링, SSE·rAF 버퍼링, Worker·OffscreenCanvas·LOD·BroadcastChannel 다중 창 동기화 구조 및 A0~A3(50~500대, 1~10Hz) 성능 평가 계획 제안"
     ],
     features: [
       "비행계획·승인 상태 모니터링",

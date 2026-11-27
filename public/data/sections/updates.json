@@ -33,10 +33,10 @@
         {
           "icon": { "img": null, "fa": "fa-solid fa-trophy", "faColors": null },
           "locales": {
-            "en": { "title": "02", "info": "Hackathon awards" },
-            "es": { "title": "02", "info": "Premios de hackathon" },
-            "fr": { "title": "02", "info": "Prix de hackathon" },
-            "ko": { "title": "02", "info": "해커톤 수상" }
+            "en": { "title": "03", "info": "Paper & hackathon awards" },
+            "es": { "title": "03", "info": "Premios académicos y hackathon" },
+            "fr": { "title": "03", "info": "Prix article et hackathon" },
+            "ko": { "title": "03", "info": "논문·해커톤 수상" }
           }
         },
         {
@@ -61,6 +61,14 @@
         "ko": { "title": "**최근 기록**" }
       },
       "items": [
+        {
+          "dates": { "start": "10/16/2026", "end": null },
+          "links": [],
+          "locales": {
+            "en": { "title": "Received a **paper award** at the Korea Navigation Institute Conference", "text": "<ul class='recent-update-list'><li><strong>Goal</strong><span>Web-based UAM control rendering optimization and evaluation plan (Hanjin Information Systems Airport Business Team)</span></li><li><strong>Rendering</strong><span>DOM/React symbol object pooling + GeoJSON/WebGL batch rendering for tracks and vectors</span></li><li><strong>Pipeline</strong><span>SSE data buffering with rAF flush while preserving alerts and track history without loss</span></li><li><strong>Thread &amp; Sync</strong><span>Worker/OffscreenCanvas airspace caching, zoom-based 3D LOD, and BroadcastChannel multi-window sync</span></li><li><strong>Eval &amp; Next</strong><span>Staged A0–A3 benchmarks (50–500 aircraft, 1–10Hz: FPS, Long Task, JS Heap, visual latency) and future Worker collision prediction &amp; WebGPU research</span></li></ul>" },
+            "ko": { "title": "한국항행학회 종합학술대회에서 **논문상을 수상했습니다**", "text": "<ul class='recent-update-list'><li><strong>목표</strong><span>다중 UAM 기체 정보를 실시간 유지하는 웹 기반 관제 렌더링 최적화 구조 및 평가 계획 제안 (한진정보통신 공항사업팀)</span></li><li><strong>렌더링</strong><span>상호작용 기체 심볼은 DOM·React 객체 풀링, 항적·벡터는 GeoJSON·WebGL 레이어 일괄 렌더링</span></li><li><strong>버퍼링</strong><span>SSE 수신 데이터를 버퍼에 병합 후 rAF 시점에 일괄 반영(flush)하고 경보·항적 이력은 별도 보존</span></li><li><strong>부하·동기화</strong><span>Worker·OffscreenCanvas 공역 패턴 캐싱, 줌별 3D LOD 조절, BroadcastChannel 다중 창 기준 틱·상태 동기화</span></li><li><strong>평가·향후</strong><span>A0~A3 단계별 성능 검증(기체 50~500대, 1~10Hz / FPS·Long Task·JS Heap·시각 지연) 및 충돌 예측 Worker 분리·WebGPU 검토</span></li></ul>" }
+          }
+        },
         {
           "dates": { "start": "07/15/2026", "end": null },
           "links": [{ "string": "see_more", "href": "https://apps.apple.com/kr/app/%EB%AA%A8%ED%8B%B0%ED%94%BC%ED%94%8C/id6767474618" }],
