@@ -10,7 +10,7 @@ export const metaverseZones = {
     icon: "fa-solid fa-house-chimney",
     color: "#10b981",
     position: { x: 0, z: 0 },
-    title: "조영호 (Youngho Cho)",
+    title: "조영호",
     role: "FRONTEND & METAVERSE ARCHITECT",
     summary:
       "React/TypeScript와 React Native(Expo)로 모바일 커뮤니티·금융·헬스케어·관제 시스템을 구축하며, UI 설계 → 상태 관리 → 3D 인터랙션 및 성능 최적화를 엔드-투-엔드로 책임집니다.",

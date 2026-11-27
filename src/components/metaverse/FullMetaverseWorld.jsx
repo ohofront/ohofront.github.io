@@ -1110,7 +1110,7 @@ export default function FullMetaverseWorld({ onToggleMode }) {
               <div className="modal-header-metaverse" style={{ "--border-color": "#10b981" }}>
                 <div>
                   <span className="modal-tag">ABOUT ME</span>
-                  <h3>조영호 (Youngho Cho)</h3>
+                  <h3>조영호</h3>
                   <span className="modal-sub">FRONTEND & METAVERSE ARCHITECT</span>
                 </div>
                 <button className="btn-close-metaverse" onClick={() => setSelectedZone(null)}>
@@ -1308,9 +1308,9 @@ export default function FullMetaverseWorld({ onToggleMode }) {
             <div className="modal-dialog-metaverse" onClick={(e) => e.stopPropagation()}>
               <div className="modal-header-metaverse" style={{ "--border-color": "#f59e0b" }}>
                 <div>
-                  <span className="modal-tag">PROJECT EXPO</span>
+                  <span className="modal-tag">PROJECT</span>
                   <h3>{projects.length}개 프로젝트 엑스포 디렉터리</h3>
-                  <span className="modal-sub">부스를 클릭하면 해당 프로젝트로 텔레포트합니다</span>
+                  <span className="modal-sub">부스를 클릭하면 해당 프로젝트로 이동합니다</span>
                 </div>
                 <button className="btn-close-metaverse" onClick={() => setSelectedZone(null)}>
                   <FaIcon iconName="fa-solid fa-xmark" />
